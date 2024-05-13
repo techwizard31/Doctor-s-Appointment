@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const validator = require('validator')
 const Schema = mongoose.Schema
+const {Doctors} = require('../dbs.js');
 
 const doctorschema = new Schema({
     Name:{
@@ -68,5 +69,10 @@ doctorschema.statics.login = async function(email,password){
  
     return doctor
  }
+
+ const Medicines = Doctors.model('Medicines', doctorschema)
+ const Bones = Doctors.model('Bones', doctorschema)
+ const Derematology = Doctors.model('Derematology', doctorschema)
+ const Gynaecology = Doctors.model('Gynaecology', doctorschema)
  
- module.exports= mongoose.model('Doctor', doctorschema)
+ module.exports= { Medicines,Bones,Derematology,Gynaecology }

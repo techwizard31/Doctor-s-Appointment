@@ -1,17 +1,29 @@
 const express = require('express')
 const router = express.Router()
-const Doctor = require('../models/doctormodel')
+const {
+    Medicines,
+    Bones,
+    Derematology,
+    Gynaecology,
+  } = require("../models/doctormodel");
 const jwt = require('jsonwebtoken')
+
+const models = {
+    Medicines,
+    Bones,
+    Derematology,
+    Gynaecology,
+  };
 
 const createToken = (_id)=>{
    return jwt.sign({_id},process.env.SECRET,{expiresIn:'3d'})
 }
 
 const logindoctor = async(req,res) =>{
-    const {email,password} = req.body
+    const {email,password,department} = req.body
     
     try{
-        const doctor = await Doctor.login(email,password)
+        const doctor = await models[department].login(email,password)
         const token = createToken(doctor._id)
         
         res.status(200).json({email,token})
@@ -23,7 +35,7 @@ const logindoctor = async(req,res) =>{
 const signupdoctor = async(req,res) =>{
     const { Name,email, password,phonenumber,department,workingDays } = req.body
     try{
-        const doctor = await Doctor.signup(Name,email,password,phonenumber,department,workingDays)
+        const doctor = await models[department].signup(Name,email,password,phonenumber,department,workingDays)
 
         res.status(200).json(doctor)
     }catch(error){

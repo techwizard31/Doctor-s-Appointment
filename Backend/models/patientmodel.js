@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const validator = require('validator')
+const {test}= require('../dbs.js');
 
 const Schema = mongoose.Schema
 
@@ -54,4 +55,4 @@ patientSchema.statics.login = async function(email,password){
    return patient
 }
 
-module.exports= mongoose.model('Patient', patientSchema)
+module.exports= test.model('Patient', patientSchema)

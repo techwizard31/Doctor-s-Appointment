@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const {test}= require('../dbs.js');
 
 const appointmentSchema = new Schema({
      patient_id:{
@@ -24,4 +25,4 @@ const appointmentSchema = new Schema({
      }
 },{timestamps:true})
 
-module.exports= mongoose.model('Appointment', appointmentSchema);
+module.exports= test.model('Appointment', appointmentSchema);

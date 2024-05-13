@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require('cors');
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const patientRoutes = require('./routes/patientRoutes')
 const doctorRoutes = require('./routes/doctorRoutes')
 const patientAppointmentRoutes = require('./routes/appointmentRoutes')
@@ -18,16 +18,13 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    app.listen(PORT, () => {
+try {
+  app.listen(PORT, () => {
       console.log("connected to mongodb and listening at port");
     });
-  })
-  .catch((err) => {
-    console.log(err)
-  });
+} catch (error) {
+  console.log(error);
+}
 
 app.use("/", patientRoutes);
 app.use('/doctor', doctorRoutes)
