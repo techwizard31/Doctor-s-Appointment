@@ -18,11 +18,10 @@ function Medicines() {
       try {
         const response = await fetch("http://localhost:4000/depdoctors", {
           method: "POST",
-          headers: {"Content-type": "application/json"},
-          body: JSON.stringify({department:Medicines})
+          headers:{'Content-type':'application/json'},
+          body: JSON.stringify({ department: "Medicines" })
         });
         const json = await response.json();
-        console.log(json);
         if (response.ok) {
           setDoctors(json);
           setLoading(false);
