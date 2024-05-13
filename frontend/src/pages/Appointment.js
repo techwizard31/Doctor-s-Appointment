@@ -8,11 +8,11 @@ const Appointment = () => {
   const navigate = useNavigate();
 
   const onMeddicalText1Click = useCallback(() => {
-    navigate("/");
+    navigate("/home");
   }, [navigate]);
 
   const onMeddicalTextClick = useCallback(() => {
-    navigate("/");
+    navigate("/home");
   }, [navigate]);
 
   const onAppointmentTextClick = useCallback(() => {
@@ -32,7 +32,7 @@ const Appointment = () => {
   }, [navigate]);
 
   const onHomeTextClick = useCallback(() => {
-    navigate("/");
+    navigate("/home");
   }, [navigate]);
 
   const onAboutUsTextClick = useCallback(() => {
@@ -56,7 +56,7 @@ const Appointment = () => {
   }, [navigate]);
 
   const onButtonClick = useCallback(() => {
-    navigate("/");
+    navigate("/home");
   }, [navigate]);
 
   return (

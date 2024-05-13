@@ -7,7 +7,7 @@ import GroupComponent2 from "../../components/GroupComponent2";
 import GroupComponent1 from "../../components/GroupComponent1";
 import GroupComponent from "../../components/GroupComponent";
 import Spinner from "../../Loader/Spinner";
-import DoctorsCard2 from "../../components/DoctorsCard1";
+import DoctorsCard2 from "../../components/DoctorsCard2";
 
 function Medicines() {
   const navigate = useNavigate();

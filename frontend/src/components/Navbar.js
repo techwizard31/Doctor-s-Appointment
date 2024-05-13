@@ -5,7 +5,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const onHomeTextClick = useCallback(() => {
-    navigate("/");
+    navigate("/home");
   }, [navigate]);
 
   const onAboutUsTextClick = useCallback(() => {

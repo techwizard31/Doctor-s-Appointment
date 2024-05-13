@@ -5,7 +5,7 @@ const Footer1 = () => {
   const navigate = useNavigate();
 
   const onMeddicalTextClick = useCallback(() => {
-    navigate("/");
+    navigate("/home");
   }, [navigate]);
 
   const onAppointmentTextClick = useCallback(() => {
