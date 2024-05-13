@@ -13,7 +13,7 @@ app.use(express.json());
 
 const corsOptions = {
   origin: 'http://localhost:3000',
-  optionsSuccessStatus: 200 
+  optionsSuccessStatus: 200
 };
 
 app.use(cors(corsOptions));
@@ -26,10 +26,10 @@ mongoose
     });
   })
   .catch((err) => {
-    console.log(err);
-});
+    console.log(err)
+  });
 
 app.use("/", patientRoutes);
-app.use('/doctor',doctorRoutes)
-app.use('/appointment',patientAppointmentRoutes)
-app.use('/docappointment',docAppointmentRoutes)
+app.use('/doctor', doctorRoutes)
+app.use('/appointment', patientAppointmentRoutes)
+app.use('/docappointment', docAppointmentRoutes)

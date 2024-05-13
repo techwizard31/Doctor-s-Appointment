@@ -7,19 +7,25 @@ import GroupComponent2 from "../../components/GroupComponent2";
 import GroupComponent1 from "../../components/GroupComponent1";
 import GroupComponent from "../../components/GroupComponent";
 import Spinner from "../../Loader/Spinner";
-import DoctorsCard2 from "../../components/DoctorsCard1";
+import DoctorsCard2 from "../../components/DoctorsCard2";
+import { useParams } from 'react-router-dom';
 
 function Medicines() {
   const navigate = useNavigate();
   const [doctors, setDoctors] = useState("");
   const [loading, setLoading] = useState(false);
+  let { segment } = useParams();
+
+  // Log the value of the segment to the console
+  console.log('Segment:', segment);
+
   useEffect(() => {
     const fetchdata = async () => {
       try {
         const response = await fetch("http://localhost:4000/depdoctors", {
           method: "POST",
-          headers: {"Content-type": "application/json"},
-          body: JSON.stringify({department:Medicines})
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify({ department: "Medicines" })
         });
         const json = await response.json();
         console.log(json);

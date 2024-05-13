@@ -1,7 +1,7 @@
-import react , { useEffect } from "react";
+import react, { useEffect } from "react";
 import {
   Routes,
-  Route,
+  Route, useParams
 } from "react-router-dom";
 import Appointment from "./pages/Appointment";
 import AboutUs from "./pages/AboutUs";
@@ -15,7 +15,7 @@ import Medicines from "./pages/departments/Medicines";
 import Bones from "./pages/departments/Bones";
 import Derematology from "./pages/departments/Derematology";
 import Gynaecology from "./pages/departments/Gynaecology";
-
+import Department from "./pages/departments/DepartmentDynamic";
 function App() {
 
   return (
@@ -27,8 +27,8 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/appointment" element={<Appointment />} />
-      <Route path='/AppointmentBox' element={<AppointmentBox />}/>
-      <Route path="/Medicines" element={<Medicines/>} />
+      <Route path='/AppointmentBox' element={<AppointmentBox />} />
+      <Route path="/dynamic/:segment" element={<Department />} />
       <Route path="/Bones" element={<Bones />} />
       <Route path="/Derematology" element={<Derematology />} />
       <Route path="/Gynaecology" element={<Gynaecology />} />

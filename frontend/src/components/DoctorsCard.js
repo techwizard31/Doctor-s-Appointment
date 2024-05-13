@@ -10,7 +10,7 @@ const DoctorsCard = ({ rectangle20 }) => {
       <div className="self-stretch flex flex-col items-center justify-start py-[1.5rem] pr-[1.25rem] pl-[1.375rem] relative gap-[0.5rem]">
         <div className="w-full h-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] bg-lightsteelblue-100" />
         <div className="flex flex-row items-start justify-start py-[0rem] pr-[0.25rem] pl-[0.125rem]">
-          <div className="relative leading-[140%] z-[1]">Doctor’s Name</div>
+          <div className="relative leading-[140%] z-[1]">Doctor Name</div>
         </div>
         <div className="flex flex-col items-start justify-start gap-[1rem]">
           <b className="relative tracking-[0.16em] uppercase z-[1]">
