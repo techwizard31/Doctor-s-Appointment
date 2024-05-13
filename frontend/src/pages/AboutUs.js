@@ -17,11 +17,11 @@ const AboutUs = () => {
   const navigate = useNavigate();
 
   const onMeddicalText1Click = useCallback(() => {
-    navigate("/");
+    navigate("/home");
   }, [navigate]);
 
   const onMeddicalTextClick = useCallback(() => {
-    navigate("/");
+    navigate("/home");
   }, [navigate]);
 
   const onAppointmentTextClick = useCallback(() => {

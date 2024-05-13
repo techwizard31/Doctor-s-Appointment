@@ -6,11 +6,11 @@ const FrameComponent3 = () => {
   const navigate = useNavigate();
 
   const onMeddicalText1Click = useCallback(() => {
-    navigate("/");
+    navigate("/home");
   }, [navigate]);
 
   const onHomeTextClick = useCallback(() => {
-    navigate("/");
+    navigate("/home");
   }, [navigate]);
 
   const onAboutUsTextClick = useCallback(() => {

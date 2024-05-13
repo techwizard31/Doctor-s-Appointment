@@ -5,7 +5,7 @@ const Topmost1 = () => {
   const navigate = useNavigate();
 
   const onMeddicalText1Click = useCallback(() => {
-    navigate("/");
+    navigate("/home");
   }, [navigate]);
 
   return (

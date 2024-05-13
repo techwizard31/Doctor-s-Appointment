@@ -26,7 +26,7 @@ function Signup() {
       }
       if(response.ok){
           localStorage.setItem('Patient',JSON.stringify(json))
-          navigate("/appointment")
+          navigate("/home")
       }
       setFormData({
             email: '',
