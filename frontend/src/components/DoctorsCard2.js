@@ -20,7 +20,7 @@ const DoctorsCard2 = ({ doctor, segment }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDay, setSelectedDay] = useState('');
   const [availableTimeSlots, setAvailableTimeSlots] = useState([]);
-=======
+
 const slots = doctor.workingDays;
 const timeSlotsPerDay = {};
 slots.map((slot)=>{
@@ -30,7 +30,6 @@ slots.map((slot)=>{
     timeSlotsPerDay[slot.Day].push(`${slot.startTime} - ${slot.endTime}`);
 })
 
-  const [selectedDay, setSelectedDay] = useState('Monday');
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
 
   const handleDayChange = (e) => {
@@ -73,7 +72,6 @@ slots.map((slot)=>{
                 wrapperClassName="w-full"
                 minDate={new Date()}
               />
-=======
           <div className="z-[200] flex flex-col gap-4 ">
             <div className="flex flex-col gap-2 "> <label htmlFor="day">Select a day:</label>
               <select id="day" value={selectedDay} onChange={handleDayChange}
@@ -173,10 +171,11 @@ slots.map((slot)=>{
           Book Appointment
         </div>
       </button>
-
+     </div>
+    </div>
     </div>
   )
 }
-  ;
+  
 
-export default DoctorsCard2;
+export default DoctorsCard2
