@@ -46,7 +46,7 @@ function Medicines() {
                         <div
                             className="relative inline-block min-w-[3.25rem] cursor-pointer"
                             onClick={() => {
-                                navigate("/");
+                                navigate("/home");
                             }}
                         >
                             Home

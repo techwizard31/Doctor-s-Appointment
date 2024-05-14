@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const Patient = require("../models/patientmodel");
 const {
-  Medicines,
-  Bones,
-  Derematology,
-  Gynaecology,
+  medicines,
+  bones,
+  derematology,
+  gynaecology,
 } = require("../models/doctormodel");
 const jwt = require("jsonwebtoken");
 
@@ -14,10 +14,10 @@ const createToken = (_id) => {
 };
 
 const models = {
-  Medicines,
-  Bones,
-  Derematology,
-  Gynaecology,
+  medicines,
+  bones,
+  derematology,
+  gynaecology,
 };
 
 const loginpatient = async (req, res) => {

@@ -70,9 +70,9 @@ doctorschema.statics.login = async function(email,password){
     return doctor
  }
 
- const Medicines = Doctors.model('Medicines', doctorschema)
- const Bones = Doctors.model('Bones', doctorschema)
- const Derematology = Doctors.model('Derematology', doctorschema)
- const Gynaecology = Doctors.model('Gynaecology', doctorschema)
+ const medicines = Doctors.model('medicines', doctorschema)
+ const bones = Doctors.model('mones', doctorschema)
+ const derematology = Doctors.model('derematology', doctorschema)
+ const gynaecology = Doctors.model('gynaecology', doctorschema)
  
- module.exports= { Medicines,Bones,Derematology,Gynaecology }
+ module.exports= { medicines,bones,derematology,gynaecology }

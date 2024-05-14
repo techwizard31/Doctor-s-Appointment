@@ -1,18 +1,18 @@
 const express = require('express')
 const router = express.Router()
 const {
-    Medicines,
-    Bones,
-    Derematology,
-    Gynaecology,
+    medicines,
+    bones,
+    derematology,
+    gynaecology,
   } = require("../models/doctormodel");
 const jwt = require('jsonwebtoken')
 
 const models = {
-    Medicines,
-    Bones,
-    Derematology,
-    Gynaecology,
+    medicines,
+    bones,
+    derematology,
+    gynaecology,
   };
 
 const createToken = (_id)=>{
