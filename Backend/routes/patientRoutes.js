@@ -25,8 +25,8 @@ const loginpatient = async (req, res) => {
   try {
     const patient = await Patient.login(email, password);
     const token = createToken(patient._id);
-
-    res.status(200).json({ email, token });
+    const _id = patient._id;
+    res.status(200).json({ _id , token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -38,8 +38,8 @@ const signuppatient = async (req, res) => {
   try {
     const patient = await Patient.signup(email, password);
     const token = createToken(patient._id);
-
-    res.status(200).json({ email, token });
+    const _id = patient._id;
+    res.status(200).json({ _id , token});
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

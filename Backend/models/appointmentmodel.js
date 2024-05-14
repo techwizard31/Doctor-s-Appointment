@@ -22,6 +22,10 @@ const appointmentSchema = new Schema({
      delay:{
       type:String,
       default:0
+     },
+     date:{
+      type: Date,
+      required:true
      }
 },{timestamps:true})
 
