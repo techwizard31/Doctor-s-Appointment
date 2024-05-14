@@ -4,9 +4,13 @@ const DoctorsCard2 = ({ doctor, segment }) => {
 const slots = doctor.workingDays;
 const timeSlotsPerDay = {};
 slots.map((slot)=>{
-  timeSlotsPerDay[slot.Day]=`${slot.startTime} - ${slot.endTime}`;
+  if (!timeSlotsPerDay[slot.Day]) {
+    timeSlotsPerDay[slot.Day] = [];
+}
+timeSlotsPerDay[slot.Day].push(`${slot.startTime} - ${slot.endTime}`);
 })
 
+console.log(timeSlotsPerDay);
   const [selectedDay, setSelectedDay] = useState('Monday');
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
 
@@ -59,9 +63,11 @@ slots.map((slot)=>{
                 className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 disabled:opacity-50"
               >
                 <option value="">Select a time</option>
-                <option key={timeSlotsPerDay[selectedDay]} value={timeSlotsPerDay[selectedDay]}>
-                    {timeSlotsPerDay[selectedDay]}
-                </option>
+               {timeSlotsPerDay[selectedDay] && timeSlotsPerDay[selectedDay].map((timeslot)=>{
+               return (<option key={timeslot} value={timeslot}>
+                    {timeslot}
+                </option>)
+                })}
               </select>
             </div>
 
