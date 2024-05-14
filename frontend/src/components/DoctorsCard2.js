@@ -1,6 +1,26 @@
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 const DoctorsCard2 = ({ doctor, segment }) => {
+  const getFormattedDate = (day) => {
+    // Get today's date
+    const today = new Date();
 
+    // Get the day index of the selected day
+    const dayIndex = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].indexOf(day);
+
+    // Calculate the date of the selected day
+    const date = new Date(today);
+    date.setDate(today.getDate() + (dayIndex - today.getDay() + 7) % 7);
+
+    // Format the date (e.g., "Mon, 01 Jan 2022")
+    return date.toLocaleDateString('en-US', { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' });
+  };
+
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDay, setSelectedDay] = useState('');
+  const [availableTimeSlots, setAvailableTimeSlots] = useState([]);
+=======
 const slots = doctor.workingDays;
 const timeSlotsPerDay = {};
 slots.map((slot)=>{
@@ -10,7 +30,6 @@ slots.map((slot)=>{
 timeSlotsPerDay[slot.Day].push(`${slot.startTime} - ${slot.endTime}`);
 })
 
-console.log(timeSlotsPerDay);
   const [selectedDay, setSelectedDay] = useState('Monday');
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
 
@@ -19,11 +38,13 @@ console.log(timeSlotsPerDay);
     // Reset selected time slot when day changes
     setSelectedTimeSlot('');
   };
-
-  const handleTimeSlotChange = (e) => {
-    setSelectedTimeSlot(e.target.value);
+  
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    const day = date.toLocaleDateString('en-US', { weekday: 'long' });
+    setSelectedDay(day);
+    setAvailableTimeSlots(timeSlotsPerDay[day]);
   };
-
 
   return (
     <div className="h-[32.625rem] w-[19.813rem] flex flex-col items-start justify-start min-w-[18.813rem] text-left text-[1.125rem] text-primary font-body">
@@ -40,7 +61,19 @@ console.log(timeSlotsPerDay);
         </div>
         <div className="flex flex-col items-start justify-start gap-[1rem]">
 
-
+          <div className="p-4 z-[200] bg-gray-100 rounded-md ">
+            <div className="mb-4">
+              <label htmlFor="date" className="block text-sm font-medium text-gray-700 ">Select a date:</label>
+              <DatePicker
+                id="date"
+                selected={selectedDate}
+                onChange={handleDateChange}
+                className="mt-1 px-3 py-2 block mx-auto border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary focus:outline-none"
+                dateFormat="MM/dd/yyyy"
+                wrapperClassName="w-full"
+                minDate={new Date()}
+              />
+=======
           <div className="z-[200] flex flex-col gap-4 ">
             <div className="flex flex-col gap-2 "> <label htmlFor="day">Select a day:</label>
               <select id="day" value={selectedDay} onChange={handleDayChange}
@@ -71,11 +104,45 @@ console.log(timeSlotsPerDay);
               </select>
             </div>
 
-            {/* {selectedTimeSlot && (
-              <p>
-                You have selected {selectedTimeSlot} on {selectedDay}.
-              </p>
-            )} */}
+            {selectedDate !== null ? (
+              <div className="mb-4">
+                <p className="text-sm text-gray-700">Selected Day: {selectedDay}</p>
+                <label htmlFor="timeSlot" className="block text-sm font-medium text-gray-700">Available Time Slots:</label>
+                <select
+                  id="timeSlot"
+                  className="mt-1 px-3 py-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary focus:outline-none"
+                  disabled={availableTimeSlots.length === 0}
+                >
+                  {availableTimeSlots.length === 0 ? (
+                    <option value="">No time slots available</option>
+                  ) : (
+                    <>
+                      <option value="">Select a time slot</option>
+                      {availableTimeSlots.map((timeSlot) => (
+                        <option key={timeSlot} value={timeSlot}>{timeSlot}</option>
+                      ))}
+                    </>
+                  )}
+                </select>
+              </div>
+            ) : (
+
+
+              <div className="mb-4">
+                <p className="text-sm text-gray-700">No Day selected</p>
+                <label htmlFor="timeSlot" className="block text-sm font-medium text-gray-700">Available Time Slots:</label>
+
+                <select
+                  id="date"
+                  className="mt-1 px-3 py-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary focus:outline-none"
+                  value=""
+                  disabled
+                >
+                  <option value="" disabled>Select a date first</option>
+                  {/* Additional options can be added here */}
+                  <option value="no-date" disabled>No date selected first</option>
+                </select></div>
+            )}
           </div>
 
 
