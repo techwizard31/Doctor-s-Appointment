@@ -34,10 +34,10 @@ const MapperFunction1 = () => {
                     className="h-[2.75rem] w-[3.125rem] relative z-[3] cursor-pointer"
                     alt=""
                     src="/vector-41.svg"
-                    onClick={() => { navigate("/Medicines") }}
+                    onClick={() => { navigate("/dynamic/Medicines") }}
                   />
                 </div>
-                <div className="self-stretch relative inline-block min-w-[7.5rem] z-[3] cursor-pointer" onClick={() => { navigate("/dynamic/medicines") }}>
+                <div className="self-stretch relative inline-block min-w-[7.5rem] z-[3] cursor-pointer" onClick={() => { navigate("/dynamic/Medicines") }}>
                   Medicines
                 </div>
               </div>
@@ -49,7 +49,7 @@ const MapperFunction1 = () => {
                   className="w-[3.125rem] h-[2.75rem] relative z-[1]  cursor-pointer"
                   alt=""
                   src="/vector-61.svg"
-                  onClick={() => { navigate("/Bones") }}
+                  onClick={() => { navigate("/dynamic/Bones") }}
                 />
                 <div className="flex flex-row items-start justify-start py-[0rem] px-[0.062rem]">
                   <div className="relative inline-block min-w-[3rem] z-[1] cursor-pointer" onClick={() => { navigate("/dynamic/bones") }}>
@@ -66,10 +66,10 @@ const MapperFunction1 = () => {
                     className="h-[2.75rem] w-[3.125rem] relative z-[6] cursor-pointer"
                     alt=""
                     src="/vector-41.svg"
-                    onClick={() => { navigate("/Derematology") }}
+                    onClick={() => { navigate("/dynamic/Dermatology") }}
                   />
                 </div>
-                <div className="w-[4.563rem] relative inline-block min-w-[4.563rem] z-[6] cursor-pointer" onClick={() => { navigate("/Derematology") }}>
+                <div className="w-[4.563rem] relative inline-block min-w-[4.563rem] z-[6] cursor-pointer" onClick={() => { navigate("/dynamic/Derematology") }}>
                   Dermatology
                 </div>
               </div>
@@ -95,10 +95,10 @@ const MapperFunction1 = () => {
                     className="h-[2.75rem] w-[3.125rem] relative z-[8] cursor-pointer"
                     alt=""
                     src="/vector-41.svg"
-                    onClick={() => { navigate("/Gynaecology") }}
+                    onClick={() => { navigate("/dynamic/Gynaecology") }}
                   />
                 </div>
-                <div className="self-stretch relative z-[8] cursor-pointer" onClick={() => { navigate("/Gynaecology") }}>
+                <div className="self-stretch relative z-[8] cursor-pointer" onClick={() => { navigate("/dynamic/Gynaecology") }}>
                   Gynaecology
                 </div>
               </div>

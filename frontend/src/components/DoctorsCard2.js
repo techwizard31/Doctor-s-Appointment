@@ -1,5 +1,5 @@
 const DoctorsCard2 = ({ doctor, segment }) => {
-  console.log(segment)
+  // console.log(segment)
 
   return (
     <div className="h-[33.625rem] w-[19.813rem] flex flex-col items-start justify-start min-w-[18.813rem] text-left text-[1.125rem] text-primary font-body">
