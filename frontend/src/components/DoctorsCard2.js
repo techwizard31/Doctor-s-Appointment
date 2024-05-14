@@ -7,10 +7,9 @@ slots.map((slot)=>{
   if (!timeSlotsPerDay[slot.Day]) {
     timeSlotsPerDay[slot.Day] = [];
 }
-timeSlotsPerDay[slot.Day].push(`${slot.startTime} - ${slot.endTime}`);
+    timeSlotsPerDay[slot.Day].push(`${slot.startTime} - ${slot.endTime}`);
 })
 
-console.log(timeSlotsPerDay);
   const [selectedDay, setSelectedDay] = useState('Monday');
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
 
