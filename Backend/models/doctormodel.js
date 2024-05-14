@@ -71,7 +71,7 @@ doctorschema.statics.login = async function(email,password){
  }
 
  const medicines = Doctors.model('medicines', doctorschema)
- const bones = Doctors.model('mones', doctorschema)
+ const bones = Doctors.model('bones', doctorschema)
  const derematology = Doctors.model('derematology', doctorschema)
  const gynaecology = Doctors.model('gynaecology', doctorschema)
  
