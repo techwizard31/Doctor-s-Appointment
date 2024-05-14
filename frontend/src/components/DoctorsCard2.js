@@ -39,9 +39,9 @@ const DoctorsCard2 = ({ doctor, segment }) => {
           </div>
         </div>
       </div>
-      <button className="cursor-pointer [border:none] py-[0.75rem] px-[1.25rem] bg-[transparent] self-stretch flex flex-row items-start justify-center relative whitespace-nowrap">
-        <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-t-none rounded-b-8xs bg-primary" />
-        <div className="relative text-[1rem] leading-[140%] font-body text-lightsteelblue-100 text-center inline-block min-w-[5.813rem] z-[1]">
+      <button className="cursor-pointer [border:none] py-[0.75rem] px-[1.25rem] bg-[transparent] self-stretch flex flex-row items-start justify-center relative  whitespace-nowrap ">
+        <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-t-none rounded-b-8xs bg-primary hover:bg-primary-200" />
+        <div className="relative text-[1rem] leading-[140%] font-body text-lightsteelblue-100  text-center inline-block min-w-[5.813rem] z-[1]">
           Book Appointment
         </div>
       </button>

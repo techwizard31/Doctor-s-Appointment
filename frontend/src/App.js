@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AppointmentBox from "./pages/AppointmentBox";
-import Medicines from "./pages/departments/Medicines";
+
 import Bones from "./pages/departments/Bones";
 import Derematology from "./pages/departments/Derematology";
 import Gynaecology from "./pages/departments/Gynaecology";
