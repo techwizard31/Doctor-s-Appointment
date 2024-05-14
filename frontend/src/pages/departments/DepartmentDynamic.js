@@ -15,22 +15,16 @@ function Medicines() {
     const [doctors, setDoctors] = useState("");
     const [loading, setLoading] = useState(false);
     let { segment } = useParams();
-
-    // Log the value of paramId to the console
-    console.log('Department name', segment);
-    let value = segment;
-    console.log(value.toUpperCase())
-
+    
     useEffect(() => {
         const fetchdata = async () => {
             try {
                 const response = await fetch("http://localhost:4000/depdoctors", {
                     method: "POST",
                     headers: { "Content-type": "application/json" },
-                    body: JSON.stringify({ department: value })
+                    body: JSON.stringify({ department: segment })
                 });
                 const json = await response.json();
-                console.log(json);
                 if (response.ok) {
                     setDoctors(json);
                     setLoading(false);
@@ -52,7 +46,7 @@ function Medicines() {
                         <div
                             className="relative inline-block min-w-[3.25rem] cursor-pointer"
                             onClick={() => {
-                                navigate("/");
+                                navigate("/home");
                             }}
                         >
                             Home
@@ -112,7 +106,7 @@ function Medicines() {
                         </div>
                         <div className="h-[3.188rem] flex flex-row items-start justify-start pt-[0rem] px-[0rem] pb-[0rem] box-border text-[3rem] font-display-2">
                             <h1 className="mt-[-0.25rem] m-0 relative text-inherit font-normal font-inherit shrink-0 [debug_commit:1de1738] mq450:text-[1.813rem] mq1050:text-[2.375rem]">
-                                {value.toUpperCase()}
+                                {segment.toUpperCase()}
                             </h1>
                         </div>
                     </div>
@@ -129,7 +123,7 @@ function Medicines() {
                         <div className="w-[62rem] flex flex-row flex-wrap items-start justify-start gap-[1.25rem_1.156rem] min-h-[68.5rem] max-w-full">
                             {Array.isArray(doctors) &&
                                 doctors.map((doctor) => (
-                                    <DoctorsCard2 key={doctor.id} doctor={doctor} segment={value} />
+                                    <DoctorsCard2 key={doctor.id} doctor={doctor} segment={segment} />
                                 ))}
                         </div>
                     </section>

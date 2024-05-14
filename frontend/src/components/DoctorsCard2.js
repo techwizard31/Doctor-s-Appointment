@@ -1,10 +1,35 @@
+import { useState } from "react";
 const DoctorsCard2 = ({ doctor, segment }) => {
-  console.log(segment)
+  // console.log(segment)
+
+  const timeSlotsPerDay = {
+    Monday: ['9:00 AM', '10:00 AM', '11:00 AM', '2:00 PM', '3:00 PM'],
+    Tuesday: ['9:30 AM', '10:30 AM', '11:30 AM', '2:30 PM', '3:30 PM'],
+    Wednesday: ['9:15 AM', '10:15 AM', '11:15 AM', '2:15 PM', '3:15 PM'],
+    Thursday: ['9:45 AM', '10:45 AM', '11:45 AM', '2:45 PM', '3:45 PM'],
+    Friday: ['9:20 AM', '10:20 AM', '11:20 AM', '2:20 PM', '3:20 PM'],
+    Saturday: ['9:10 AM', '10:10 AM', '11:10 AM', '2:10 PM', '3:10 PM'],
+    Sunday: ['9:40 AM', '10:40 AM', '11:40 AM', '2:40 PM', '3:40 PM'],
+  };
+
+  const [selectedDay, setSelectedDay] = useState('Monday');
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
+
+  const handleDayChange = (e) => {
+    setSelectedDay(e.target.value);
+    // Reset selected time slot when day changes
+    setSelectedTimeSlot('');
+  };
+
+  const handleTimeSlotChange = (e) => {
+    setSelectedTimeSlot(e.target.value);
+  };
+
 
   return (
-    <div className="h-[33.625rem] w-[19.813rem] flex flex-col items-start justify-start min-w-[18.813rem] text-left text-[1.125rem] text-primary font-body">
+    <div className="h-[32.625rem] w-[19.813rem] flex flex-col items-start justify-start min-w-[18.813rem] text-left text-[1.125rem] text-primary font-body">
       <img
-        className="self-stretch flex-1 relative rounded-t-8xs rounded-b-none max-w-full overflow-hidden max-h-full object-cover"
+        className="self-stretch flex-1  relative rounded-t-8xs rounded-b-none max-w-full overflow-hidden object-fit max-h-full"
         loading="lazy"
         alt=""
         src='/rectangle-20@2x.png'
@@ -12,12 +37,49 @@ const DoctorsCard2 = ({ doctor, segment }) => {
       <div className="self-stretch flex flex-col items-center justify-start py-[1.5rem] pr-[1.25rem] pl-[1.375rem] relative gap-[0.5rem]">
         <div className="w-full h-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] bg-lightsteelblue-100" />
         <div className="flex flex-row items-start justify-start py-[0rem] pr-[0.25rem] pl-[0.125rem]">
-          <div className="relative leading-[140%] z-[1]">{doctor.Name}</div>
+          <div className="relative leading-[140%] z-[1] font-bold">{doctor.Name}</div>
         </div>
         <div className="flex flex-col items-start justify-start gap-[1rem]">
-          <b className="relative tracking-[0.16em] uppercase z-[1]">
-            {doctor.department}
-          </b>
+
+
+          <div className="z-[200] flex flex-col gap-4 ">
+            <div className="flex flex-col gap-2 "> <label htmlFor="day">Select a day:</label>
+              <select id="day" value={selectedDay} onChange={handleDayChange}
+                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 disabled:opacity-50"
+              >
+                {Object.keys(timeSlotsPerDay).map((day) => (
+                  <option key={day} value={day}>
+                    {day}
+                  </option>
+                ))}
+              </select></div>
+
+            <div className="flex flex-col gap-2">
+              <label htmlFor="timeSlot">Select a time slot:</label>
+              <select
+                id="timeSlot"
+                value={selectedTimeSlot}
+                onChange={handleTimeSlotChange}
+                disabled={!selectedDay}
+                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 disabled:opacity-50"
+              >
+                <option value="">Select a time</option>
+                {timeSlotsPerDay[selectedDay].map((timeSlot) => (
+                  <option key={timeSlot} value={timeSlot}>
+                    {timeSlot}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* {selectedTimeSlot && (
+              <p>
+                You have selected {selectedTimeSlot} on {selectedDay}.
+              </p>
+            )} */}
+          </div>
+
+
           <div className="flex flex-row items-start justify-start py-[0rem] pr-[0.875rem] pl-[0.687rem]">
             <div className="flex flex-row items-start justify-start gap-[1.25rem]">
               <img
@@ -45,6 +107,7 @@ const DoctorsCard2 = ({ doctor, segment }) => {
           Book Appointment
         </div>
       </button>
+
     </div>
   )
 }
