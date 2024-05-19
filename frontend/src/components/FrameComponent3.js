@@ -26,8 +26,8 @@ const FrameComponent3 = () => {
   }, [navigate]);
 
   const onNewsTextClick = useCallback(() => {
-    // Please sync "News" to the project
-  }, []);
+    navigate("/myinfo");
+  }, [navigate]);
 
   const onContactTextClick = useCallback(() => {
     navigate("/contact");
@@ -71,7 +71,7 @@ const FrameComponent3 = () => {
               className="relative inline-block min-w-[3.063rem] cursor-pointer"
               onClick={onNewsTextClick}
             >
-              News
+              MyInfo
             </div>
             <div
               className="flex-1 relative inline-block min-w-[2.813rem] cursor-pointer"

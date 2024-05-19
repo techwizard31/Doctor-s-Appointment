@@ -73,7 +73,7 @@ slots.map((slot)=>{
       if (json && Object.keys(json).length > 0) {
         alert("Appointment Booked");
     }
-      navigate('/home')
+      navigate('/myinfo')
     } catch (error) {
       alert(error.message)
     }

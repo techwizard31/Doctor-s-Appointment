@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AppointmentBox from "./pages/AppointmentBox";
 import Department from "./pages/departments/DepartmentDynamic";
+import UserView from "./pages/UserView";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/doctors" element={<Doctors />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/myinfo" element={<UserView />} />
       <Route path="/appointment" element={<Appointment />} />
       <Route path="/appointment-box" element={<AppointmentBox />} />
       <Route path="/dynamic/:segment" element={<Department />} />

@@ -60,7 +60,7 @@ const availableslots = async(req,res)=>{
            
         }
         else if(availableslots =0){
-            res.status(404).json({ availableslots: 0 })
+            res.status(404).json("No slots are available")
         }
     } catch (error) {
         res.status(400).json(error.message)
@@ -119,7 +119,7 @@ const reschedule = async(req,res)=>{
     try {
         const reschedule = await Appointment.findByIdAndUpdate({_id:_id},{ ...req.body},{ new:true })
         const rescheduled = await reschedule.save();
-        res.status(200).json(rescheduled)
+        res.status(200).json("Appointment Rescheduled")
     } catch (error) {
         res.status(400).json(error.message);
     }
@@ -127,7 +127,7 @@ const reschedule = async(req,res)=>{
 
 router.use(requireAuth)
 
-router.get('/myappointments',patientAppointments)
+router.post('/myappointments',patientAppointments)
 router.post('/createappointment',createAppointment)
 router.delete('/cancelappointment',cancelAppointment)
 router.patch('/Patientreschedule',reschedule)

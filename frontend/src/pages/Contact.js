@@ -48,8 +48,8 @@ const Contact = () => {
   }, [navigate]);
 
   const onNewsTextClick = useCallback(() => {
-    // Please sync "News" to the project
-  }, []);
+    navigate("/myinfo");
+  }, [navigate]);
 
   const onContactTextClick = useCallback(() => {
     navigate("/contact");

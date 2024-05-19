@@ -70,8 +70,10 @@ function Medicines() {
                         >
                             Doctors
                         </div>
-                        <div className="relative inline-block min-w-[3.063rem] cursor-pointer">
-                            News
+                        <div className="relative inline-block min-w-[3.063rem] cursor-pointer" onClick={() => {
+                                navigate("/myinfo");
+                            }}>
+                            MyInfo
                         </div>
                         <div
                             className="flex-1 relative inline-block min-w-[2.813rem] cursor-pointer"
