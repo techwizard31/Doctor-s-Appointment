@@ -67,12 +67,9 @@ doctorschema.statics.login = async function(email,password){
        throw Error('Incorrect password')
     }
  
-    return doctor
+    return doctor;
  }
 
- const medicines = Doctors.model('medicines', doctorschema)
- const bones = Doctors.model('bones', doctorschema)
- const derematology = Doctors.model('derematology', doctorschema)
- const gynaecology = Doctors.model('gynaecology', doctorschema)
+ const doctors = Doctors.model('doctors', doctorschema)
  
- module.exports= { medicines,bones,derematology,gynaecology }
+ module.exports= { doctors }

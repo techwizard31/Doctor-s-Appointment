@@ -1,23 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const Patient = require("../models/patientmodel");
-const {
-  medicines,
-  bones,
-  derematology,
-  gynaecology,
-} = require("../models/doctormodel");
+const {doctors} = require("../models/doctormodel");
 const jwt = require("jsonwebtoken");
 
 const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
-};
-
-const models = {
-  medicines,
-  bones,
-  derematology,
-  gynaecology,
 };
 
 const loginpatient = async (req, res) => {
@@ -49,7 +37,7 @@ const signuppatient = async (req, res) => {
 const depdoctors = async (req, res) => {
   const { department } = req.body;
   try {
-    const depdoctors = await models[department].find();
+    const depdoctors = await doctors.find({department:department});
     res.status(200).json(depdoctors);
   } catch (error) {
     res.status(400).json(error.message);
