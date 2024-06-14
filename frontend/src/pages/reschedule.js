@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -10,47 +10,25 @@ import GroupComponent1 from "../components/GroupComponent1";
 import GroupComponent2 from "../components/GroupComponent2";
 import GroupComponent3 from "../components/GroupComponent3";
 
-function AppointmentBox() {
+function Reschedule() {
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);
   const [number, setNumber] = useState(0);
   const [sex, setSex] = useState("");
   const location = useLocation();
-  const { doctor } = location.state;
+  const { appointment,doctor } = location.state;
   const navigate = useNavigate();
-  const getFormattedDate = (day) => {
-    // Get today's date
-    const today = new Date();
-
-    // Get the day index of the selected day
-    const dayIndex = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ].indexOf(day);
-
-    // Calculate the date of the selected day
-    const date = new Date(today);
-    date.setDate(today.getDate() + ((dayIndex - today.getDay() + 7) % 7));
-
-    // Format the date (e.g., "Mon, 01 Jan 2022")
-    return date.toLocaleDateString("en-US", {
-      weekday: "short",
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-    });
-  };
-
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDay, setSelectedDay] = useState("");
   const [availibility, setAvailibility] = useState("");
   const [availableTimeSlots, setAvailableTimeSlots] = useState([]);
-  const [button,setButton] = useState(true);
+  const [button, setButton] = useState(true);
+  useEffect(() => {
+    setName(appointment.patientname);
+    setAge(appointment.Age);
+    setNumber(appointment.phonenumber);
+    setSex(appointment.Sex);
+  }, []);
   const slots = doctor.workingDays;
   const timeSlotsPerDay = {};
   slots.map((slot) => {
@@ -78,13 +56,12 @@ function AppointmentBox() {
       setAvailableTimeSlots(timeSlotsPerDay[day]);
     }
   };
-  const handleAppointment = async () => {
+  const handleReschedule = async () => {
     const patientJSON = localStorage.getItem("Patient");
     const patient = JSON.parse(patientJSON);
     const patientId = patient._id;
-    const appointment = {
-      doctor_id: doctor._id,
-      patient_id: patientId,
+    const appointments = {
+      _id:appointment._id,
       patientname: name,
       Age: age,
       Sex: sex,
@@ -94,12 +71,12 @@ function AppointmentBox() {
       department: doctor.department,
       date: selectedDate,
     };
+    console.log(JSON.stringify(appointments))
     try {
-      // window.location.href = "https://rzp.io/l/M1DGv2bfS";
-      const response = await fetch( `${process.env.REACT_APP_LINKED}/appointment/createappointment`,
+      const response = await fetch( `${process.env.REACT_APP_LINKED}/appointment/Patientreschedule`,
         {
-          method: "POST",
-          body: JSON.stringify(appointment),
+          method: "PATCH",
+          body: JSON.stringify(appointments),
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${patient.token}`,
@@ -111,51 +88,51 @@ function AppointmentBox() {
       }
       const json = await response.json();
       if (json && Object.keys(json).length > 0) {
-        alert("Appointment Booked");
+        alert("Appointment Rescheduled");
         navigate("/myinfo");
       }
     } catch (error) {
       alert(error.message);
     }
   };
-
-  const availibilitycheck = async () =>{
+  const availibilitycheck = async () => {
     const patientJSON = localStorage.getItem("Patient");
     const patient = JSON.parse(patientJSON);
-       const requests = {
-        doctor_id: doctor._id,
-        day: selectedDay,
-        time: selectedTimeSlot,
-        department: doctor.department,
-        date: selectedDate,
-       }
-       try {
-        const response = await fetch(
-          `${process.env.REACT_APP_LINKED}/appointment/checkavailibility`,
-          {
-            method: "POST",
-            body: JSON.stringify(requests),
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${patient.token}`,
-            },
-          }
-        );
-        const json = await response.json();
-        setAvailibility(json);
-        if(json>0){
-           setButton(false);
+    const requests = {
+      doctor_id: doctor._id,
+      day: selectedDay,
+      time: selectedTimeSlot,
+      department: doctor.department,
+      date: selectedDate,
+    };
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_LINKED}/appointment/checkavailibility`,
+        {
+          method: "POST",
+          body: JSON.stringify(requests),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${patient.token}`,
+          },
         }
-       } catch (error) {
-        alert(error.message);
-       }
-  }
+      );
+      const json = await response.json();
+      setAvailibility(json);
+      if (json > 0) {
+        setButton(false);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+
   useEffect(() => {
     if (selectedTimeSlot) {
-      if(!selectedTimeSlot.trim().includes(' - ')){ 
-      setAvailibility("");
-      }
-      else{
+      if (!selectedTimeSlot.trim().includes(" - ")) {
+        setAvailibility("");
+      } else {
         availibilitycheck();
       }
     }
@@ -292,7 +269,7 @@ function AppointmentBox() {
                 value={sex}
                 onChange={(e) => {
                   setSex(e.target.value);
-              }}
+                }}
               >
                 <option>Select</option>
                 <option>Male</option>
@@ -367,9 +344,13 @@ function AppointmentBox() {
             })}
           </div>
         </div>
-          <button className="w-1/5 bg-secondary text-white mx-auto h-8 mb-5 rounded text-center font-bold hover:bg-white hover:text-secondary hover:transition-colors cursor-pointer" disabled={button} onClick={() => handleAppointment()} >
-            Book Slot
-          </button>
+        <button
+          className="w-1/5 bg-secondary text-white mx-auto h-8 mb-5 rounded text-center font-bold hover:bg-white hover:text-secondary hover:transition-colors cursor-pointer"
+          disabled={button}
+          onClick={() => handleReschedule()}
+        >
+          Reschedule
+        </button>
       </div>
       <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-center text-[1.125rem] text-secondary font-body mq450:pb-[2.625rem] mq450:box-border">
         <div className="w-[62rem] flex flex-col items-start justify-start gap-[4rem] max-w-full mq750:gap-[1rem] mq1050:gap-[2rem]">
@@ -398,4 +379,4 @@ function AppointmentBox() {
   );
 }
 
-export default AppointmentBox;
+export default Reschedule;

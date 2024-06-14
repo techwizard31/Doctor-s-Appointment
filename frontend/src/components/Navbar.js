@@ -5,7 +5,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const onHomeTextClick = useCallback(() => {
-    navigate("/home");
+    navigate("/");
   }, [navigate]);
 
   const onAboutUsTextClick = useCallback(() => {
@@ -17,7 +17,12 @@ const Navbar = () => {
   }, [navigate]);
 
   const onNewsTextClick = useCallback(() => {
-    navigate("/myinfo");
+    const patientJSON = localStorage.getItem("Patient");
+        if (!patientJSON) {
+            navigate("/login")
+            } else {
+              navigate("/myinfo")
+        }
   }, [navigate]);
 
   const onContactTextClick = useCallback(() => {
@@ -25,7 +30,12 @@ const Navbar = () => {
   }, [navigate]);
 
   const onButtonClick = useCallback(() => {
-    navigate("/appointment");
+    const patientJSON = localStorage.getItem("Patient");
+        if (!patientJSON) {
+            navigate("/login")
+            } else {
+              navigate("/appointment")
+        }
   }, [navigate]);
 
   return (

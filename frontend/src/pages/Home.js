@@ -18,11 +18,16 @@ const Home = () => {
   const navigate = useNavigate();
 
   const onMeddicalTextClick = useCallback(() => {
-    navigate("/home");
+    navigate("/");
   }, [navigate]);
 
   const onAppointmentTextClick = useCallback(() => {
-    navigate("/appointment");
+    const patientJSON = localStorage.getItem("Patient");
+        if (!patientJSON) {
+            navigate("/login")
+            } else {
+              navigate("/appointment")
+        }
   }, [navigate]);
 
   const onDoctorsText1Click = useCallback(() => {

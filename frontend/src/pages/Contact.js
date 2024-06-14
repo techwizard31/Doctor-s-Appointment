@@ -8,15 +8,15 @@ const Contact = () => {
   const navigate = useNavigate();
 
   const onMeddicalText1Click = useCallback(() => {
-    navigate("/home");
+    navigate("/");
   }, [navigate]);
 
   const onMeddicalTextClick = useCallback(() => {
-    navigate("/home");
+    navigate("/");
   }, [navigate]);
 
   const onAppointmentTextClick = useCallback(() => {
-    navigate("/appointment");
+    navigate("/login");
   }, [navigate]);
 
   const onDoctorsText1Click = useCallback(() => {
@@ -32,7 +32,7 @@ const Contact = () => {
   }, [navigate]);
 
   const onHomeTextClick = useCallback(() => {
-    navigate("/home");
+    navigate("/");
   }, [navigate]);
 
   const onAboutUsTextClick = useCallback(() => {
@@ -48,7 +48,12 @@ const Contact = () => {
   }, [navigate]);
 
   const onNewsTextClick = useCallback(() => {
-    navigate("/myinfo");
+    const patientJSON = localStorage.getItem("Patient");
+        if (!patientJSON) {
+            navigate("/login")
+            } else {
+              navigate("/myinfo")
+        }
   }, [navigate]);
 
   const onContactTextClick = useCallback(() => {
@@ -56,7 +61,12 @@ const Contact = () => {
   }, [navigate]);
 
   const onButtonClick = useCallback(() => {
-    navigate("/appointment");
+    const patientJSON = localStorage.getItem("Patient");
+        if (!patientJSON) {
+            navigate("/login")
+            } else {
+              navigate("/appointment")
+        }
   }, [navigate]);
 
   return (
@@ -288,7 +298,7 @@ const Contact = () => {
               className="relative inline-block min-w-[3.063rem] cursor-pointer"
               onClick={onNewsTextClick}
             >
-              News
+              MyInfo
             </div>
             <div
               className="flex-1 relative font-semibold text-lightsteelblue-100 inline-block min-w-[3rem] cursor-pointer"

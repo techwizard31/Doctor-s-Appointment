@@ -43,9 +43,29 @@ const depdoctors = async (req, res) => {
     res.status(400).json(error.message);
   }
 };
+const namedoctors = async (req, res) => {
+  const { Name } = req.body;
+  try {
+    const depdoctors = await doctors.find({ Name: { $regex: Name, $options: 'i' } });
+    res.status(200).json(depdoctors);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+};
+const doctordetails = async (req, res) => {
+  const { doctor_id } = req.body;
+  try {
+    const depdoctors = await doctors.findById(doctor_id);
+    res.status(200).json(depdoctors);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+};
 
 router.post("/login", loginpatient);
 router.post("/depdoctors", depdoctors);
+router.post("/doctordetail", doctordetails);
+router.post("/namedoctors", namedoctors);
 router.post("/signup", signuppatient);
 
 module.exports = router;

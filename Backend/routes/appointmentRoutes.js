@@ -27,7 +27,8 @@ const requireAuth = async (req,res,next)=>{
 }
 
 function Timedifference(timeRange) {
-    if (!timeRange || typeof timeRange !== 'string' || !timeRange.includes('-')) {
+    // console.log(timeRange.trim().includes(' - '))
+    if (!timeRange || typeof timeRange !== 'string' || !timeRange.trim().includes(' - ')) {
         console.error('Invalid time range format');
         return null;
     }
@@ -55,12 +56,11 @@ const availableslots = async(req,res)=>{
     const slots = (Timedifference(time)/AverageTime[department])
     try {
         const appointments = await Appointment.find({doctor_id:doctor_id, day:day, time:time ,date:date })
-        const availableslots = slots-appointments.length+1;
+        const availableslots = slots - appointments.length;
         if(availableslots>0){
-           
-        }
-        else if(availableslots =0){
-            res.status(404).json("No slots are available")
+           res.status(200).json(availableslots)
+        }else{
+            res.status(200).json("slots are not available")
         }
     } catch (error) {
         res.status(400).json(error.message)
@@ -81,16 +81,15 @@ const patientAppointments = async (req, res) => {
   };
 
 const createAppointment = async(req,res)=>{
-    const { patient_id, doctor_id,day,time,date,department } = req.body;
+    const { patient_id, doctor_id,day,time,date,department,patientname,Age,Sex,phonenumber } = req.body;
     if (!mongoose.Types.ObjectId.isValid(patient_id)) {
         return res.status(404).json({ error: "no such patient" });
     }
     if (!mongoose.Types.ObjectId.isValid(doctor_id)) {
         return res.status(404).json({ error: "no such doctor" });
     }
-    availableslots(req,res);
     try {
-        const appointment = await Appointment.create({patient_id,doctor_id,day,time,date})
+        const appointment = await Appointment.create({ patient_id,doctor_id,day,time,date,patientname,Age,Sex,phonenumber })
         res.status(200).json(appointment);
     } catch (error) {
         res.status(400).json(error.message);
@@ -112,7 +111,7 @@ const cancelAppointment = async(req,res)=>{
 }
 
 const reschedule = async(req,res)=>{
-    const { _id, day, time, date } = req.body;
+    const { _id, day, time, date,Sex,Age,phonenumber,patientname } = req.body;
     if (!mongoose.Types.ObjectId.isValid(_id)) {
         return res.status(404).json({ error: "this appointment does not exist !!!" });
     }
@@ -128,6 +127,7 @@ const reschedule = async(req,res)=>{
 router.use(requireAuth)
 
 router.post('/myappointments',patientAppointments)
+router.post('/checkavailibility',availableslots)
 router.post('/createappointment',createAppointment)
 router.delete('/cancelappointment',cancelAppointment)
 router.patch('/Patientreschedule',reschedule)

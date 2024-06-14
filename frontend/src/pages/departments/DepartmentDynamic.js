@@ -19,7 +19,7 @@ function Medicines() {
     useEffect(() => {
         const fetchdata = async () => {
             try {
-                const response = await fetch("http://localhost:4000/depdoctors", {
+                const response = await fetch(`${process.env.REACT_APP_LINKED}/depdoctors`, {
                     method: "POST",
                     headers: { "Content-type": "application/json" },
                     body: JSON.stringify({ department: segment })
@@ -46,7 +46,7 @@ function Medicines() {
                         <div
                             className="relative inline-block min-w-[3.25rem] cursor-pointer"
                             onClick={() => {
-                                navigate("/home");
+                                navigate("/");
                             }}
                         >
                             Home
@@ -71,7 +71,12 @@ function Medicines() {
                             Doctors
                         </div>
                         <div className="relative inline-block min-w-[3.063rem] cursor-pointer" onClick={() => {
-                                navigate("/myinfo");
+                                const patientJSON = localStorage.getItem("Patient");
+                                if (!patientJSON) {
+                                    navigate("/login")
+                                    } else {
+                                      navigate("/myinfo")
+                                }
                             }}>
                             MyInfo
                         </div>

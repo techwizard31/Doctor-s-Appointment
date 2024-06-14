@@ -15,7 +15,7 @@ function Signup() {
       };    
     const handleSubmit = async(e)=>{
         e.preventDefault();
-        const response = await fetch('http://localhost:4000/signup',{
+        const response = await fetch(`${process.env.REACT_APP_LINKED}/signup`,{
           method:"POST",
           headers:{'Content-type':'application/json'},
           body:JSON.stringify(formData)
@@ -26,7 +26,7 @@ function Signup() {
       }
       if(response.ok){
           localStorage.setItem('Patient',JSON.stringify(json))
-          navigate("/home")
+          navigate("/appointment")
       }
       setFormData({
             email: '',

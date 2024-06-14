@@ -10,12 +10,13 @@ import Signup from "./pages/Signup";
 import AppointmentBox from "./pages/AppointmentBox";
 import Department from "./pages/departments/DepartmentDynamic";
 import UserView from "./pages/UserView";
+import Reschedule from "./pages/reschedule";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/home" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Home />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/doctors" element={<Doctors />} />
       <Route path="/contact" element={<Contact />} />
@@ -24,6 +25,7 @@ function App() {
       <Route path="/appointment" element={<Appointment />} />
       <Route path="/appointment-box" element={<AppointmentBox />} />
       <Route path="/dynamic/:segment" element={<Department />} />
+      <Route path="/reschedule" element={<Reschedule />} />
     </Routes>
   );
 }

@@ -11,6 +11,22 @@ const appointmentSchema = new Schema({
         type:String,
         required:true
      },
+     patientname:{
+      type:String,
+      required:true
+     },
+      Sex:{
+      type:String,
+      required:true
+     },
+     phonenumber:{
+      type:Number,
+      required:true
+     },
+      Age:{
+      type:Number,
+      required:true
+     },
      day:{
         type:String,
         required:true

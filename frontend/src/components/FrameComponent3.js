@@ -6,11 +6,11 @@ const FrameComponent3 = () => {
   const navigate = useNavigate();
 
   const onMeddicalText1Click = useCallback(() => {
-    navigate("/home");
+    navigate("/");
   }, [navigate]);
 
   const onHomeTextClick = useCallback(() => {
-    navigate("/home");
+    navigate("/");
   }, [navigate]);
 
   const onAboutUsTextClick = useCallback(() => {
@@ -26,7 +26,12 @@ const FrameComponent3 = () => {
   }, [navigate]);
 
   const onNewsTextClick = useCallback(() => {
-    navigate("/myinfo");
+    const patientJSON = localStorage.getItem("Patient");
+    if (!patientJSON) {
+        navigate("/login")
+        } else {
+          navigate("/myinfo")
+    }
   }, [navigate]);
 
   const onContactTextClick = useCallback(() => {
@@ -34,7 +39,12 @@ const FrameComponent3 = () => {
   }, [navigate]);
 
   const onButtonClick = useCallback(() => {
-    navigate("/appointment");
+    const patientJSON = localStorage.getItem("Patient");
+        if (!patientJSON) {
+            navigate("/login")
+            } else {
+              navigate("/appointment")
+        }
   }, [navigate]);
 
   return (

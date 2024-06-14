@@ -3,16 +3,18 @@ import { useNavigate } from "react-router-dom";
 import Topmost2 from "../components/Topmost2";
 import Footer2 from "../components/Footer2";
 import MapperFunction1 from "../components/MapperFunction1";
+import Aibox from "../components/Aibox";
+import Searchbox from "./Searchbox";
 
 const Appointment = () => {
   const navigate = useNavigate();
 
   const onMeddicalText1Click = useCallback(() => {
-    navigate("/home");
+    navigate("/");
   }, [navigate]);
 
   const onMeddicalTextClick = useCallback(() => {
-    navigate("/home");
+    navigate("/");
   }, [navigate]);
 
   const onAppointmentTextClick = useCallback(() => {
@@ -32,7 +34,7 @@ const Appointment = () => {
   }, [navigate]);
 
   const onHomeTextClick = useCallback(() => {
-    navigate("/home");
+    navigate("/");
   }, [navigate]);
 
   const onAboutUsTextClick = useCallback(() => {
@@ -56,7 +58,7 @@ const Appointment = () => {
   }, [navigate]);
 
   const onButtonClick = useCallback(() => {
-    navigate("/home");
+    navigate("/");
   }, [navigate]);
 
   return (
@@ -137,6 +139,8 @@ const Appointment = () => {
         </div>
       </section>
       <MapperFunction1 />
+      <Aibox />
+      <Searchbox />
       <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-left text-[2rem] text-primary font-display-2 lg:pb-[2.625rem] lg:box-border mq450:pb-[1.25rem] mq450:box-border mq1050:pb-[1.688rem] mq1050:box-border">
         <div className="w-[62rem] flex flex-col items-start justify-start gap-[4rem] max-w-full mq750:gap-[1rem] mq1050:gap-[2rem]">
           <div className="self-stretch flex flex-col items-start justify-start gap-[4rem] text-center text-[1.125rem] text-secondary font-body mq750:gap-[1rem] mq1050:gap-[2rem]">
