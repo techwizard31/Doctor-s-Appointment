@@ -79,7 +79,7 @@ function AppointmentBox() {
     }
   };
   const handleAppointment = async () => {
-    const patientJSON = localStorage.getItem("Patient");
+    const patientJSON = sessionStorage.getItem("Patient");
     const patient = JSON.parse(patientJSON);
     const patientId = patient._id;
     const appointment = {
@@ -93,6 +93,7 @@ function AppointmentBox() {
       time: selectedTimeSlot,
       department: doctor.department,
       date: selectedDate,
+      email:patient.email
     };
     try {
       // window.location.href = "https://rzp.io/l/M1DGv2bfS";
@@ -120,7 +121,7 @@ function AppointmentBox() {
   };
 
   const availibilitycheck = async () =>{
-    const patientJSON = localStorage.getItem("Patient");
+    const patientJSON = sessionStorage.getItem("Patient");
     const patient = JSON.parse(patientJSON);
        const requests = {
         doctor_id: doctor._id,

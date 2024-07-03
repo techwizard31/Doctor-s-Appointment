@@ -57,7 +57,7 @@ function Reschedule() {
     }
   };
   const handleReschedule = async () => {
-    const patientJSON = localStorage.getItem("Patient");
+    const patientJSON = sessionStorage.getItem("Patient");
     const patient = JSON.parse(patientJSON);
     const patientId = patient._id;
     const appointments = {
@@ -71,7 +71,7 @@ function Reschedule() {
       department: doctor.department,
       date: selectedDate,
     };
-    console.log(JSON.stringify(appointments))
+    // console.log(JSON.stringify(appointments))
     try {
       const response = await fetch( `${process.env.REACT_APP_LINKED}/appointment/Patientreschedule`,
         {
@@ -96,7 +96,7 @@ function Reschedule() {
     }
   };
   const availibilitycheck = async () => {
-    const patientJSON = localStorage.getItem("Patient");
+    const patientJSON = sessionStorage.getItem("Patient");
     const patient = JSON.parse(patientJSON);
     const requests = {
       doctor_id: doctor._id,
@@ -104,6 +104,7 @@ function Reschedule() {
       time: selectedTimeSlot,
       department: doctor.department,
       date: selectedDate,
+      email:patient.email
     };
     try {
       const response = await fetch(

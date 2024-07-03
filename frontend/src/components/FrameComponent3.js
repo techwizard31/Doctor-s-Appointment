@@ -26,7 +26,7 @@ const FrameComponent3 = () => {
   }, [navigate]);
 
   const onNewsTextClick = useCallback(() => {
-    const patientJSON = localStorage.getItem("Patient");
+    const patientJSON = sessionStorage.getItem("Patient");
     if (!patientJSON) {
         navigate("/login")
         } else {
@@ -39,7 +39,7 @@ const FrameComponent3 = () => {
   }, [navigate]);
 
   const onButtonClick = useCallback(() => {
-    const patientJSON = localStorage.getItem("Patient");
+    const patientJSON = sessionStorage.getItem("Patient");
         if (!patientJSON) {
             navigate("/login")
             } else {

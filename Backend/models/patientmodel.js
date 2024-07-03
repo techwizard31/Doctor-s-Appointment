@@ -13,7 +13,7 @@ const patientSchema = new Schema({
      },
      password:{
         type: String,
-        required: true
+      //   required: true
      }
 })
 
@@ -36,6 +36,20 @@ patientSchema.statics.signup = async function(email,password){
    const patient = await this.create({email, password: hash})
    return patient
 }
+patientSchema.statics.googlesignup = async function(email){
+   if(!email){
+      throw Error('All fields must be filled')
+   }
+   if(!validator.isEmail(email)){
+      throw Error('Email is not valid')
+   }
+   const exists = await this.findOne({email})
+   if(exists){
+      throw Error('Email already in use')
+   }
+   const patient = await this.create({email})
+   return patient
+}
 
 patientSchema.statics.login = async function(email,password){
    if(!email || !password){
@@ -50,6 +64,17 @@ patientSchema.statics.login = async function(email,password){
 
    if(!match){
       throw Error('Incorrect password')
+   }
+
+   return patient
+}
+patientSchema.statics.googlelogin = async function(email){
+   if(!email){
+      throw Error('All fields must be filled')
+   }
+   const patient = await this.findOne({email})
+   if(!patient){
+      throw Error('Incorrect Email')
    }
 
    return patient

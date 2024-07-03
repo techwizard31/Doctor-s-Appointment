@@ -25,7 +25,7 @@ const AboutUs = () => {
   }, [navigate]);
 
   const onAppointmentTextClick = useCallback(() => {
-    const patientJSON = localStorage.getItem("Patient");
+    const patientJSON = sessionStorage.getItem("Patient");
         if (!patientJSON) {
             navigate("/login")
             } else {

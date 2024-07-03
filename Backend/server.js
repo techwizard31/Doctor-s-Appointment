@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: 'https://doctor-s-appointment-frontend.vercel.app',
+  origin: process.env.LINK,
   optionsSuccessStatus: 200,
   credentials: true,
 };

@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
 function Signup() {
    const navigate = useNavigate();
@@ -13,6 +15,15 @@ function Signup() {
           [e.target.name]: e.target.value
         });
       };    
+      const mt10Ref = useRef(null);
+     const [mt10Width, setMt10Width] = useState(0);
+
+  useEffect(() => {
+    if (mt10Ref.current) {
+      const width = mt10Ref.current.getBoundingClientRect().width;
+      setMt10Width(width);
+    }
+  }, []);
     const handleSubmit = async(e)=>{
         e.preventDefault();
         const response = await fetch(`${process.env.REACT_APP_LINKED}/signup`,{
@@ -25,7 +36,7 @@ function Signup() {
          alert(json.error)
       }
       if(response.ok){
-          localStorage.setItem('Patient',JSON.stringify(json))
+          sessionStorage.setItem('Patient',JSON.stringify(json))
           navigate("/appointment")
       }
       setFormData({
@@ -33,6 +44,25 @@ function Signup() {
             password: ''
         });
     }
+    const handlegoogle = async (email) => {
+      const response = await fetch(`${process.env.REACT_APP_LINKED}/googlesignup`, {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({email:email}),
+      });
+      const json = await response.json();
+      if (!response.ok) {
+        alert(json.error);
+      }
+      if (response.ok) {
+        sessionStorage.setItem("Patient", JSON.stringify(json));
+        navigate("/appointment");
+      }
+      setFormData({
+        email: "",
+        password: "",
+      });
+    };
   return (
     <div className="grid place-items-center h-screen">
     <form className="bg-white w-1/4 dark:bg-zinc-900 shadow-2xl rounded-2xl overflow-hidden border-4 border-blue-400 dark:border-blue-800" onSubmit={handleSubmit}>
@@ -78,7 +108,7 @@ function Signup() {
               onChange={(e)=>handleChange(e)}
             />
           </div>       
-          <div className="mt-10">
+          <div className="mt-10"ref={mt10Ref}>
             <button
               className="w-full px-4 py-3 tracking-wide text-white transition-colors duration-200 transform bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:from-blue-700 hover:to-cyan-700 focus:outline-none focus:ring-4 focus:ring-blue-400 dark:focus:ring-blue-800 cursor-pointer"
               type="submit"
@@ -86,8 +116,20 @@ function Signup() {
               Let's Go
             </button>
           </div>
+            <div className="flex items-center justify-center pt-3">
+            <GoogleLogin size="large" width={"${mt10Width}px"} logo_alignment="left" text='signup_with'
+              onSuccess={(credentialResponse) => {
+                const decoded = jwtDecode(credentialResponse.credential);
+                handlegoogle(decoded.email)
+              }}
+              onError={() => {
+                console.log("Signup Failed");
+              }}
+            />
+            </div>
+          </div>
         </div>
-      </div>
+      {/* </div> */}
     </form>
   </div>
   )

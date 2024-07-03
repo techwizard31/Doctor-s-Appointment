@@ -16,7 +16,7 @@ function Searchbox() {
       if (response.ok) {
         const json = await response.json();
         setResponses(json);
-        await new Promise((resolve) => setTimeout(resolve, 4000));
+        await new Promise((resolve) => setTimeout(resolve, 5000));
         setResponses("");
       }
     } catch (error) {

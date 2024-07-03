@@ -17,7 +17,7 @@ const Navbar = () => {
   }, [navigate]);
 
   const onNewsTextClick = useCallback(() => {
-    const patientJSON = localStorage.getItem("Patient");
+    const patientJSON = sessionStorage.getItem("Patient");
         if (!patientJSON) {
             navigate("/login")
             } else {
@@ -30,7 +30,7 @@ const Navbar = () => {
   }, [navigate]);
 
   const onButtonClick = useCallback(() => {
-    const patientJSON = localStorage.getItem("Patient");
+    const patientJSON = sessionStorage.getItem("Patient");
         if (!patientJSON) {
             navigate("/login")
             } else {

@@ -60,9 +60,9 @@ const UserView = () => {
 
   const handleCancel = async (appointment) => {
     try {
-      const patientJSON = localStorage.getItem("Patient");
+      const patientJSON = sessionStorage.getItem("Patient");
       const patient = JSON.parse(patientJSON);
-      const cancelappointment = { _id: appointment._id };
+      const cancelappointment = { _id: appointment._id,date:appointment.date, time:appointment.day,patientname:appointment.patientname,email:patient.email };
       const response = await fetch(
         `${process.env.REACT_APP_LINKED}/appointment/cancelappointment`,
         {
@@ -86,7 +86,7 @@ const UserView = () => {
   const [appointments, setAppointments] = useState([]);
 
   const handleMyAppointments = async () => {
-    const patientJSON = localStorage.getItem("Patient");
+    const patientJSON = sessionStorage.getItem("Patient");
     const patient = JSON.parse(patientJSON);
     const patientId = patient._id;
     const myappointment = { patient_id: patientId };
@@ -110,7 +110,7 @@ const UserView = () => {
   };
 
   useEffect(() => {
-    const patientJSON = localStorage.getItem("Patient");
+    const patientJSON = sessionStorage.getItem("Patient");
     if (!patientJSON) {
       navigate("/login");
     } else {
