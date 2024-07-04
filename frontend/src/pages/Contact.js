@@ -3,9 +3,39 @@ import { useNavigate } from "react-router-dom";
 import Topmost2 from "../components/Topmost2";
 import NewsSection from "../components/NewsSection";
 import Footer2 from "../components/Footer2";
+import { useState } from "react";
 
 const Contact = () => {
   const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [content, setContent] = useState("");
+  const [subject, setSubject] = useState("");
+
+  const handleSubmit = async () => {
+    e.preventDefault();
+    const response = await fetch(`${process.env.REACT_APP_LINKED}/contact`, {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        content: content,
+        subject: subject,
+      }),
+    });
+    const json = await response.json();
+    if (!response.ok) {
+      alert(json.error);
+    }
+    if (response.ok) {
+      alert("Thank you for your response");
+      setName("");
+      setEmail("");
+      setSubject("");
+      setContent("");
+    }
+  };
 
   const onMeddicalText1Click = useCallback(() => {
     navigate("/");
@@ -49,11 +79,11 @@ const Contact = () => {
 
   const onNewsTextClick = useCallback(() => {
     const patientJSON = sessionStorage.getItem("Patient");
-        if (!patientJSON) {
-            navigate("/login")
-            } else {
-              navigate("/myinfo")
-        }
+    if (!patientJSON) {
+      navigate("/login");
+    } else {
+      navigate("/myinfo");
+    }
   }, [navigate]);
 
   const onContactTextClick = useCallback(() => {
@@ -62,11 +92,11 @@ const Contact = () => {
 
   const onButtonClick = useCallback(() => {
     const patientJSON = sessionStorage.getItem("Patient");
-        if (!patientJSON) {
-            navigate("/login")
-            } else {
-              navigate("/appointment")
-        }
+    if (!patientJSON) {
+      navigate("/login");
+    } else {
+      navigate("/appointment");
+    }
   }, [navigate]);
 
   return (
@@ -420,25 +450,38 @@ const Contact = () => {
                     className="w-full [border:none] [outline:none] bg-primary h-[3.125rem] flex-1 rounded-tl-8xs rounded-tr-none rounded-b-none flex flex-row items-start justify-start py-[0.875rem] px-[1.25rem] box-border font-body text-[1rem] text-white min-w-[9.875rem] z-[1]"
                     placeholder="Name"
                     type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
                   <input
                     className="w-full [border:none] [outline:none] bg-primary h-[3.125rem] flex-1 rounded-tl-none rounded-tr-8xs rounded-b-none flex flex-row items-start justify-start pt-[0.937rem] px-[1.25rem] pb-[0.812rem] box-border font-body text-[1rem] text-white min-w-[9.875rem] z-[1]"
                     placeholder="Email"
                     type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <input
                   className="w-full [border:none] [outline:none] bg-primary self-stretch h-[3.125rem] flex flex-row items-start justify-start pt-[0.937rem] px-[1.25rem] pb-[0.812rem] box-border font-body text-[1rem] text-white min-w-[15.625rem] z-[1]"
                   placeholder="Subject"
                   type="text"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
                 />
                 <textarea
                   className="[border:none] bg-primary h-[14.688rem] w-auto [outline:none] self-stretch flex flex-row items-start justify-start py-[0.937rem] px-[1.25rem] box-border font-body text-[1rem] text-white z-[1]"
                   placeholder="Message"
                   rows={12}
                   cols={24}
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
                 />
-                <button className="cursor-pointer [border:none] pt-[0.937rem] pb-[1rem] pr-[1.25rem] pl-[1.312rem] bg-lightsteelblue-100 self-stretch rounded-t-none rounded-b-8xs flex flex-row items-start justify-center box-border max-w-full z-[1] hover:bg-lightsteelblue-200">
+                <button
+                  className="cursor-pointer [border:none] pt-[0.937rem] pb-[1rem] pr-[1.25rem] pl-[1.312rem] bg-lightsteelblue-100 self-stretch rounded-t-none rounded-b-8xs flex flex-row items-start justify-center box-border max-w-full z-[1] hover:bg-lightsteelblue-200"
+                  onClick={() => {
+                    handleSubmit;
+                  }}
+                >
                   <div className="h-[3.125rem] w-[30.375rem] relative rounded-t-none rounded-b-8xs bg-lightsteelblue-100 hidden max-w-full" />
                   <div className="relative text-[1rem] uppercase font-medium font-body text-primary text-center inline-block min-w-[3.813rem] z-[1]">
                     Submit
