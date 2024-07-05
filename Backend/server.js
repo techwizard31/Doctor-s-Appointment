@@ -6,6 +6,7 @@ const doctorRoutes = require('./routes/doctorRoutes')
 const patientAppointmentRoutes = require('./routes/appointmentRoutes')
 const docAppointmentRoutes = require('./routes/docAppointmentRoutes')
 const PORT = process.env.PORT
+const path = require('path')
 require("dotenv").config();
 const app = express();
 
@@ -18,6 +19,20 @@ const corsOptions = {
 };
 app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
+
+const buildPath = path.join(__dirname, '../frontend/build');
+app.use(express.static(buildPath));
+
+app.get('/*', (req, res) => {
+  res.sendFile(
+    path.join(buildPath, 'index.html'),
+    function(err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  );
+});
 
 try {
   app.listen(PORT, () => {
