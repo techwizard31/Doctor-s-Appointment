@@ -12,8 +12,17 @@ const app = express();
 
 app.use(express.json());
 
+const allowedOrigins = process.env.LINK ? process.env.LINK.split(',') : [];
+
 const corsOptions = {
-  origin: process.env.LINK || 'http://localhost:3000' ,
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   optionsSuccessStatus: 200,
   credentials: true,
 };
