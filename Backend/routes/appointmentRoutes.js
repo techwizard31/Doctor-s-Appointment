@@ -134,7 +134,7 @@ const createAppointment = async (req, res) => {
     });
     res.status(200).json(appointment);
     await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "istaprasad.patra@gmail.com",
       to: `${email}`,
       subject: "Appointment Booked!",
       html: `<html>

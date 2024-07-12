@@ -134,7 +134,7 @@ const UserView = () => {
     const formattedTime = date.toLocaleTimeString(undefined, timeOptions);
 
     // Combine date and time
-    const formattedDateTime = `${formattedDate}, ${formattedTime}`;
+    const formattedDateTime = `${formattedDate}`;
 
     return formattedDateTime// Example output: June 25, 2024, 6:30:00 PM
   };
