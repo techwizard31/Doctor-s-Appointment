@@ -134,7 +134,7 @@ const createAppointment = async (req, res) => {
     });
     res.status(200).json(appointment);
     await resend.emails.send({
-      from: "meddical.online",
+      from: "MEDDICAL@meddical.online",
       to: `${email}`,
       subject: "Appointment Booked!",
       html: `<html>
@@ -188,7 +188,7 @@ const cancelAppointment = async (req, res) => {
     await Appointment.findByIdAndDelete(_id);
     res.status(200).json("Appointment Cancelled");
     await resend.emails.send({
-      from: "meddical.online",
+      from: "MEDDICAL@meddical.online",
        to: `${email}`,
       subject: "Appointment Cancelled!",
       html: `<html>
@@ -235,7 +235,7 @@ const reschedule = async (req, res) => {
     const rescheduled = await reschedule.save();
     res.status(200).json("Appointment Rescheduled");
     await resend.emails.send({
-      from: "meddical.online",
+      from: "MEDDICAL@meddical.online",
       to: `${email}`,
       subject: "Appointment Rescheduled!",
       html: `<html>
