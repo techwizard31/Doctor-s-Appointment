@@ -16,7 +16,8 @@ app.use(express.json());
 const allowedOrigins = process.env.LINK ? JSON.parse(process.env.LINK) : [];
 
 const corsOptions = {
-  origin: function (origin, callback) {
+  origin: 
+  function (origin, callback) {
     if (!origin) return callback(null, true); 
     if (allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
       callback(null, true);

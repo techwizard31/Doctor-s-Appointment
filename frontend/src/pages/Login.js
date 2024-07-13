@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import { toast,Slide } from "react-toastify";
 
 function Login() {
   const navigate = useNavigate();
@@ -26,6 +27,21 @@ function Login() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const { email, password } = formData;
+    if (!email || !password) {
+      toast.error( "Fill all the fields !" , {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
+      return;
+    }
     const response = await fetch(`${process.env.REACT_APP_LINKED}/login`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -33,9 +49,30 @@ function Login() {
     });
     const json = await response.json();
     if (!response.ok) {
-      alert(json.error);
+      toast.error( json.error , {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
     }
     if (response.ok) {
+      toast.success('Login Successful', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
       sessionStorage.setItem("Patient", JSON.stringify(json));
       navigate("/appointment");
     }
@@ -52,9 +89,30 @@ function Login() {
     });
     const json = await response.json();
     if (!response.ok) {
-      alert(json.error);
+      toast.error( json.error , {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
     }
     if (response.ok) {
+      toast.success('Login Successful', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
       sessionStorage.setItem("Patient", JSON.stringify(json));
       navigate("/appointment");
     }

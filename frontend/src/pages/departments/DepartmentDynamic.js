@@ -9,6 +9,7 @@ import GroupComponent from "../../components/GroupComponent";
 import Spinner from "../../Loader/Spinner";
 import DoctorsCard2 from "../../components/DoctorsCard2";
 import { useParams } from 'react-router-dom';
+import { toast, Slide } from "react-toastify";
 
 function Medicines() {
     const navigate = useNavigate();
@@ -30,8 +31,17 @@ function Medicines() {
                     setLoading(false);
                 }
             } catch (error) {
-                // alert(error.message);
-                console.log(error.message);
+                toast.error( error.message , {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Slide,
+                    });
             }
         };
         fetchdata();

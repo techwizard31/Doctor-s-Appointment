@@ -9,6 +9,7 @@ import GroupComponent from "../components/GroupComponent";
 import GroupComponent1 from "../components/GroupComponent1";
 import GroupComponent2 from "../components/GroupComponent2";
 import GroupComponent3 from "../components/GroupComponent3";
+import { toast, Slide } from "react-toastify";
 
 function Reschedule() {
   const [name, setName] = useState("");
@@ -88,11 +89,31 @@ function Reschedule() {
       }
       const json = await response.json();
       if (json && Object.keys(json).length > 0) {
-        alert("Appointment Rescheduled");
+        toast.success('Appointment Rescheduled !', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+          });
         navigate("/myinfo");
       }
     } catch (error) {
-      alert(error.message);
+      toast.error( error.message , {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
     }
   };
   const availibilitycheck = async () => {
@@ -124,7 +145,17 @@ function Reschedule() {
         setButton(false);
       }
     } catch (error) {
-      alert(error.message);
+      toast.error( error.message , {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
     }
   };
 

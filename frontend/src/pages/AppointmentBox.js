@@ -9,6 +9,7 @@ import GroupComponent from "../components/GroupComponent";
 import GroupComponent1 from "../components/GroupComponent1";
 import GroupComponent2 from "../components/GroupComponent2";
 import GroupComponent3 from "../components/GroupComponent3";
+import { toast, Slide } from "react-toastify";
 
 function AppointmentBox() {
   const [name, setName] = useState("");
@@ -79,6 +80,20 @@ function AppointmentBox() {
     }
   };
   const handleAppointment = async () => {
+    if (!age || !sex || !name || !number || !selectedTimeSlot || !selectedDate || !selectedDay) {
+      toast.error("Fill all the fields !", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+      });
+      return;
+    }
     const patientJSON = sessionStorage.getItem("Patient");
     const patient = JSON.parse(patientJSON);
     const patientId = patient._id;
@@ -116,7 +131,17 @@ function AppointmentBox() {
         navigate("/myinfo");
       }
     } catch (error) {
-      alert(error.message);
+      toast.error( error.message , {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
     }
   };
 
@@ -148,7 +173,17 @@ function AppointmentBox() {
            setButton(false);
         }
        } catch (error) {
-        alert(error.message);
+        toast.error( error.message , {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+          });
        }
   }
   useEffect(() => {

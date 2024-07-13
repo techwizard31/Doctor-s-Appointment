@@ -12,6 +12,7 @@ import Navbar from "../components/Navbar";
 // import GroupComponent1 from "../components/GroupComponent1";
 // import GroupComponent from "../components/GroupComponent";
 import Footer from "../components/Footer";
+import { toast,Slide } from "react-toastify";
 
 const UserView = () => {
   const navigate = useNavigate();
@@ -54,7 +55,17 @@ const UserView = () => {
         navigate("/reschedule", { state: { appointment, doctor } });
       }
     } catch (error) {
-      alert(error.message);
+      toast.error( error.message , {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
     }
   };
 
@@ -77,9 +88,30 @@ const UserView = () => {
       const json = await response.json();
       window.location.reload();
       if (json.success) {
+        toast.success('Appointment Cancelled', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+          });
       }
     } catch (error) {
-      alert(error.message);
+      toast.error( error.message , {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
     }
   };
 
@@ -105,7 +137,17 @@ const UserView = () => {
       const json = await response.json();
       setAppointments(json);
     } catch (error) {
-      console.log(error.message);
+      toast.error( error.message , {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
     }
   };
 

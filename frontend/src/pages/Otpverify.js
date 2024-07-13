@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast, Slide } from "react-toastify";
 
 function Otpverify() {
   const navigate = useNavigate();
@@ -44,13 +45,34 @@ function Otpverify() {
     const handleSubmit = (e)=>{
       e.preventDefault()
       if(finalotp === sentotp){
+        toast.success('Email verified Successfully', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+          });
         navigate("/reset");
         setEmail("");
         setSentotp(0);
         setFinalotp(0)
         setEnable(false)
       }else{
-        alert("Given Otp is wrong")
+        toast.error("Incorrect OTP", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+        });
       }
     }
     const handleSend = async(e)=>{
@@ -62,11 +84,32 @@ function Otpverify() {
       });
       const json = await response.json();
       if (!response.ok) {
-        alert(json.error);
+        toast.error("Failed to send otp", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+        });
       }
       if (response.ok) {
         setSentotp(json)
         setEnable(true)
+        toast.success('OTP sent Successfully', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+          });
       }
     }
     const handleResend = async(e)=>{
@@ -78,11 +121,32 @@ function Otpverify() {
       });
       const json = await response.json();
       if (!response.ok) {
-        alert(json.error);
+        toast.error("Failed to send otp", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+        });
       }
       if (response.ok) {
         setSentotp(json)
         setEnable(true)
+        toast.success('OTP sent Successfully', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+          });
       }
     }
   return (

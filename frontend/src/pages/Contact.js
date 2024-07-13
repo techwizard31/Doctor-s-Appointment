@@ -4,6 +4,7 @@ import Topmost2 from "../components/Topmost2";
 import NewsSection from "../components/NewsSection";
 import Footer2 from "../components/Footer2";
 import { useState } from "react";
+import { toast, Slide } from "react-toastify";
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -29,7 +30,17 @@ const Contact = () => {
       alert(json.error);
     }
     if (response.ok) {
-      alert("Thank you for your response");
+      toast.success('Thank you for your response', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
       setName("");
       setEmail("");
       setSubject("");

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Userlistitem from "../components/Userlistitem";
+import { toast, Slide } from "react-toastify";
 
 function Searchbox() {
   const [search, setSearch] = useState("");
@@ -20,7 +21,17 @@ function Searchbox() {
         setResponses("");
       }
     } catch (error) {
-      alert(error.message);
+      toast.error( error.message , {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
     }
   };
   return (
