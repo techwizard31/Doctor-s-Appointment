@@ -117,7 +117,7 @@ const otpgenerate = async (req, res) => {
       res.status(200).json("No such email in the directory");
     }
     await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "meddical.online",
       to: `${email}`,
       subject: "Email Verification OTP",
       html: `<html>
@@ -144,7 +144,7 @@ const contact = async (req, res) => {
       res.status(200).json("No such email in the directory");
     }
     await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "meddical.online",
       to: `${email}`,
       subject: "Your Message Has Been Received – We’ll Get Back to You Shortly",
       html: `<html>
