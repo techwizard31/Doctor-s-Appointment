@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -10,48 +10,56 @@ import GroupComponent1 from "../components/GroupComponent1";
 import GroupComponent2 from "../components/GroupComponent2";
 import GroupComponent3 from "../components/GroupComponent3";
 import { toast, Slide } from "react-toastify";
+import "./checkbox.css";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
 
 function AppointmentBox() {
   const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState();
   const [sex, setSex] = useState("");
   const location = useLocation();
   const { doctor } = location.state;
   const navigate = useNavigate();
-  const getFormattedDate = (day) => {
-    // Get today's date
-    const today = new Date();
+  dayjs.extend(customParseFormat);
 
-    // Get the day index of the selected day
-    const dayIndex = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ].indexOf(day);
+  // const getFormattedDate = (day) => {
+  //   // Get today's date
+  //   const today = new Date();
 
-    // Calculate the date of the selected day
-    const date = new Date(today);
-    date.setDate(today.getDate() + ((dayIndex - today.getDay() + 7) % 7));
+  //   // Get the day index of the selected day
+  //   const dayIndex = [
+  //     "Sunday",
+  //     "Monday",
+  //     "Tuesday",
+  //     "Wednesday",
+  //     "Thursday",
+  //     "Friday",
+  //     "Saturday",
+  //   ].indexOf(day);
 
-    // Format the date (e.g., "Mon, 01 Jan 2022")
-    return date.toLocaleDateString("en-US", {
-      weekday: "short",
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-    });
-  };
+  //   // Calculate the date of the selected day
+  //   const date = new Date(today);
+  //   date.setDate(today.getDate() + ((dayIndex - today.getDay() + 7) % 7));
 
+  //   // Format the date (e.g., "Mon, 01 Jan 2022")
+  //   return date.toLocaleDateString("en-US", {
+  //     weekday: "short",
+  //     day: "2-digit",
+  //     month: "short",
+  //     year: "numeric",
+  //   });
+  // };
   const [selectedDate, setSelectedDate] = useState(null);
+  const [noslots, setNoslots] = useState([]);
+  const [booked, setBooked] = useState([]);
+  const [selectedslot, setSelectedslot] = useState(0);
+  const [dob, setDob] = useState(null);
+  const [exact, setExact] = useState(null);
   const [selectedDay, setSelectedDay] = useState("");
   const [availibility, setAvailibility] = useState("");
   const [availableTimeSlots, setAvailableTimeSlots] = useState([]);
-  const [button,setButton] = useState(true);
+  const [button, setButton] = useState(true);
   const slots = doctor.workingDays;
   const timeSlotsPerDay = {};
   slots.map((slot) => {
@@ -61,6 +69,15 @@ function AppointmentBox() {
     timeSlotsPerDay[slot.Day].push(`${slot.startTime} - ${slot.endTime}`);
   });
   const [selectedTimeSlot, setSelectedTimeSlot] = useState("");
+  const handleCheckboxChange = (index,noslot) => {
+    if (selectedslot === index) {
+      setSelectedslot(null);
+      setExact(null)
+    } else {
+      setSelectedslot(index);
+      setExact(noslot)
+    }
+  };
   const handleDayChange = (e) => {
     setSelectedDay(e.target.value);
     // Reset selected time slot when day changes
@@ -80,7 +97,16 @@ function AppointmentBox() {
     }
   };
   const handleAppointment = async () => {
-    if (!age || !sex || !name || !number || !selectedTimeSlot || !selectedDate || !selectedDay) {
+    if (
+      !dob ||
+      !sex ||
+      !name ||
+      !number ||
+      !selectedTimeSlot ||
+      !selectedDate ||
+      !selectedDay ||
+      !selectedslot
+    ) {
       toast.error("Fill all the fields !", {
         position: "top-center",
         autoClose: 2000,
@@ -101,18 +127,21 @@ function AppointmentBox() {
       doctor_id: doctor._id,
       patient_id: patientId,
       patientname: name,
-      Age: age,
+      birth: dob,
       Sex: sex,
       phonenumber: number,
       day: selectedDay,
       time: selectedTimeSlot,
       department: doctor.department,
       date: selectedDate,
-      email:patient.email
+      email: patient.email,
+      slotno: selectedslot,
+      exact: exact
     };
     try {
       // window.location.href = "https://rzp.io/l/M1DGv2bfS";
-      const response = await fetch( `${process.env.REACT_APP_LINKED}/appointment/createappointment`,
+      const response = await fetch(
+        `${process.env.REACT_APP_LINKED}/appointment/createappointment`,
         {
           method: "POST",
           body: JSON.stringify(appointment),
@@ -123,15 +152,16 @@ function AppointmentBox() {
         }
       );
       if (!response.ok) {
-        alert('Network response was not ok');
-      }
-      const json = await response.json();
-      if (json && Object.keys(json).length > 0) {
-        alert("Appointment Booked");
-        navigate("/myinfo");
+        alert("Network response was not ok");
+      }else{
+        const json = await response.json();
+        if (json && Object.keys(json).length > 0) {
+          alert("Appointment Booked");
+          navigate("/myinfo");
+        }
       }
     } catch (error) {
-      toast.error( error.message , {
+      toast.error(error.message, {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: true,
@@ -141,41 +171,58 @@ function AppointmentBox() {
         progress: undefined,
         theme: "colored",
         transition: Slide,
-        });
+      });
     }
   };
 
-  const availibilitycheck = async () =>{
+  const parseTimePeriod = (timePeriod) => {
+    const [start, end] = timePeriod.split("-");
+    const startTime = dayjs(start, "h:mma");
+    const endTime = dayjs(end, "h:mma");
+    return startTime;
+  };
+
+  const availibilitycheck = async () => {
     const patientJSON = sessionStorage.getItem("Patient");
     const patient = JSON.parse(patientJSON);
-       const requests = {
-        doctor_id: doctor._id,
-        day: selectedDay,
-        time: selectedTimeSlot,
-        department: doctor.department,
-        date: selectedDate,
-       }
-       try {
-        const response = await fetch(
-          `${process.env.REACT_APP_LINKED}/appointment/checkavailibility`,
-          {
-            method: "POST",
-            body: JSON.stringify(requests),
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${patient.token}`,
-            },
-          }
-        );
-        const json = await response.json();
-        setAvailibility(json);
-        if(json>0){
-           setButton(false);
+    const requests = {
+      doctor_id: doctor._id,
+      day: selectedDay,
+      time: selectedTimeSlot,
+      department: doctor.department,
+      date: selectedDate,
+    };
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_LINKED}/appointment/checkavailibility`,
+        {
+          method: "POST",
+          body: JSON.stringify(requests),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${patient.token}`,
+          },
         }
-       } catch (error) {
-        toast.error( error.message , {
+      );
+      const json = await response.json();
+      // console.log(booked,noslots,time);
+      if (json.available > 0) {
+        setBooked(json.slotNumbers);
+        const newArray = [];
+        setButton(false);
+        const start = parseTimePeriod(selectedTimeSlot);
+        let currentTime = dayjs(start, "h:mma");
+        // console.log(start)
+        for (let i = 0; i < json.slots; i++) {
+          newArray.push(currentTime.format("h:mm A"));
+          currentTime = currentTime.add(json.averageTime, "minute");
+        }
+        setNoslots(newArray);
+        // console.log(noslots)
+      } else {
+        toast.info("No slots are available", {
           position: "top-center",
-          autoClose: 2000,
+          autoClose: 12,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
@@ -183,19 +230,32 @@ function AppointmentBox() {
           progress: undefined,
           theme: "colored",
           transition: Slide,
-          });
-       }
-  }
+        });
+      }
+    } catch (error) {
+      toast.error(error.message, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+      });
+    }
+  };
   useEffect(() => {
     if (selectedTimeSlot) {
-      if(!selectedTimeSlot.trim().includes(' - ')){ 
-      setAvailibility("");
-      }
-      else{
+      if (!selectedTimeSlot.trim().includes(" - ")) {
+        setAvailibility("");
+      } else {
         availibilitycheck();
       }
     }
   }, [selectedTimeSlot]);
+
   return (
     <div className="w-full relative bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal] text-center text-[1rem] text-black1 font-body">
       <Topmost1 />
@@ -296,14 +356,25 @@ function AppointmentBox() {
             </div>
             <div className="flex flex-col justify-start w-full mx-auto items-center">
               <p className="block text-left text-sm font-medium text-gray-700">
-                Age:
+                Date of Birth:
               </p>
-              <input
+              {/* <input
                 type="number"
                 placeholder="Age"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
                 className="bg-slate-100 w-1/2 h-8 px-2 rounded"
+              /> */}
+              <DatePicker
+                id="date"
+                selected={dob}
+                onChange={(date) => setDob(date)}
+                className="px-3 py-2 block border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary focus:outline-none"
+                dateFormat="MM/dd/yyyy"
+                showYearDropdown
+                showMonthDropdown
+                wrapperClassName="w-1/3"
+                popperPlacement="bottom"
               />
             </div>
             <div className="flex flex-col justify-start w-full mx-auto items-center">
@@ -328,7 +399,7 @@ function AppointmentBox() {
                 value={sex}
                 onChange={(e) => {
                   setSex(e.target.value);
-              }}
+                }}
               >
                 <option>Select</option>
                 <option>Male</option>
@@ -346,6 +417,7 @@ function AppointmentBox() {
                 onChange={handleDateChange}
                 className="mt-1 px-3 py-2 block border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary focus:outline-none"
                 dateFormat="MM/dd/yyyy"
+                showMonthDropdown
                 wrapperClassName="w-1/3"
                 minDate={new Date()}
                 popperPlacement="top"
@@ -380,8 +452,24 @@ function AppointmentBox() {
               <p className="block text-left text-sm font-medium text-gray-700">
                 Available-Slots:
               </p>
-              <div className="block text-secondary text-left text-bg font-medium py-3">
-                {availibility}
+              <div className="flex flex-wrap w-1/3">
+                {!button &&
+                  noslots.map((noslot, index) => {
+                    return (
+                      <div className="group relative" key={index+1}>
+                        <input type="checkbox" className={`ui-checkbox ${booked.includes(index + 1) ? 'booked-checkbox' : ''}`}
+                         disabled={booked.includes(index+1)} onChange={() => handleCheckboxChange(index+1,noslot)}
+                        checked={selectedslot === (index+1)}
+                        />
+                        <div className="bg-zinc-800 p-2 rounded-md group-hover:flex hidden absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2">
+                          <span className="text-zinc-400 whitespace-nowrap">
+                            {noslot}
+                          </span>
+                          <div className="bg-inherit rotate-45 p-1 absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2"></div>
+                        </div>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
           </div>
@@ -403,10 +491,15 @@ function AppointmentBox() {
             })}
           </div>
         </div>
-          <button className="w-1/5 bg-secondary text-white mx-auto h-8 mb-5 rounded text-center font-bold hover:bg-white hover:text-secondary hover:transition-colors cursor-pointer" disabled={button} onClick={() => handleAppointment()} >
-            Book Slot
-          </button>
+        <button
+          className="w-1/5 bg-secondary text-white mx-auto h-8 mb-5 rounded text-center font-bold hover:bg-white hover:text-secondary hover:transition-colors cursor-pointer"
+          disabled={button}
+          onClick={() => handleAppointment()}
+        >
+          Book Slot
+        </button>
       </div>
+
       <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-center text-[1.125rem] text-secondary font-body mq450:pb-[2.625rem] mq450:box-border">
         <div className="w-[62rem] flex flex-col items-start justify-start gap-[4rem] max-w-full mq750:gap-[1rem] mq1050:gap-[2rem]">
           <div className="self-stretch flex flex-row items-start justify-center py-[0rem] px-[1.25rem]">

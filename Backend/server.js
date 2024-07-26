@@ -13,18 +13,18 @@ const PORT = process.env.PORT || 3000; // Default to port 3000 if PORT is not se
 app.use(express.json());
 
 // Parse the JSON array from environment variable
-const allowedOrigins = process.env.LINK ? JSON.parse(process.env.LINK) : [];
+// const allowedOrigins = process.env.LINK ? JSON.parse(process.env.LINK) : [];
 
 const corsOptions = {
-  origin: 
-  function (origin, callback) {
-    if (!origin) return callback(null, true); 
-    if (allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: "http://localhost:3000",
+  // function (origin, callback) {
+  //   if (!origin) return callback(null, true); 
+  //   if (allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+  //     callback(null, true);
+  //   } else {
+  //     callback(new Error('Not allowed by CORS'));
+  //   }
+  // },
   optionsSuccessStatus: 200,
   credentials: true,
 };

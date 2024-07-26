@@ -204,7 +204,7 @@ const UserView = () => {
                   {appointment.patientname}
                 </h2>
                 <p className="text-gray-600 mb-2">Date: {nicedate(appointment.date)}</p>
-                <p className="text-gray-600 mb-4">Time: {appointment.time}</p>
+                <p className="text-gray-600 mb-4">Time: {appointment.exact}</p>
                 <div className="flex justify-between">
                   <button
                     onClick={() => handleReschedule(appointment)}

@@ -10,23 +10,30 @@ import GroupComponent1 from "../components/GroupComponent1";
 import GroupComponent2 from "../components/GroupComponent2";
 import GroupComponent3 from "../components/GroupComponent3";
 import { toast, Slide } from "react-toastify";
+import "./checkbox.css";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
 
 function Reschedule() {
+  dayjs.extend(customParseFormat);
   const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState();
   const [sex, setSex] = useState("");
   const location = useLocation();
-  const { appointment,doctor } = location.state;
+  const { appointment, doctor } = location.state;
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDay, setSelectedDay] = useState("");
-  const [availibility, setAvailibility] = useState("");
   const [availableTimeSlots, setAvailableTimeSlots] = useState([]);
   const [button, setButton] = useState(true);
+  const [noslots, setNoslots] = useState([]);
+  const [booked, setBooked] = useState([]);
+  const [selectedslot, setSelectedslot] = useState(0);
+  const [dob, setDob] = useState(null);
+  const [exact, setExact] = useState(null);
   useEffect(() => {
     setName(appointment.patientname);
-    setAge(appointment.Age);
+    setDob(appointment.birth);
     setNumber(appointment.phonenumber);
     setSex(appointment.Sex);
   }, []);
@@ -44,7 +51,15 @@ function Reschedule() {
     // Reset selected time slot when day changes
     setSelectedTimeSlot("");
   };
-
+  const handleCheckboxChange = (index, noslot) => {
+    if (selectedslot === index) {
+      setSelectedslot(null);
+      setExact(null);
+    } else {
+      setSelectedslot(index);
+      setExact(noslot);
+    }
+  };
   const handleDateChange = (date) => {
     setSelectedDate(date);
     const day = date.toLocaleDateString("en-US", { weekday: "long" });
@@ -58,23 +73,51 @@ function Reschedule() {
     }
   };
   const handleReschedule = async () => {
+    if (
+      !dob ||
+      !sex ||
+      !name ||
+      !number ||
+      !selectedTimeSlot ||
+      !selectedDate ||
+      !selectedDay ||
+      !selectedslot ||
+      !exact
+    ) {
+      toast.error("Fill all the fields !", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+      });
+      return;
+    }
     const patientJSON = sessionStorage.getItem("Patient");
     const patient = JSON.parse(patientJSON);
     const patientId = patient._id;
     const appointments = {
       _id:appointment._id,
       patientname: name,
-      Age: age,
+      birth: dob,
       Sex: sex,
       phonenumber: number,
       day: selectedDay,
       time: selectedTimeSlot,
       department: doctor.department,
       date: selectedDate,
+      email: patient.email,
+      slotno: selectedslot,
+      exact: exact,
     };
-    // console.log(JSON.stringify(appointments))
+    console.log(JSON.stringify(appointment))
     try {
-      const response = await fetch( `${process.env.REACT_APP_LINKED}/appointment/Patientreschedule`,
+      const response = await fetch(
+        `${process.env.REACT_APP_LINKED}/appointment/Patientreschedule`,
         {
           method: "PATCH",
           body: JSON.stringify(appointments),
@@ -85,25 +128,27 @@ function Reschedule() {
         }
       );
       if (!response.ok) {
-        alert('Network response was not ok');
+        alert("Network response was not ok");
       }
-      const json = await response.json();
-      if (json && Object.keys(json).length > 0) {
-        toast.success('Appointment Rescheduled !', {
-          position: "top-center",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          transition: Slide,
+      else{
+        const json = await response.json();
+        if (json && Object.keys(json).length > 0) {
+          toast.success("Appointment Rescheduled !", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Slide,
           });
-        navigate("/myinfo");
+          navigate("/myinfo");
+        }
       }
     } catch (error) {
-      toast.error( error.message , {
+      toast.error(error.message, {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: true,
@@ -113,8 +158,14 @@ function Reschedule() {
         progress: undefined,
         theme: "colored",
         transition: Slide,
-        });
+      });
     }
+  };
+  const parseTimePeriod = (timePeriod) => {
+    const [start, end] = timePeriod.split("-");
+    const startTime = dayjs(start, "h:mma");
+    const endTime = dayjs(end, "h:mma");
+    return startTime;
   };
   const availibilitycheck = async () => {
     const patientJSON = sessionStorage.getItem("Patient");
@@ -125,7 +176,6 @@ function Reschedule() {
       time: selectedTimeSlot,
       department: doctor.department,
       date: selectedDate,
-      email:patient.email
     };
     try {
       const response = await fetch(
@@ -140,12 +190,35 @@ function Reschedule() {
         }
       );
       const json = await response.json();
-      setAvailibility(json);
-      if (json > 0) {
+      // console.log(booked,noslots,time);
+      if (json.available > 0) {
+        setBooked(json.slotNumbers);
+        const newArray = [];
         setButton(false);
+        const start = parseTimePeriod(selectedTimeSlot);
+        let currentTime = dayjs(start, "h:mma");
+        // console.log(currentTime)
+        for (let i = 0; i < json.slots; i++) {
+          newArray.push(currentTime.format("h:mm A"));
+          currentTime = currentTime.add(json.averageTime, "minute");
+        }
+        setNoslots(newArray);
+        // console.log(noslots)
+      } else {
+        toast.info("No slots are available", {
+          position: "top-center",
+          autoClose: 12,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+        });
       }
     } catch (error) {
-      toast.error( error.message , {
+      toast.error(error.message, {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: true,
@@ -155,15 +228,13 @@ function Reschedule() {
         progress: undefined,
         theme: "colored",
         transition: Slide,
-        });
+      });
     }
   };
-
 
   useEffect(() => {
     if (selectedTimeSlot) {
       if (!selectedTimeSlot.trim().includes(" - ")) {
-        setAvailibility("");
       } else {
         availibilitycheck();
       }
@@ -269,14 +340,18 @@ function Reschedule() {
             </div>
             <div className="flex flex-col justify-start w-full mx-auto items-center">
               <p className="block text-left text-sm font-medium text-gray-700">
-                Age:
+                Date of Birth:
               </p>
-              <input
-                type="number"
-                placeholder="Age"
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-                className="bg-slate-100 w-1/2 h-8 px-2 rounded"
+              <DatePicker
+                id="date"
+                selected={dob}
+                onChange={(date) => setDob(date)}
+                className="px-3 py-2 block border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary focus:outline-none"
+                dateFormat="MM/dd/yyyy"
+                showYearDropdown
+                showMonthDropdown
+                wrapperClassName="w-1/3"
+                popperPlacement="bottom"
               />
             </div>
             <div className="flex flex-col justify-start w-full mx-auto items-center">
@@ -353,8 +428,24 @@ function Reschedule() {
               <p className="block text-left text-sm font-medium text-gray-700">
                 Available-Slots:
               </p>
-              <div className="block text-secondary text-left text-bg font-medium py-3">
-                {availibility}
+              <div className="flex flex-wrap w-1/3">
+                {!button &&
+                  noslots.map((noslot, index) => {
+                    return (
+                      <div className="group relative" key={index+1}>
+                        <input type="checkbox" disabled={booked.includes(index+1)} onChange={() => handleCheckboxChange(index+1,noslot)}
+                        checked={selectedslot === (index+1)}
+                        className={`ui-checkbox ${booked.includes(index + 1) ? 'booked-checkbox' : ''}`}
+                        />
+                        <div className="bg-zinc-800 p-2 rounded-md group-hover:flex hidden absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2">
+                          <span className="text-zinc-400 whitespace-nowrap">
+                            {noslot}
+                          </span>
+                          <div className="bg-inherit rotate-45 p-1 absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2"></div>
+                        </div>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
           </div>

@@ -23,10 +23,6 @@ const appointmentSchema = new Schema({
       type:Number,
       required:true
      },
-      Age:{
-      type:Number,
-      required:true
-     },
      day:{
         type:String,
         required:true
@@ -41,6 +37,18 @@ const appointmentSchema = new Schema({
      },
      date:{
       type: Date,
+      required:true
+     },
+     birth:{
+      type: Date,
+      required:true
+     },
+     slotno:{
+      type:Number,
+      required:true
+     },
+     exact:{
+      type:String,
       required:true
      }
 },{timestamps:true})

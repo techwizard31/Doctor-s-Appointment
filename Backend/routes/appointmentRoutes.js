@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const Patient = require("../models/patientmodel");
 const Appointment = require("../models/appointmentmodel");
 const AverageTime = require("../AverageTime.js");
+const moment = require('moment');
 require("dotenv").config();
 const { Resend } = require("resend");
 
@@ -77,8 +78,15 @@ const availableslots = async (req, res) => {
       date: date,
     });
     const availableslots = slots - appointments.length;
+    const slotNumbers = [];
     if (availableslots > 0) {
-      res.status(200).json(availableslots);
+      appointments.map((appointment) => slotNumbers.push(appointment.slotno));
+      res.status(200).json({
+        available:availableslots,
+        slots: slots,
+        averageTime: AverageTime[department],
+        slotNumbers: slotNumbers
+      });
     } else {
       res.status(200).json("slots are not available");
     }
@@ -107,11 +115,12 @@ const createAppointment = async (req, res) => {
     day,
     time,
     date,
-    department,
     patientname,
-    Age,
+    birth,
     Sex,
     phonenumber,
+    slotno,
+    exact,
     email
   } = req.body;
   if (!mongoose.Types.ObjectId.isValid(patient_id)) {
@@ -128,9 +137,11 @@ const createAppointment = async (req, res) => {
       time,
       date,
       patientname,
-      Age,
+      birth,
       Sex,
       phonenumber,
+      slotno,
+      exact
     });
     res.status(200).json(appointment);
     await resend.emails.send({
@@ -148,11 +159,10 @@ const createAppointment = async (req, res) => {
 
     <ul>
       <li><strong>Patient Name:</strong>${patientname}</li>
-      <li><strong>Age:</strong> ${Age}</li>
       <li><strong>Sex:</strong> ${Sex}</li>
-      <li><strong>Date:</strong> ${date}</li>
+      <li><strong>Date:</strong> ${moment(date).format('DD-MM-YYYY')}</li>
       <li><strong>Day:</strong> ${day}</li>
-      <li><strong>Time:</strong> ${time}</li>
+      <li><strong>Time:</strong> ${exact}</li>
     </ul>
 
     <p>
@@ -197,7 +207,7 @@ const cancelAppointment = async (req, res) => {
 
       <p>
         We regret to inform you that your appointment at <strong>MEDDICAL</strong> scheduled for 
-        <strong>${date}</strong> at <strong>${time}</strong> has been cancelled.
+        <strong>${moment(date).format('DD-MM-YYYY')}</strong> at <strong>${time}</strong> has been cancelled.
       </p>
 
       <p>
@@ -220,7 +230,7 @@ const cancelAppointment = async (req, res) => {
 };
 
 const reschedule = async (req, res) => {
-  const { _id, day, time, date, Sex, Age, phonenumber, patientname,email } = req.body;
+  const { _id, day, time, date, birth, Sex, phonenumber, patientname,email,slotno, exact } = req.body;
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     return res
       .status(404)
@@ -249,11 +259,10 @@ const reschedule = async (req, res) => {
 
     <ul>
       <li><strong>Patient Name:</strong>${patientname}</li>
-      <li><strong>Age:</strong> ${Age}</li>
       <li><strong>Sex:</strong> ${Sex}</li>
-      <li><strong>Date:</strong> ${date}</li>
+      <li><strong>Date:</strong> ${moment(date).format('DD-MM-YYYY')}</li>
       <li><strong>Day:</strong> ${day}</li>
-      <li><strong>Time:</strong> ${time}</li>
+      <li><strong>Time:</strong> ${exact}</li>
     </ul>
 
     <p>
