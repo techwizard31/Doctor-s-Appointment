@@ -15,6 +15,19 @@ const Contact = () => {
 
   const handleSubmit = async () => {
     e.preventDefault();
+    if(!name || !email || !subject || !content){
+      toast.error("Fill all the fields !", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+      });
+    }
     const response = await fetch(`${process.env.REACT_APP_LINKED}/contact`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -27,7 +40,17 @@ const Contact = () => {
     });
     const json = await response.json();
     if (!response.ok) {
-      alert(json.error);
+      toast.error(json, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+      });
     }
     if (response.ok) {
       toast.success('Thank you for your response', {

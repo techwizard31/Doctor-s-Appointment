@@ -17,7 +17,7 @@ function Aibox() {
         setResponse(text)
         setLoading(false);
         setSearch('');
-        await new Promise(resolve => setTimeout(resolve, 4000));
+        await new Promise(resolve => setTimeout(resolve, 5000));
         setResponse('');
     }
   return (

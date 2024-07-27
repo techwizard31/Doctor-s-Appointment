@@ -65,7 +65,17 @@ function Reschedule() {
     const day = date.toLocaleDateString("en-US", { weekday: "long" });
     setSelectedDay(day);
     if (timeSlotsPerDay[day] == undefined) {
-      alert("Sir is not available on that day");
+      toast.info("Sir is not available on this day", {
+        position: "top-center",
+        autoClose: 12,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+      });
       setSelectedDay("");
       setSelectedDate(null);
     } else {
@@ -114,7 +124,6 @@ function Reschedule() {
       slotno: selectedslot,
       exact: exact,
     };
-    console.log(JSON.stringify(appointment))
     try {
       const response = await fetch(
         `${process.env.REACT_APP_LINKED}/appointment/Patientreschedule`,
