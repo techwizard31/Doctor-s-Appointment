@@ -81,7 +81,7 @@ function Medicines() {
                             Doctors
                         </div>
                         <div className="relative inline-block min-w-[3.063rem] cursor-pointer" onClick={() => {
-                                const patientJSON = localStorage.getItem("Patient");
+                                const patientJSON = sessionStorage.getItem("Patient");
                                 if (!patientJSON) {
                                     navigate("/login")
                                     } else {
