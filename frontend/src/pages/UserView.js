@@ -189,10 +189,15 @@ const UserView = () => {
         onMeddicalText1Click={onMeddicalText1Click}
       />
       <Navbar />
-      <div className="container mx-auto mt-8">
-        <h1 className="text-3xl font-semibold mb-4 text-primary">
+      <div className="container mx-auto mt-4">
+      <div className='flex flex-row justify-between mx-4'>
+        <h1 className="text-3xl font-semibold mb-4 text-primary underline hover:cursor-pointer">
           Your Appointments
         </h1>
+        <h1 className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer">
+          Personal Information
+        </h1>
+        </div>
         <div className="grid grid-cols-1 gap-4 justify-items-center pb-4">
           {appointments &&
             appointments.map((appointment) => (

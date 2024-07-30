@@ -13,12 +13,14 @@ import UserView from "./pages/UserView";
 import Reschedule from "./pages/reschedule";
 import Otpverify from "./pages/Otpverify";
 import Reset from "./pages/Reset";
+import Userinfo from "./pages/Userinfo";
 
 function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/reset" element={<Reset />} />
+      <Route path="/userinfo" element={<Userinfo />} />
       <Route path="/verify" element={<Otpverify />} />
       <Route path="/" element={<Home />} />
       <Route path="/about-us" element={<AboutUs />} />
