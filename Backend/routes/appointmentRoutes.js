@@ -310,7 +310,7 @@ const basicinfo = async (req, res) => {
   try {
     const userinfo = await Patient.findByIdAndUpdate(
       { _id: _id },
-      {... req.data},
+      {... req.body},
       { new: true }
     );
     const userinfod = await userinfo.save();
