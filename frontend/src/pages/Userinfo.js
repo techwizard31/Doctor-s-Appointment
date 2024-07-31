@@ -224,6 +224,10 @@ function Userinfo() {
     }
   };
 
+  const handleUpdateDetails = (updatedDetails) => {
+    setDetails(updatedDetails); 
+  };
+
   return (
     <div className="w-full relative bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal]">
       <div className="w-[9.813rem] h-[6.438rem] relative bg-silver-200 hidden" />
@@ -348,7 +352,7 @@ function Userinfo() {
         <Familymember
           open={open}
           onClose={() => setOpen(false)}
-          change={(x) => setDetails(x)}
+          change={handleUpdateDetails}
         />
       )}
       <Footer
