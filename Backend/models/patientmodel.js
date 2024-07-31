@@ -13,8 +13,34 @@ const patientSchema = new Schema({
      },
      password:{
         type: String,
-      //   required: true
-     }
+     },
+     occupation:{
+        type: String,
+     },
+     Address:{
+        type: String,
+     },
+     Pincode:{
+        type: Number,
+     },
+     family: [{
+      name: {
+        type: String,
+        required: true
+      },
+      dob: {
+        type: Date,
+        required: true
+      },
+      phonenumber: {
+        type: Number,
+        required: true
+      },
+      sex: {
+        type: String,
+        required: true
+      }
+    }]
 })
 
 patientSchema.statics.signup = async function(email,password){

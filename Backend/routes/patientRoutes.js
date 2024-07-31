@@ -145,8 +145,8 @@ const contact = async (req, res) => {
     }
     await resend.emails.send({
       from: "MEDDICAL@meddical.online",
-      to: `${email}`,
-      subject: "Your Message Has Been Received – We’ll Get Back to You Shortly",
+      to: [`${email}`,"istaprasad.patra@gmail.com"],
+      subject: "Your Message Has Been Received - We'll Get Back to You Shortly",
       html: `<html>
       <head>
         <title>Thank You for Reaching Out</title>

@@ -1,7 +1,7 @@
 import { useCallback, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Topmost from "../components/Topmost";
-import Navbar from "../components/Navbar";
+import Navbar1 from "../components/Navbar";
 // import FrameComponent6 from "../components/FrameComponent6";
 // import FrameComponent5 from "../components/FrameComponent5";
 // import FrameComponent4 from "../components/FrameComponent4";
@@ -188,7 +188,7 @@ const UserView = () => {
         frameDivDebugCommit="unset"
         onMeddicalText1Click={onMeddicalText1Click}
       />
-      <Navbar />
+      <Navbar1 />
       <div className="container mx-auto mt-4">
       <div className='flex flex-row justify-between mx-4'>
         <h1 className="text-3xl font-semibold mb-4 text-primary underline hover:cursor-pointer">

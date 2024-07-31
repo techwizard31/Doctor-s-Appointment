@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const Patient = require("../models/patientmodel");
 const Appointment = require("../models/appointmentmodel");
 const AverageTime = require("../AverageTime.js");
-const moment = require('moment');
+const moment = require("moment");
 require("dotenv").config();
 const { Resend } = require("resend");
 
@@ -82,10 +82,10 @@ const availableslots = async (req, res) => {
     if (availableslots > 0) {
       appointments.map((appointment) => slotNumbers.push(appointment.slotno));
       res.status(200).json({
-        available:availableslots,
+        available: availableslots,
         slots: slots,
         averageTime: AverageTime[department],
-        slotNumbers: slotNumbers
+        slotNumbers: slotNumbers,
       });
     } else {
       res.status(200).json("slots are not available");
@@ -121,7 +121,7 @@ const createAppointment = async (req, res) => {
     phonenumber,
     slotno,
     exact,
-    email
+    email,
   } = req.body;
   if (!mongoose.Types.ObjectId.isValid(patient_id)) {
     return res.status(404).json({ error: "no such patient" });
@@ -141,7 +141,7 @@ const createAppointment = async (req, res) => {
       Sex,
       phonenumber,
       slotno,
-      exact
+      exact,
     });
     res.status(200).json(appointment);
     await resend.emails.send({
@@ -160,7 +160,7 @@ const createAppointment = async (req, res) => {
     <ul>
       <li><strong>Patient Name:</strong>${patientname}</li>
       <li><strong>Sex:</strong> ${Sex}</li>
-      <li><strong>Date:</strong> ${moment(date).format('DD-MM-YYYY')}</li>
+      <li><strong>Date:</strong> ${moment(date).format("DD-MM-YYYY")}</li>
       <li><strong>Day:</strong> ${day}</li>
       <li><strong>Time:</strong> ${exact}</li>
     </ul>
@@ -187,7 +187,7 @@ const createAppointment = async (req, res) => {
 };
 
 const cancelAppointment = async (req, res) => {
-  const { _id,patientname,date,time ,email } = req.body;
+  const { _id, patientname, date, time, email } = req.body;
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     return res
       .status(404)
@@ -199,7 +199,7 @@ const cancelAppointment = async (req, res) => {
     res.status(200).json("Appointment Cancelled");
     await resend.emails.send({
       from: "MEDDICAL@meddical.online",
-       to: `${email}`,
+      to: `${email}`,
       subject: "Appointment Cancelled!",
       html: `<html>
     <body>
@@ -207,7 +207,9 @@ const cancelAppointment = async (req, res) => {
 
       <p>
         We regret to inform you that your appointment at <strong>MEDDICAL</strong> scheduled for 
-        <strong>${moment(date).format('DD-MM-YYYY')}</strong> at <strong>${time}</strong> has been cancelled.
+        <strong>${moment(date).format(
+          "DD-MM-YYYY"
+        )}</strong> at <strong>${time}</strong> has been cancelled.
       </p>
 
       <p>
@@ -230,7 +232,19 @@ const cancelAppointment = async (req, res) => {
 };
 
 const reschedule = async (req, res) => {
-  const { _id, day, time, date, birth, Sex, phonenumber, patientname,email,slotno, exact } = req.body;
+  const {
+    _id,
+    day,
+    time,
+    date,
+    birth,
+    Sex,
+    phonenumber,
+    patientname,
+    email,
+    slotno,
+    exact,
+  } = req.body;
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     return res
       .status(404)
@@ -260,7 +274,7 @@ const reschedule = async (req, res) => {
     <ul>
       <li><strong>Patient Name:</strong>${patientname}</li>
       <li><strong>Sex:</strong> ${Sex}</li>
-      <li><strong>Date:</strong> ${moment(date).format('DD-MM-YYYY')}</li>
+      <li><strong>Date:</strong> ${moment(date).format("DD-MM-YYYY")}</li>
       <li><strong>Day:</strong> ${day}</li>
       <li><strong>Time:</strong> ${exact}</li>
     </ul>
@@ -286,9 +300,62 @@ const reschedule = async (req, res) => {
   }
 };
 
+const basicinfo = async (req, res) => {
+  const { _id, occupation, Address, Pincode } = req.body;
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return res
+      .status(404)
+      .json({ error: "this patient does not exist !!!" });
+  }
+  try {
+    const userinfo = await Patient.findByIdAndUpdate(
+      { _id: _id },
+      { ...req.body },
+      { new: true }
+    );
+    const userinfod = await userinfo.save();
+    res.status(200).json(userinfod);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+};
+
+const addmembers = async(req,res)=>{
+   const { _id,name,dob,sex,phonenumber } = req.body;
+   if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return res.status(404).json({ error: "this patient does not exist !!!" });
+  }
+  try {
+    const member = {name,dob,phonenumber,sex};
+    const userinfo = await Patient.findById(_id);
+    userinfo.family.push(member);
+    const finalinfo = await userinfo.save();
+    res.status(200).json(finalinfo);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+}
+const removemembers = async(req,res)=>{
+   const { patient_id, _id} = req.body;
+   if (!mongoose.Types.ObjectId.isValid(patient_id)) {
+    return res.status(404).json({ error: "this patient does not exist !!!" });
+  }
+  try {
+    const userinfo = await Patient.findById(patient_id);
+    userinfo.family = userinfo.family.filter((item)=>item._id === _id);
+    const finalinfo= await userinfo.save();
+    res.status(200).json(finalinfo);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+}
+
 router.use(requireAuth);
 
 router.post("/myappointments", patientAppointments);
+router.post("/basicinfo", basicinfo);
+router.post("/addmember", addmembers);
+router.post("/removemember", removemembers);
 router.post("/checkavailibility", availableslots);
 router.post("/createappointment", createAppointment);
 router.delete("/cancelappointment", cancelAppointment);

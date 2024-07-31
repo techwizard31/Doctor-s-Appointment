@@ -156,7 +156,17 @@ function AppointmentBox() {
       }else{
         const json = await response.json();
         if (json && Object.keys(json).length > 0) {
-          alert("Appointment Booked");
+          toast.success('Appointment Booked !', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Slide,
+            });
           navigate("/myinfo");
         }
       }
