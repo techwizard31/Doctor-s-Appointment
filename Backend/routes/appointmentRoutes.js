@@ -314,7 +314,6 @@ const basicinfo = async (req, res) => {
       { new: true }
     );
     const userinfod = await userinfo.save();
-    console.log(userinfod)
     res.status(200).json(userinfod);
   } catch (error) {
     res.status(400).json(error.message);
@@ -343,7 +342,7 @@ const removemembers = async(req,res)=>{
   }
   try {
     const userinfo = await Patient.findById(patient_id);
-    userinfo.family = userinfo.family.filter((item)=>item._id !== _id);
+    userinfo.family = userinfo.family.filter(item => !item._id.equals(_id));
     const finalinfo= await userinfo.save();
     res.status(200).json(finalinfo);
   } catch (error) {

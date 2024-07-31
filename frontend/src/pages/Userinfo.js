@@ -150,9 +150,12 @@ function Userinfo() {
       });
     }
   };
-  useEffect(async () => {
-    await userdata();
+  useEffect(() => {
+     userdata();
   }, []);
+  useEffect(() => {
+    userdata();
+  }, [open]);
 
   const nicedate = (dateStr) => {
     const date = new Date(dateStr);
