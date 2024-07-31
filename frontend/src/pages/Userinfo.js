@@ -114,6 +114,7 @@ function Userinfo() {
           body: JSON.stringify(requests),
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${patient.token}`,
           },
         }
       );
