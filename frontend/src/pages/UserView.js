@@ -1,7 +1,7 @@
 import { useCallback, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Topmost from "../components/Topmost";
-import Navbar1 from "../components/Navbar";
+import Navbar1 from "../components/Navbar1";
 // import FrameComponent6 from "../components/FrameComponent6";
 // import FrameComponent5 from "../components/FrameComponent5";
 // import FrameComponent4 from "../components/FrameComponent4";
@@ -158,7 +158,8 @@ const UserView = () => {
     } else {
       handleMyAppointments();
     }
-  }, []); // Empty dependency array ensures the effect runs only once
+  }, []);
+
 
   const nicedate = (dateStr) => {
     const date = new Date(dateStr);
@@ -194,7 +195,7 @@ const UserView = () => {
         <h1 className="text-3xl font-semibold mb-4 text-primary underline hover:cursor-pointer">
           Your Appointments
         </h1>
-        <h1 className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer">
+        <h1 className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer" onClick={()=>navigate('/userinfo')}>
           Personal Information
         </h1>
         </div>

@@ -24,6 +24,16 @@ const loginpatient = async (req, res) => {
   }
   // res.json({mssg:'login user'})
 };
+const patientdata = async (req, res) => {
+  const { _id } = req.body;
+  try {
+    const patient = await Patient.findById(_id)
+    res.status(200).json(patient);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+  // res.json({mssg:'login user'})
+};
 const reloginpatient = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -172,6 +182,7 @@ const contact = async (req, res) => {
 };
 
 router.post("/login", loginpatient);
+router.post("/data", patientdata);
 router.post("/contact", contact);
 router.post("/relogin", reloginpatient);
 router.post("/otp", otpgenerate);

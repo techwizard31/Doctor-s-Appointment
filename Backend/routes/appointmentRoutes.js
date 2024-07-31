@@ -310,10 +310,11 @@ const basicinfo = async (req, res) => {
   try {
     const userinfo = await Patient.findByIdAndUpdate(
       { _id: _id },
-      { ...req.body },
+      {... req.data},
       { new: true }
     );
     const userinfod = await userinfo.save();
+    console.log(userinfod)
     res.status(200).json(userinfod);
   } catch (error) {
     res.status(400).json(error.message);
@@ -354,7 +355,7 @@ router.use(requireAuth);
 
 router.post("/myappointments", patientAppointments);
 router.post("/basicinfo", basicinfo);
-router.post("/addmember", addmembers);
+router.patch("/addmember", addmembers);
 router.post("/removemember", removemembers);
 router.post("/checkavailibility", availableslots);
 router.post("/createappointment", createAppointment);

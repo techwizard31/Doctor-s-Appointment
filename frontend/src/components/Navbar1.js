@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar1 = () => {
   const navigate = useNavigate();
 
   const onHomeTextClick = useCallback(() => {
@@ -49,12 +49,12 @@ const Navbar = () => {
             Home
           </div>
           <div
-            className="flex-1 relative inline-block min-w-[3.25rem] cursor-pointer"
+            className="flex-1 relative inline-block min-w-[2.813rem] cursor-pointer"
             onClick={onAboutUsTextClick}
           >
             About us
           </div>
-          <div className="flex-1 relative inline-block min-w-[3rem]">
+          <div className="flex-1 relative inline-block min-w-[2.813rem] cursor-pointer">
             Services
           </div>
           <div
@@ -97,4 +97,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar1;

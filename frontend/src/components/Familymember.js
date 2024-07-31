@@ -1,12 +1,12 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { toast, Slide } from "react-toastify";
 import DatePicker from "react-datepicker";
 
-function Familymember({open,onClose}) {
+function Familymember({ open, onClose, change }) {
   const [name, setName] = useState("");
   const [dob, setDob] = useState("");
   const [number, setNumber] = useState("");
-  const [sex,setSex]= useState("")
+  const [sex, setSex] = useState("");
 
   useEffect(() => {
     if (open) {
@@ -14,12 +14,79 @@ function Familymember({open,onClose}) {
     } else {
       document.body.style.overflow = "auto";
     }
-
     // Cleanup function to reset overflow when component unmounts
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [open]);
+
+  const addmembers = async () => {
+    const patientJSON = sessionStorage.getItem("Patient");
+    const patient = JSON.parse(patientJSON);
+    if (!sex || !dob || !number) {
+      toast.error("Fill all the fields !",{
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+      });
+      return;
+    }
+    const requests = {
+      _id: patient._id,
+      name:name,
+      sex: sex,
+      dob: dob,
+      phonenumber: number,
+    };
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_LINKED}/appointment/addmember`,
+        {
+          method: "PATCH",
+          body: JSON.stringify(requests),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${patient.token}`,
+          },
+        }
+      );
+      const json = await response.json();
+      if (response.ok) {
+        toast.success("Member Added !", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+        });
+        change(json);
+        onClose();
+      }
+    } catch (error) {
+      toast.error(error.message, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+      });
+      onClose();
+    }
+  };
 
   return (
     <div className="fixed inset-0 flex items-center justify-center w-screen h-screen bg-black bg-opacity-50 z-50">
@@ -28,7 +95,10 @@ function Familymember({open,onClose}) {
           <div className="flex-grow text-center pl-6">
             <h1 className="text-primary">Personal Details</h1>
           </div>
-          <span className="material-symbols-outlined scale-125 mt-1 mr-1 cursor-pointer h-fit hover:bg-red-800 bg-transparent transition-transform duration-500 w-fit" onClick={onClose}>
+          <span
+            className="material-symbols-outlined scale-125 mt-1 mr-1 cursor-pointer h-fit hover:bg-red-800 bg-transparent transition-transform duration-500 w-fit"
+            onClick={onClose}
+          >
             close
           </span>
         </div>
@@ -91,12 +161,11 @@ function Familymember({open,onClose}) {
           </select>
         </div>
         <button
-            className="w-1/3 bg-secondary text-white mx-auto h-8 my-8 rounded text-center font-bold hover:bg-white hover:text-secondary hover:transition-colors cursor-pointer text-base"
-                // disabled={button}
-                // onClick={() => handleAppointment()}
-              >
-                Save
-              </button>
+          className="w-1/3 bg-secondary text-white mx-auto h-8 my-8 rounded text-center font-bold hover:bg-white hover:text-secondary hover:transition-colors cursor-pointer text-base"
+          onClick={() => addmembers()}
+        >
+          Save
+        </button>
       </div>
     </div>
   );
