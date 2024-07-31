@@ -185,7 +185,7 @@ function Userinfo() {
       const response = await fetch(
         `${process.env.REACT_APP_LINKED}/appointment/removemember`,
         {
-          method: "PATCH",
+          method: "POST",
           body: JSON.stringify(requests),
           headers: {
             "Content-Type": "application/json",
