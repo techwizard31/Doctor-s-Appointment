@@ -343,7 +343,7 @@ const removemembers = async(req,res)=>{
   }
   try {
     const userinfo = await Patient.findById(patient_id);
-    userinfo.family = userinfo.family.filter((item)=>item._id === _id);
+    userinfo.family = userinfo.family.filter((item)=>item._id !== _id);
     const finalinfo= await userinfo.save();
     res.status(200).json(finalinfo);
   } catch (error) {
