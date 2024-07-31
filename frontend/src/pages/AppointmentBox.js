@@ -23,33 +23,6 @@ function AppointmentBox() {
   const navigate = useNavigate();
   dayjs.extend(customParseFormat);
 
-  // const getFormattedDate = (day) => {
-  //   // Get today's date
-  //   const today = new Date();
-
-  //   // Get the day index of the selected day
-  //   const dayIndex = [
-  //     "Sunday",
-  //     "Monday",
-  //     "Tuesday",
-  //     "Wednesday",
-  //     "Thursday",
-  //     "Friday",
-  //     "Saturday",
-  //   ].indexOf(day);
-
-  //   // Calculate the date of the selected day
-  //   const date = new Date(today);
-  //   date.setDate(today.getDate() + ((dayIndex - today.getDay() + 7) % 7));
-
-  //   // Format the date (e.g., "Mon, 01 Jan 2022")
-  //   return date.toLocaleDateString("en-US", {
-  //     weekday: "short",
-  //     day: "2-digit",
-  //     month: "short",
-  //     year: "numeric",
-  //   });
-  // };
   const [selectedDate, setSelectedDate] = useState(null);
   const [noslots, setNoslots] = useState([]);
   const [booked, setBooked] = useState([]);
@@ -69,13 +42,13 @@ function AppointmentBox() {
     timeSlotsPerDay[slot.Day].push(`${slot.startTime} - ${slot.endTime}`);
   });
   const [selectedTimeSlot, setSelectedTimeSlot] = useState("");
-  const handleCheckboxChange = (index,noslot) => {
+  const handleCheckboxChange = (index, noslot) => {
     if (selectedslot === index) {
       setSelectedslot(null);
-      setExact(null)
+      setExact(null);
     } else {
       setSelectedslot(index);
-      setExact(noslot)
+      setExact(noslot);
     }
   };
   const handleDayChange = (e) => {
@@ -89,7 +62,17 @@ function AppointmentBox() {
     const day = date.toLocaleDateString("en-US", { weekday: "long" });
     setSelectedDay(day);
     if (timeSlotsPerDay[day] == undefined) {
-      alert("Sir is not available on that day");
+      toast.info('Sir is not there on this day', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Slide,
+        });
       setSelectedDay("");
       setSelectedDate(null);
     } else {
@@ -136,7 +119,7 @@ function AppointmentBox() {
       date: selectedDate,
       email: patient.email,
       slotno: selectedslot,
-      exact: exact
+      exact: exact,
     };
     try {
       // window.location.href = "https://rzp.io/l/M1DGv2bfS";
@@ -153,10 +136,10 @@ function AppointmentBox() {
       );
       if (!response.ok) {
         alert("Network response was not ok");
-      }else{
+      } else {
         const json = await response.json();
         if (json && Object.keys(json).length > 0) {
-          toast.success('Appointment Booked !', {
+          toast.success("Appointment Booked !", {
             position: "top-center",
             autoClose: 2000,
             hideProgressBar: true,
@@ -166,7 +149,7 @@ function AppointmentBox() {
             progress: undefined,
             theme: "colored",
             transition: Slide,
-            });
+          });
           navigate("/myinfo");
         }
       }
@@ -184,11 +167,16 @@ function AppointmentBox() {
       });
     }
   };
-
+  
+  // const cleanTimePeriod = (timePeriod) => {
+  //   // Normalize input by removing unnecessary spaces around "-"
+  //   return timePeriod.replace(/\s*-\s*/, '-').toUpperCase();
+  // };
+  
   const parseTimePeriod = (timePeriod) => {
+    // const cleanedPeriod = cleanTimePeriod(timePeriod);
     const [start, end] = timePeriod.split("-");
     const startTime = dayjs(start, "h:mma");
-    const endTime = dayjs(end, "h:mma");
     return startTime;
   };
 
@@ -220,15 +208,13 @@ function AppointmentBox() {
         setBooked(json.slotNumbers);
         const newArray = [];
         setButton(false);
-        const start = parseTimePeriod(selectedTimeSlot);
-        let currentTime = dayjs(start, "h:mma");
-        // console.log(start)
+        const startTime = parseTimePeriod(selectedTimeSlot); 
+        let currentTime = startTime; 
         for (let i = 0; i < json.slots; i++) {
           newArray.push(currentTime.format("h:mm A"));
           currentTime = currentTime.add(json.averageTime, "minute");
         }
         setNoslots(newArray);
-        // console.log(noslots)
       } else {
         toast.info("No slots are available", {
           position: "top-center",
@@ -254,6 +240,7 @@ function AppointmentBox() {
         theme: "colored",
         transition: Slide,
       });
+      console.log(error)
     }
   };
   useEffect(() => {
@@ -466,10 +453,17 @@ function AppointmentBox() {
                 {!button &&
                   noslots.map((noslot, index) => {
                     return (
-                      <div className="group relative" key={index+1}>
-                        <input type="checkbox" className={`ui-checkbox ${booked.includes(index + 1) ? 'booked-checkbox' : ''}`}
-                         disabled={booked.includes(index+1)} onChange={() => handleCheckboxChange(index+1,noslot)}
-                        checked={selectedslot === (index+1)}
+                      <div className="group relative" key={index + 1}>
+                        <input
+                          type="checkbox"
+                          className={`ui-checkbox ${
+                            booked.includes(index + 1) ? "booked-checkbox" : ""
+                          }`}
+                          disabled={booked.includes(index + 1)}
+                          onChange={() =>
+                            handleCheckboxChange(index + 1, noslot)
+                          }
+                          checked={selectedslot === index + 1}
                         />
                         <div className="bg-zinc-800 p-2 rounded-md group-hover:flex hidden absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2">
                           <span className="text-zinc-400 whitespace-nowrap">
