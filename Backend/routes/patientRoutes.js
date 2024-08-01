@@ -39,10 +39,7 @@ const reloginpatient = async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
-    const patient = await Patient.findOneAndUpdate({
-      email: email,
-      password: hash,
-    });
+    const patient = await Patient.findOneAndUpdate({ email: email },{ password: hash },{ new: true });
     const token = createToken(patient._id);
     const _id = patient._id;
     res.status(200).json({ _id, token, email, hash });
