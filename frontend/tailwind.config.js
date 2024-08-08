@@ -80,6 +80,9 @@ module.exports = {
       mq450: {
         raw: "screen and (max-width: 450px)",
       },
+      sm: {
+        raw: "screen and (max-width: 640px)",
+      },
     },
   },
   corePlugins: {

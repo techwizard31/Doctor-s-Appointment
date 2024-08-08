@@ -56,61 +56,31 @@ const FrameComponent2 = () => {
           </div>
         </div>
       </div>
-      <div className="w-[62rem] flex flex-row flex-wrap items-start justify-start gap-[1.281rem] max-w-full z-[6] ml-[-73.688rem] text-[1rem] text-white">
+      <div className="w-[62rem] flex flex-row flex-wrap items-start justify-start gap-[1.281rem] max-w-full z-[6] ml-[-73.688rem] text-[1rem] text-white lg:ml-[-10rem]">
         <div className="flex-1 rounded-8xs bg-primary flex flex-row items-start justify-between py-[1.562rem] px-[1.25rem] box-border min-w-[13.813rem] gap-[1.25rem]">
           <div className="flex flex-col items-start justify-start pt-[0.875rem] px-[0rem] pb-[0rem]">
-            <div className="relative leading-[140%]">Book an Appointment</div>
+            <div className="relative leading-[140%]">Choose A Date You Like</div>
           </div>
           <img
             className="h-[3.125rem] w-[3.125rem] relative"
             alt=""
             src="/39calendar.svg"
           />
-          <img
-            className="h-[0rem] w-[0rem] relative hidden"
-            alt=""
-            src="/27team.svg"
-          />
-          <img
-            className="h-[0rem] w-[0rem] relative hidden"
-            alt=""
-            src="/15cash.svg"
-          />
         </div>
         <div className="flex-1 rounded-8xs bg-lightsteelblue-100 flex flex-row items-start justify-between py-[1.806rem] px-[1.25rem] box-border min-w-[13.813rem] gap-[1.25rem] text-primary">
           <div className="flex flex-col items-start justify-start pt-[0.631rem] px-[0rem] pb-[0rem]">
-            <div className="relative leading-[140%]">Book an Appointment</div>
+            <div className="relative leading-[140%]">Get The Best Doctors</div>
           </div>
-          <img
-            className="h-[0rem] w-[0rem] relative hidden"
-            alt=""
-            src="/39calendar1.svg"
-          />
           <img
             className="h-[2.638rem] w-[3.125rem] relative"
             alt=""
             src="/27team1.svg"
           />
-          <img
-            className="h-[0rem] w-[0rem] relative hidden"
-            alt=""
-            src="/15cash.svg"
-          />
         </div>
         <div className="flex-1 rounded-8xs bg-secondary flex flex-row items-start justify-between pt-[1.987rem] px-[1.25rem] pb-[1.981rem] box-border min-w-[13.813rem] gap-[1.25rem]">
           <div className="flex flex-col items-start justify-start pt-[0.45rem] px-[0rem] pb-[0rem]">
-            <div className="relative leading-[140%]">Book an Appointment</div>
+            <div className="relative leading-[140%]">Free Checkup</div>
           </div>
-          <img
-            className="h-[0rem] w-[0rem] relative hidden"
-            alt=""
-            src="/39calendar.svg"
-          />
-          <img
-            className="h-[0rem] w-[0rem] relative hidden"
-            alt=""
-            src="/27team.svg"
-          />
           <img
             className="h-[2.281rem] w-[3.125rem] relative"
             alt=""
