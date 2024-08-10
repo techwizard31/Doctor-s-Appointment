@@ -18,10 +18,10 @@ const Topmost = ({
   }, [frameDivDebugCommit]);
 
   return (
-    <header className="self-stretch flex flex-row items-start justify-center pt-[1.187rem] px-[1.25rem] pb-[1.112rem] box-border sticky gap-[11rem] top-[0] z-[99] max-w-full text-left text-[2.25rem] text-primary font-display-2 mq450:gap-[1.375rem] mq750:gap-[2.75rem] mq1050:gap-[5.5rem] ">
+    <header className="self-stretch flex flex-row items-start justify-center pt-[1.187rem] px-[1.25rem] pb-[1.112rem] box-border sticky gap-[11rem] top-[0] z-[99] max-w-full text-left text-[2.25rem] text-primary font-display-2 mq450:gap-[1.375rem] mq750:gap-[2.75rem] mq1050:gap-[5.5rem] mq750:px-[1rem] mq450:px-[1.25rem]">
       <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] bg-white" />
       <h1
-        className="m-0 h-[2.625rem] relative text-inherit uppercase font-normal font-inherit inline-block  cursor-pointer z-[1] mq450:ml-12"
+        className="m-0 h-[2.625rem] relative text-inherit uppercase font-normal font-inherit inline-block  cursor-pointer z-[1] mq450:ml-16"
         onClick={onMeddicalText1Click}
       >
         <span>Med</span>
@@ -47,7 +47,7 @@ const Topmost = ({
               </div>
             </div>
           </div>
-          <div className="flex-1 flex flex-col items-start justify-start pt-[0.062rem] px-[0rem] pb-[0rem]">
+          <div className="flex flex-col items-start justify-start pt-[0.062rem] px-[0rem] pb-[0rem] sm:w-[4rem]">
             <div className="self-stretch flex flex-row items-start justify-start gap-[0.606rem]">
               <div className="flex flex-col items-start justify-start pt-[0.25rem] px-[0rem] pb-[0rem]">
               <style jsx>{`

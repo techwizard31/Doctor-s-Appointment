@@ -16,6 +16,12 @@ import Footer from "../components/Footer";
 
 const Home = () => {
   const navigate = useNavigate();
+  const News = [
+    {"date":"9 August, 2024","Author":"Dr. Ye Ella Tian","Title":"Study reveals how physical health impacts mental health via brain pathways","link":"https://www.news-medical.net/news/20240809/Study-reveals-how-physical-health-impacts-mental-health-via-brain-pathways.aspx","views":"100","image":"https://d2jx2rerrg6sh3.cloudfront.net/image-handler/ts/20160530095846/ri/310/picture/2016/5/3d_rendered_illustration_-_white_brian-Sebastian_Kaulitzki_658707c45ab24fb7903ee3b7d37ab54d-620x480.jpg"},
+    {"date":"3 August, 2024","Author":"Benedette Cuffari","Title":"The Role of Process Validation in Ensuring Consistent Drug Quality","link":"https://www.news-medical.net/life-sciences/The-Role-of-Process-Validation-in-Ensuring-Consistent-Drug-Quality.aspx","views":"112","image":"https://d2jx2rerrg6sh3.cloudfront.net/image-handler/ts/20240723080037/ri/310/src/images/Article_Images/ImageForArticle_25069_45496333765138892809-620x480.jpg"},
+    {"date":"6 August, 2024","Author":" Danielle Ellis, B.Sc.","Title":"Exploring the Connection Between Gut Health and Meditation","link":"https://www.news-medical.net/news/20240809/Study-reveals-how-physical-health-impacts-mental-health-via-brain-pathways.aspx","views":"153","image":"https://d2jx2rerrg6sh3.cloudfront.net/images/Article_Images/ImageForArticle_24684_4537237041285888723-150x125.jpg"},
+    {"date":"31 July, 2024","Author":"Maria Marco","Title":"From Waste to Taste: The Transformative Power of Fermented Foods","link":"https://www.news-medical.net/news/20240731/From-Waste-to-Taste-The-Transformative-Power-of-Fermented-Foods.aspx","views":"271","image":"https://d2jx2rerrg6sh3.cloudfront.net/images/news/InterviewImageForNews_779662_17183797403028751.jpg"}
+  ]
 
   const onMeddicalTextClick = useCallback(() => {
     navigate("/");
@@ -100,21 +106,21 @@ const Home = () => {
           <div className="w-[62rem] flex flex-col items-start justify-start gap-[2rem] max-w-full mq750:gap-[1rem]">
             <div className="self-stretch flex flex-row flex-wrap items-start justify-center gap-[1.25rem] max-w-full z-[1]">
               <div className="flex-1 flex flex-col items-start justify-start gap-[1.25rem] min-w-[19.75rem] max-w-full">
-                <SmallNews />
-                <SmallNews propBoxShadow="unset" />
+                <SmallNews news = {News[0]}/>
+                <SmallNews news = {News[1]}/>
               </div>
               <div className="flex-1 flex flex-col items-start justify-start gap-[1.25rem] min-w-[19.75rem] max-w-full">
-                <SmallNews propBoxShadow="unset" />
-                <SmallNews propBoxShadow="unset" />
+                <SmallNews  news = {News[2]}/>
+                <SmallNews news = {News[3]}/>
               </div>
             </div>
-            <div className="self-stretch flex flex-row items-start justify-center py-[0rem] px-[1.25rem]">
+            {/* <div className="self-stretch flex flex-row items-start justify-center py-[0rem] px-[1.25rem]">
               <div className="flex flex-row items-start justify-start gap-[0.625rem] z-[1]">
                 <div className="h-[1.125rem] w-[1.125rem] relative rounded-31xl bg-lightsteelblue-100" />
                 <div className="h-[1.125rem] w-[1.125rem] relative rounded-31xl bg-primary" />
                 <div className="h-[1.125rem] w-[1.125rem] relative rounded-31xl bg-lightsteelblue-100" />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -136,7 +142,7 @@ const Home = () => {
             <GroupComponent3 />
             <GroupComponent2 />
             <GroupComponent1 />
-            <GroupComponent />
+            {/* <GroupComponent /> */}
           </div>
         </div>
       </section>

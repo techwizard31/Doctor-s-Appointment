@@ -472,48 +472,6 @@ const Contact = () => {
             <div className="relative leading-[140%] shrink-0 [debug_commit:1de1738]">
               Home / Contact
             </div>
-            <div className="w-[31.625rem] h-[1.375rem] relative hidden max-w-full text-[1rem] text-black1">
-              <div className="absolute h-full w-[19.96%] top-[0%] right-[26.88%] bottom-[0%] left-[53.16%]">
-                <div className="absolute top-[0%] left-[23.76%] leading-[140%]">
-                  By Author
-                </div>
-                <img
-                  className="absolute h-[81.82%] w-[15.84%] top-[9.09%] right-[84.16%] bottom-[9.09%] left-[0%] max-w-full overflow-hidden max-h-full"
-                  alt=""
-                  src="/group-210.svg"
-                />
-              </div>
-              <div className="absolute h-full w-[48.42%] top-[0%] right-[51.58%] bottom-[0%] left-[0%]">
-                <div className="absolute top-[0%] left-[9.8%] leading-[140%]">
-                  Monday 05, September 2021
-                </div>
-                <img
-                  className="absolute h-[80.91%] w-[6.53%] top-[9.09%] right-[93.47%] bottom-[10%] left-[0%] max-w-full overflow-hidden max-h-full"
-                  alt=""
-                  src="/group-209.svg"
-                />
-              </div>
-              <div className="absolute h-full w-[8.7%] top-[0%] right-[13.44%] bottom-[0%] left-[77.87%]">
-                <div className="absolute top-[0%] left-[54.55%] leading-[140%]">
-                  68
-                </div>
-                <img
-                  className="absolute h-[46.82%] w-[36.36%] top-[27.27%] right-[63.64%] bottom-[25.91%] left-[0%] max-w-full overflow-hidden max-h-full"
-                  alt=""
-                  src="/group-198.svg"
-                />
-              </div>
-              <div className="absolute h-full w-[8.7%] top-[0%] right-[0%] bottom-[0%] left-[91.3%]">
-                <div className="absolute top-[0%] left-[54.55%] leading-[140%]">
-                  86
-                </div>
-                <img
-                  className="absolute h-[64.55%] w-[36.36%] top-[18.18%] right-[63.64%] bottom-[17.27%] left-[0%] max-w-full overflow-hidden max-h-full"
-                  alt=""
-                  src="/vector.svg"
-                />
-              </div>
-            </div>
             <div className="h-[3.188rem] flex flex-row items-start justify-start pt-[0rem] px-[0rem] pb-[0rem] box-border text-[3rem] font-display-2">
               <h1 className="mt-[-0.25rem] m-0 relative text-inherit font-normal font-inherit shrink-0 [debug_commit:1de1738] mq450:text-[1.813rem] mq1025:text-[2.375rem]">
                 Our Contacts
@@ -635,14 +593,14 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex-1 flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem] text-lightsteelblue-100">
-                <div className="self-stretch rounded-8xs bg-primary flex flex-col items-start justify-start pt-[5.35rem] px-[1.875rem] pb-[3.125rem] relative gap-[0.5rem]">
+                <div className="self-stretch rounded-8xs bg-primary flex flex-col items-start justify-start pt-[5.35rem] px-[1.875rem] pb-[2.125rem] relative gap-[0.5rem]">
                   <div className="w-[14.563rem] h-[14.563rem] relative rounded-8xs bg-primary hidden z-[0]" />
                   <img
                     className="w-[1.875rem] h-[2.25rem] absolute !m-[0] top-[3.313rem] left-[1.938rem] z-[1]"
                     alt=""
                     src="/group-178-11.svg"
                   />
-                  <b className="relative uppercase inline-block min-w-[5.688rem] z-[1]">
+                  <b className="relative uppercase inline-block min-w-[5.688rem] z-[1] mt-4">
                     Location
                   </b>
                   <div className="flex flex-col items-start justify-start gap-[0.212rem] text-[1rem]">
@@ -658,7 +616,7 @@ const Contact = () => {
                     </a>
                   </div>
                 </div>
-                <div className="self-stretch rounded-8xs bg-lightsteelblue-100 flex flex-col items-start justify-start pt-[3.5rem] pb-[3.125rem] pr-[1.125rem] pl-[1.875rem] gap-[1.187rem] text-primary">
+                <div className="self-stretch rounded-8xs bg-lightsteelblue-100 flex flex-col items-start justify-start pt-[3.5rem] pb-[1.625rem] pr-[1.125rem] pl-[1.875rem] gap-[1.187rem] text-primary">
                   <div className="w-[14.563rem] h-[14.563rem] relative rounded-8xs bg-lightsteelblue-100 hidden" />
                   <img
                     className="w-[1.875rem] h-[1.875rem] relative z-[1]"
