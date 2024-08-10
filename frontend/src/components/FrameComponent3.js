@@ -1,10 +1,10 @@
-import { useCallback,useState } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Topmost from "./Topmost";
 
 const FrameComponent3 = () => {
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   const onMeddicalText1Click = useCallback(() => {
     navigate("/");
@@ -25,9 +25,9 @@ const FrameComponent3 = () => {
   const onNewsTextClick = useCallback(() => {
     const patientJSON = sessionStorage.getItem("Patient");
     if (!patientJSON) {
-        navigate("/login")
-        } else {
-          navigate("/myinfo")
+      navigate("/login");
+    } else {
+      navigate("/myinfo");
     }
   }, [navigate]);
 
@@ -37,33 +37,69 @@ const FrameComponent3 = () => {
 
   const onButtonClick = useCallback(() => {
     const patientJSON = sessionStorage.getItem("Patient");
-        if (!patientJSON) {
-            navigate("/login")
-            } else {
-              navigate("/appointment")
-        }
+    if (!patientJSON) {
+      navigate("/login");
+    } else {
+      navigate("/appointment");
+    }
   }, [navigate]);
 
   return (
     <section className="self-stretch flex flex-col items-start justify-start max-w-full text-left text-[1.125rem] text-white font-body">
       <Topmost onMeddicalText1Click={onMeddicalText1Click} />
       <div className="self-stretch bg-primary flex flex-row items-start justify-between pt-[1.062rem] px-[11.625rem] pb-[1.125rem] box-border max-w-full gap-[1.25rem] z-[6] lg:px-10 lg:justify-center mq450:pl-[1.25rem] mq450:pr-[1rem] mq450:box-border mq750:pl-[1rem] mq750:pr-[1rem] mq750:box-border sm:pt-2">
-        <div className="w-full flex flex-col items-start justify-start pt-[0.75rem] px-[0rem] pb-[0rem] box-border">
-          <div className="mq450:flex mq450:mr-auto mq450:w-8 mq450:flex-col gap-1 mq450:mt-2 h-fit cursor-pointer" onClick={()=>setOpen(!open)}>
-             <div className={`h-[3px] bg-lightsteelblue-100 ${open ? "rotate-45":""}`}></div>
-             <div className={`h-[3px] bg-lightsteelblue-100 ${open ? "-rotate-45 -translate-y-1.5":""}`}></div>
-          </div>   
+        <div className="w-full flex flex-col items-start justify-start sm:pt-[0.4rem] px-[0rem] pb-[0rem] box-border pt-0">
+          <div
+            className="mq450:flex mq450:mr-auto mq450:w-8 mq450:flex-col gap-1 mq450:mt-2 h-fit cursor-pointer pt-1"
+            onClick={() => setOpen(!open)}
+          >
+            <div
+              className={`h-[3px] bg-lightsteelblue-100 ${
+                open ? "rotate-45" : ""
+              }`}
+            ></div>
+            <div
+              className={`h-[3px] bg-lightsteelblue-100 ${
+                open ? "-rotate-45 -translate-y-1.5" : ""
+              }`}
+            ></div>
+          </div>
           {open && (
             <div className="absolute bg-lightsteelblue-100 shadow-lg rounded-lg mt-8 z-10">
               <ul className="list-none px-2">
-                <li className="p-1 hover:bg-gray-200 cursor-pointer" onClick={onHomeTextClick}>Home</li>
-                <li className="p-1 hover:bg-gray-200 cursor-pointer"  onClick={onAboutUsTextClick}>About</li>
-                <li className="p-1 hover:bg-gray-200 cursor-pointer" onClick={onDoctorsTextClick}>Doctors</li>
-                <li className="p-1 hover:bg-gray-200 cursor-pointer" onClick={onNewsTextClick}>MyInfo</li>
-                <li className="p-1 hover:bg-gray-200 cursor-pointer" onClick={onContactTextClick}>Contact</li>
+                <li
+                  className="p-1 cursor-pointer hover:text-primary"
+                  onClick={onHomeTextClick}
+                >
+                  Home
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer"
+                  onClick={onAboutUsTextClick}
+                >
+                  About
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer"
+                  onClick={onDoctorsTextClick}
+                >
+                  Doctors
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer"
+                  onClick={onNewsTextClick}
+                >
+                  MyInfo
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer"
+                  onClick={onContactTextClick}
+                >
+                  Contact
+                </li>
               </ul>
             </div>
-          )}    
+          )}
           <div className="self-stretch flex flex-row justify-start gap-8 mq750:flex-wrap sm:gap-4 mq450:hidden ">
             <div
               className="relative font-semibold text-lightsteelblue-100 inline-block cursor-pointer"
@@ -97,10 +133,27 @@ const FrameComponent3 = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-row items-start justify-start gap-[1.875rem] mq750:gap-4">
-          <div className="flex flex-col items-start justify-start pt-[0.75rem] px-[0rem] pb-[0rem] mq750:hidden">
+        <div className="flex flex-row items-start justify-start gap-[1.875rem] mq750:gap-4 sm:translate-y-1">
+          <div className="flex flex-col items-start justify-start pt-[0.75rem] px-[0rem] pb-[0rem] mq750:hidden mq450:flex">
+            <style jsx>{`
+              @keyframes blink {
+                0% {
+                  opacity: 1;
+                }
+                50% {
+                  opacity: 0;
+                }
+                100% {
+                  opacity: 1;
+                }
+              }
+              .animate-blink {
+                animation: blink 1s infinite;
+              }
+            `}</style>
+
             <input
-              className="cursor-pointer m-0 w-[1.25rem] h-[1.25rem] relative mq750:w-4 mq750:h-4"
+              className="cursor-pointer m-0 w-[1.25rem] h-[1.25rem] relative mq750:w-4 mq750:h-4 animate-blink"
               type="radio"
             />
           </div>
@@ -115,7 +168,6 @@ const FrameComponent3 = () => {
         </div>
       </div>
     </section>
-    
   );
 };
 

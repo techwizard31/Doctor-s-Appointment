@@ -1,8 +1,9 @@
-import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCallback,useState } from "react";
 
 const Navbar1 = () => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const onHomeTextClick = useCallback(() => {
     navigate("/");
@@ -39,61 +40,126 @@ const Navbar1 = () => {
   }, [navigate]);
 
   return (
-    <section className="self-stretch bg-primary flex flex-row items-start justify-between pt-[1.062rem] px-[11.625rem] pb-[1.125rem] box-border max-w-full gap-[1.25rem] z-[4] text-left text-[1.125rem] text-white font-body mq450:pl-[1.25rem] mq450:pr-[1.25rem] mq450:box-border mq750:pl-[5.813rem] mq750:pr-[5.813rem] mq750:box-border mq1100:flex-wrap mq1100:justify-center">
-      <div className="w-[30.938rem] flex flex-col items-start justify-start pt-[0.75rem] px-[0rem] pb-[0rem] box-border max-w-full">
-        <div className="self-stretch flex flex-row items-start justify-start gap-[1.25rem] mq750:flex-wrap">
-          <div
-            className="relative inline-block min-w-[3.25rem] cursor-pointer"
-            onClick={onHomeTextClick}
-          >
-            Home
-          </div>
-          <div
-            className="flex-1 relative inline-block min-w-[2.813rem] cursor-pointer"
-            onClick={onAboutUsTextClick}
-          >
-            About us
-          </div>
-          <div className="flex-1 relative inline-block min-w-[2.813rem] cursor-pointer">
-            Services
-          </div>
-          <div
-            className="flex-1 relative inline-block min-w-[2.813rem] cursor-pointer"
-            onClick={onDoctorsTextClick}
-          >
-            Doctors
-          </div>
-          <div
-            className="flex-1 relative font-semibold text-lightsteelblue-100 inline-block min-w-[3.25rem] cursor-pointer"
-            onClick={onNewsTextClick}
-          >
-            MyInfo
-          </div>
-          <div
-            className="flex-1 relative inline-block min-w-[2.813rem] cursor-pointer"
-            onClick={onContactTextClick}
-          >
-            Contact
-          </div>
-        </div>
+    <section className="self-stretch bg-primary flex flex-row items-start justify-between pt-[1.062rem] px-[11.625rem] pb-[1.125rem] box-border max-w-full gap-[1.25rem] z-[6] lg:px-10 lg:justify-center mq450:pl-[1.25rem] mq450:pr-[1rem] mq450:box-border mq750:pl-[1rem] mq750:pr-[1rem] mq750:box-border sm:pt-2 text-white text-[1.125rem] font-body">
+    <div className="w-full flex flex-col items-start justify-start pt-[0.55rem] px-[0rem] pb-[0rem] box-border">
+      <div
+        className="mq450:flex mq450:mr-auto mq450:w-8 mq450:flex-col gap-1 mq450:mt-2 h-fit cursor-pointer pt-1"
+        onClick={() => setOpen(!open)}
+      >
+        <div
+          className={`h-[3px] bg-lightsteelblue-100 ${
+            open ? "rotate-45" : ""
+          }`}
+        ></div>
+        <div
+          className={`h-[3px] bg-lightsteelblue-100 ${
+            open ? "-rotate-45 -translate-y-1.5" : ""
+          }`}
+        ></div>
       </div>
-      <div className="flex flex-row items-start justify-start gap-[1.875rem]">
-        <div className="flex flex-col items-start justify-start pt-[0.75rem] px-[0rem] pb-[0rem]">
-          <input
-            className="cursor-pointer m-0 w-[1.25rem] h-[1.25rem] relative"
-            type="radio"
-          />
+      {open && (
+        <div className="absolute bg-lightsteelblue-100 shadow-lg rounded-lg mt-8 z-10">
+          <ul className="list-none px-2">
+            <li
+              className="p-1 cursor-pointer hover:text-primary"
+              onClick={onHomeTextClick}
+            >
+              Home
+            </li>
+            <li
+              className="p-1 hover:text-primary cursor-pointer"
+              onClick={onAboutUsTextClick}
+            >
+              About
+            </li>
+            <li
+              className="p-1 hover:text-primary cursor-pointer"
+              onClick={onDoctorsTextClick}
+            >
+              Doctors
+            </li>
+            <li
+              className="p-1 hover:text-primary cursor-pointer"
+              onClick={onNewsTextClick}
+            >
+              MyInfo
+            </li>
+            <li
+              className="p-1 hover:text-primary cursor-pointer"
+              onClick={onContactTextClick}
+            >
+              Contact
+            </li>
+          </ul>
         </div>
-        <button
-          className="cursor-pointer [border:none] py-[0.812rem] px-[2.187rem] bg-lightsteelblue-100 rounded-31xl flex flex-row items-start justify-start hover:bg-lightsteelblue-200"
-          onClick={onButtonClick}
+      )}
+      <div className="self-stretch flex flex-row justify-start gap-8 mq750:flex-wrap sm:gap-4 mq450:hidden ">
+        <div
+          className="relative font-semibold inline-block cursor-pointer"
+          onClick={onHomeTextClick}
         >
-          <div className="relative text-[1rem] font-medium font-body text-primary text-left inline-block min-w-[6.438rem]">
-            Appointment
-          </div>
-        </button>
+          Home
+        </div>
+        <div
+          className="relative inline-block cursor-pointer"
+          onClick={onAboutUsTextClick}
+        >
+          About
+        </div>
+        <div
+          className="relative inline-block cursor-pointer"
+          onClick={onDoctorsTextClick}
+        >
+          Doctors
+        </div>
+        <div
+          className="relative inline-block cursor-pointer text-lightsteelblue-100 "
+          onClick={onNewsTextClick}
+        >
+          MyInfo
+        </div>
+        <div
+          className="relative inline-block cursor-pointer sm:hidden"
+          onClick={onContactTextClick}
+        >
+          Contact
+        </div>
       </div>
-    </section>
+    </div>
+    <div className="flex flex-row items-start justify-start gap-[1.875rem] mq750:gap-4 sm:translate-y-1">
+      <div className="flex flex-col items-start justify-start pt-[0.75rem] px-[0rem] pb-[0rem] mq750:hidden mq450:flex">
+        <style jsx>{`
+          @keyframes blink {
+            0% {
+              opacity: 1;
+            }
+            50% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+          .animate-blink {
+            animation: blink 1s infinite;
+          }
+        `}</style>
+
+        <input
+          className="cursor-pointer m-0 w-[1.25rem] h-[1.25rem] relative mq750:w-4 mq750:h-4 animate-blink"
+          type="radio"
+        />
+      </div>
+      <button
+        className="cursor-pointer [border:none] py-[0.812rem] px-[2.187rem] mq750:px-4 bg-lightsteelblue-100 rounded-31xl flex flex-row items-start justify-start hover:bg-lightsteelblue-200"
+        onClick={onButtonClick}
+      >
+        <div className="relative text-[1rem] font-medium font-body text-primary text-left inline-block min-w-[6rem] mq750:w-fit mq750:text-[0.8rem] mq750:min-w-8">
+          Appointment
+        </div>
+      </button>
+    </div>
+  </section>
   );
 };
 
