@@ -113,7 +113,7 @@ const Navbar1 = () => {
           Doctors
         </div>
         <div
-          className="relative inline-block cursor-pointer text-lightsteelblue-100 "
+          className="relative inline-block cursor-pointer text-lightsteelblue-100"
           onClick={onNewsTextClick}
         >
           MyInfo

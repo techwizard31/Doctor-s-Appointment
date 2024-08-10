@@ -144,7 +144,6 @@ const Home = () => {
         onMeddicalTextClick={onMeddicalTextClick}
         onAppointmentTextClick={onAppointmentTextClick}
         onDoctorsText1Click={onDoctorsText1Click}
-        onServicesText1Click={onServicesText1Click}
         onAboutUsText1Click={onAboutUsText1Click}
       />
     </div>
