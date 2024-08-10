@@ -62,6 +62,9 @@ module.exports = {
       lg: {
         max: "1200px",
       },
+      xl: {
+        max: "1300px",
+      },
       mq1125: {
         raw: "screen and (max-width: 1125px)",
       },

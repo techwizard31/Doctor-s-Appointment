@@ -151,10 +151,10 @@ function Otpverify() {
     }
   return (
     <div className="fullbox">
-      <form class="form">
-        <div class="info">
-          <span class="title">OTP Verification</span>
-          <p class="description">Enter the email in which you have account</p>
+      <form className="form mq450:mx-1">
+        <div className="info">
+          <span className="title">OTP Verification</span>
+          <p className="description mq450:text-[1.05rem] ">Enter the email in which you have account</p>
         <input
           placeholder="you@example.com"
           className="block w-5/6 px-4 py-3 mt-2 text-zinc-800 bg-white border-1 rounded-lg dark:border-zinc-600 dark:bg-[#a6b8de] dark:text-black focus:border-blue-500 dark:focus:border-blue-400 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-blue-400"
@@ -168,8 +168,8 @@ function Otpverify() {
         </div>
         {enable && (
           <>
-          <p class="description">Please enter the code we have sent you. </p>
-        <div class="inputs">
+          <p className="description">Please enter the code we have sent you. </p>
+        <div className="inputs">
           {givenotp.map((value,index)=>{
             return(
               <input placeholder="" type="text" value={value} onChange={(e)=>handleChange(index,e)}
@@ -180,15 +180,15 @@ function Otpverify() {
         </div>
           </>
         )}
-        {!enable ?(<button class="validate" onClick={(e)=>handleSend(e)}>
+        {!enable ?(<button className="validate" onClick={(e)=>handleSend(e)}>
           Send
         </button>):(
           <>
-          <button class="validate" onClick={(e)=>handleSubmit(e)}>
+          <button className="validate" onClick={(e)=>handleSubmit(e)}>
           Verify
         </button>
-        <p class="resend">
-          You don't receive the code ?<a class="resend-action" onClick={()=>handleResend}>Resend</a>
+        <p className="resend">
+          You don't receive the code ?<a className="resend-action" onClick={()=>handleResend}>Resend</a>
         </p>
           </>
       )}

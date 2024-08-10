@@ -84,7 +84,7 @@ function Reset() {
     return (
       <div className="grid place-items-center h-screen">
         <form
-          className="bg-white w-1/4 dark:bg-zinc-900 shadow-2xl rounded-2xl overflow-hidden border-4 border-blue-400 dark:border-blue-800"
+          className="bg-white w-1/4 xl:w-1/3 mq1125:w-2/5 mq1025:1/2 mq750:w-3/5 sm:w-2/3 sm:min-w-[310px] dark:bg-zinc-900 shadow-2xl rounded-2xl overflow-hidden border-4 border-blue-400 dark:border-blue-800"
           onSubmit={handleSubmit}
         >
           <div className="px-8 py-10 md:px-10">
