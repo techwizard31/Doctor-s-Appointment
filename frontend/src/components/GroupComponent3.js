@@ -14,7 +14,7 @@ const GroupComponent3 = ({ propDebugCommit, propDebugCommit1 }) => {
   }, [propDebugCommit1]);
 
   return (
-    <div className="flex-[0.9784] flex flex-row items-start justify-start pt-[3.25rem] px-[1.625rem] pb-[3.125rem] box-border relative min-w-[11.563rem] max-w-[14.563rem] text-left text-[1rem] text-primary font-body mq450:flex-1">
+    <div className="flex-[0.9784] flex flex-row items-start justify-start pt-[3.25rem] px-[1.625rem] pb-[3.125rem] box-border relative min-w-[13.5rem]  max-w-[14.563rem] text-left text-[1rem] text-primary font-body mq450:flex-1">
       <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-8xs bg-lightsteelblue-100" />
       <div className="flex flex-col items-start justify-start gap-[0.925rem] z-[1]">
         <img
@@ -32,13 +32,11 @@ const GroupComponent3 = ({ propDebugCommit, propDebugCommit1 }) => {
               Emergency
             </b>
             <div className="relative leading-[140%]">7440086922</div>
-            <a
+            <div
               className="relative leading-[140%] text-[inherit] [text-decoration:none]"
-              href="mailto:fildineesoe@gmail.com"
-              target="_blank"
             >
-              7440086922
-            </a>
+             7440086922 
+            </div>
           </div>
         </div>
       </div>

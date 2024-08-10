@@ -1,6 +1,6 @@
 const GroupComponent = () => {
   return (
-    <div className="flex-1 flex flex-row items-start justify-start pt-[2.5rem] pb-[3.975rem] pr-[1.125rem] pl-[1.875rem] box-border relative min-w-[11.563rem] max-w-[14.563rem] text-left text-[1rem] text-primary font-body">
+    <div className="flex-1 flex flex-row items-start justify-start pt-[2.5rem] pb-[2.8rem] pr-[1.125rem] pl-[1.875rem] box-border relative min-w-[13.5rem] max-w-[14.563rem] text-left text-[1rem] text-primary font-body">
       <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-8xs bg-lightsteelblue-100" />
       <div className="flex-1 flex flex-col items-start justify-start gap-[1.187rem] z-[1]">
         <img

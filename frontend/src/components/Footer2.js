@@ -25,19 +25,19 @@ const Footer2 = ({
           <div className="relative font-semibold">Important Links</div>
           <div className="flex flex-col items-start justify-start gap-[0.437rem] text-[1rem]">
             <div
-              className="relative leading-[140%] inline-block min-w-[6.438rem] cursor-pointer"
+              className="relative leading-[140%] inline-block min-w-[6.438rem] cursor-pointer hover:text-secondary"
               onClick={onAppointmentTextClick}
             >
               Appointment
             </div>
             <div
-              className="relative leading-[140%] inline-block min-w-[3.875rem] cursor-pointer"
+              className="relative leading-[140%] inline-block min-w-[3.875rem] cursor-pointer hover:text-secondary"
               onClick={onDoctorsText1Click}
             >
               Doctors
             </div>
             <div
-              className="relative leading-[140%] inline-block min-w-[4.563rem] cursor-pointer"
+              className="relative leading-[140%] inline-block min-w-[4.563rem] cursor-pointer hover:text-secondary"
               onClick={onAboutUsText2Click}
             >
               About
