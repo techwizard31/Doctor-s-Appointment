@@ -499,7 +499,7 @@ const Doctors = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-1 flex flex-row items-start justify-start pt-[3.5rem] pb-[3.125rem] pr-[1.125rem] pl-[1.875rem] box-border relative min-w-[11.563rem] max-w-[14.563rem]">
+            <div className="flex-1 flex flex-row items-start justify-start pt-[3.5rem] pb-[1.825rem] pr-[1.125rem] pl-[1.875rem] box-border relative min-w-[11.563rem] max-w-[14.563rem]">
               <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-8xs bg-lightsteelblue-100" />
               <div className="flex-1 flex flex-col items-start justify-start gap-[1.187rem] z-[1]">
                 <img

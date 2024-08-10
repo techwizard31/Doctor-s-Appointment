@@ -142,7 +142,7 @@ const Home = () => {
             <GroupComponent3 />
             <GroupComponent2 />
             <GroupComponent1 />
-            {/* <GroupComponent /> */}
+            <GroupComponent />
           </div>
         </div>
       </section>
