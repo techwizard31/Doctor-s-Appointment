@@ -5,7 +5,6 @@ import NewsSection from "../components/NewsSection";
 import Footer2 from "../components/Footer2";
 import { useState } from "react";
 import { toast, Slide } from "react-toastify";
-import GroupComponent3 from "../components/GroupComponent3";
 import GroupComponent1 from "../components/GroupComponent1";
 import GroupComponent2 from "../components/GroupComponent2";
 import GroupComponent from "../components/GroupComponent";
@@ -20,7 +19,7 @@ const Contact = () => {
 
   const handleSubmit = async () => {
     e.preventDefault();
-    if(!name || !email || !subject || !content){
+    if (!name || !email || !subject || !content) {
       toast.error("Fill all the fields !", {
         position: "top-center",
         autoClose: 2000,
@@ -58,7 +57,7 @@ const Contact = () => {
       });
     }
     if (response.ok) {
-      toast.success('Thank you for your response', {
+      toast.success("Thank you for your response", {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: true,
@@ -68,7 +67,7 @@ const Contact = () => {
         progress: undefined,
         theme: "colored",
         transition: Slide,
-        });
+      });
       setName("");
       setEmail("");
       setSubject("");
@@ -140,201 +139,6 @@ const Contact = () => {
 
   return (
     <div className="w-full relative bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal] text-center text-[1rem] text-black1 font-body">
-      <div className="w-[0rem] h-[0rem] relative hidden">
-        <div className="absolute top-[0rem] left-[0rem] w-[0rem] h-[0rem]">
-          <div className="absolute top-[22.063rem] left-[0rem] w-[0rem] h-[0rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[14.563rem] h-[2.25rem]" />
-            <div className="absolute top-[0.563rem] left-[4.375rem]">
-              View Profile
-            </div>
-          </div>
-          <div className="absolute top-[16rem] left-[0rem] w-[0rem] h-[0rem] text-left text-[1.125rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-silver-100 w-[14.563rem] h-[6.063rem]" />
-            <div className="absolute top-[1rem] left-[3.188rem]">
-              Doctor’s Name
-            </div>
-            <div className="absolute top-[2.313rem] left-[4.875rem] text-[1rem]">
-              Neurology
-            </div>
-            <div className="absolute top-[4rem] left-[4.313rem] w-[0rem] h-[0rem]">
-              <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[1.594rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[3.188rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[4.781rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-            </div>
-          </div>
-          <div className="absolute top-[0rem] left-[0rem] bg-whitesmoke w-[14.563rem] h-[16rem]" />
-        </div>
-        <div className="absolute top-[25.563rem] left-[0rem] w-[0rem] h-[0rem]">
-          <div className="absolute top-[22.063rem] left-[0rem] w-[0rem] h-[0rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[14.563rem] h-[2.25rem]" />
-            <div className="absolute top-[0.563rem] left-[4.375rem]">
-              View Profile
-            </div>
-          </div>
-          <div className="absolute top-[16rem] left-[0rem] w-[0rem] h-[0rem] text-left text-[1.125rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-silver-100 w-[14.563rem] h-[6.063rem]" />
-            <div className="absolute top-[1rem] left-[3.188rem]">
-              Doctor’s Name
-            </div>
-            <div className="absolute top-[2.313rem] left-[4.875rem] text-[1rem]">
-              Neurology
-            </div>
-            <div className="absolute top-[4rem] left-[4.313rem] w-[0rem] h-[0rem]">
-              <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[1.594rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[3.188rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[4.781rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-            </div>
-          </div>
-          <div className="absolute top-[0rem] left-[0rem] bg-whitesmoke w-[14.563rem] h-[16rem]" />
-        </div>
-        <div className="absolute top-[0rem] left-[15.813rem] w-[0rem] h-[0rem]">
-          <div className="absolute top-[22.063rem] left-[0rem] w-[0rem] h-[0rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[14.563rem] h-[2.25rem]" />
-            <div className="absolute top-[0.563rem] left-[4.375rem]">
-              View Profile
-            </div>
-          </div>
-          <div className="absolute top-[16rem] left-[0rem] w-[0rem] h-[0rem] text-left text-[1.125rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-silver-100 w-[14.563rem] h-[6.063rem]" />
-            <div className="absolute top-[1rem] left-[3.188rem]">
-              Doctor’s Name
-            </div>
-            <div className="absolute top-[2.313rem] left-[4.875rem] text-[1rem]">
-              Neurology
-            </div>
-            <div className="absolute top-[4rem] left-[4.313rem] w-[0rem] h-[0rem]">
-              <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[1.594rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[3.188rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[4.781rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-            </div>
-          </div>
-          <div className="absolute top-[0rem] left-[0rem] bg-whitesmoke w-[14.563rem] h-[16rem]" />
-        </div>
-        <div className="absolute top-[25.563rem] left-[15.813rem] w-[0rem] h-[0rem]">
-          <div className="absolute top-[22.063rem] left-[0rem] w-[0rem] h-[0rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[14.563rem] h-[2.25rem]" />
-            <div className="absolute top-[0.563rem] left-[4.375rem]">
-              View Profile
-            </div>
-          </div>
-          <div className="absolute top-[16rem] left-[0rem] w-[0rem] h-[0rem] text-left text-[1.125rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-silver-100 w-[14.563rem] h-[6.063rem]" />
-            <div className="absolute top-[1rem] left-[3.188rem]">
-              Doctor’s Name
-            </div>
-            <div className="absolute top-[2.313rem] left-[4.875rem] text-[1rem]">
-              Neurology
-            </div>
-            <div className="absolute top-[4rem] left-[4.313rem] w-[0rem] h-[0rem]">
-              <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[1.594rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[3.188rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[4.781rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-            </div>
-          </div>
-          <div className="absolute top-[0rem] left-[0rem] bg-whitesmoke w-[14.563rem] h-[16rem]" />
-        </div>
-        <div className="absolute top-[0rem] left-[31.625rem] w-[0rem] h-[0rem]">
-          <div className="absolute top-[22.063rem] left-[0rem] w-[0rem] h-[0rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[14.563rem] h-[2.25rem]" />
-            <div className="absolute top-[0.563rem] left-[4.375rem]">
-              View Profile
-            </div>
-          </div>
-          <div className="absolute top-[16rem] left-[0rem] w-[0rem] h-[0rem] text-left text-[1.125rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-silver-100 w-[14.563rem] h-[6.063rem]" />
-            <div className="absolute top-[1rem] left-[3.188rem]">
-              Doctor’s Name
-            </div>
-            <div className="absolute top-[2.313rem] left-[4.875rem] text-[1rem]">
-              Neurology
-            </div>
-            <div className="absolute top-[4rem] left-[4.313rem] w-[0rem] h-[0rem]">
-              <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[1.594rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[3.188rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[4.781rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-            </div>
-          </div>
-          <div className="absolute top-[0rem] left-[0rem] bg-whitesmoke w-[14.563rem] h-[16rem]" />
-        </div>
-        <div className="absolute top-[25.563rem] left-[31.625rem] w-[0rem] h-[0rem]">
-          <div className="absolute top-[22.063rem] left-[0rem] w-[0rem] h-[0rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[14.563rem] h-[2.25rem]" />
-            <div className="absolute top-[0.563rem] left-[4.375rem]">
-              View Profile
-            </div>
-          </div>
-          <div className="absolute top-[16rem] left-[0rem] w-[0rem] h-[0rem] text-left text-[1.125rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-silver-100 w-[14.563rem] h-[6.063rem]" />
-            <div className="absolute top-[1rem] left-[3.188rem]">
-              Doctor’s Name
-            </div>
-            <div className="absolute top-[2.313rem] left-[4.875rem] text-[1rem]">
-              Neurology
-            </div>
-            <div className="absolute top-[4rem] left-[4.313rem] w-[0rem] h-[0rem]">
-              <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[1.594rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[3.188rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[4.781rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-            </div>
-          </div>
-          <div className="absolute top-[0rem] left-[0rem] bg-whitesmoke w-[14.563rem] h-[16rem]" />
-        </div>
-        <div className="absolute top-[0rem] left-[47.438rem] w-[0rem] h-[0rem]">
-          <div className="absolute top-[22.063rem] left-[0rem] w-[0rem] h-[0rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[14.563rem] h-[2.25rem]" />
-            <div className="absolute top-[0.563rem] left-[4.375rem]">
-              View Profile
-            </div>
-          </div>
-          <div className="absolute top-[16rem] left-[0rem] w-[0rem] h-[0rem] text-left text-[1.125rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-silver-100 w-[14.563rem] h-[6.063rem]" />
-            <div className="absolute top-[1rem] left-[3.188rem]">
-              Doctor’s Name
-            </div>
-            <div className="absolute top-[2.313rem] left-[4.875rem] text-[1rem]">
-              Neurology
-            </div>
-            <div className="absolute top-[4rem] left-[4.313rem] w-[0rem] h-[0rem]">
-              <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[1.594rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[3.188rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[4.781rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-            </div>
-          </div>
-          <div className="absolute top-[0rem] left-[0rem] bg-whitesmoke w-[14.563rem] h-[16rem]" />
-        </div>
-        <div className="absolute top-[25.563rem] left-[47.438rem] w-[0rem] h-[0rem]">
-          <div className="absolute top-[22.063rem] left-[0rem] w-[0rem] h-[0rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[14.563rem] h-[2.25rem]" />
-            <div className="absolute top-[0.563rem] left-[4.375rem]">
-              View Profile
-            </div>
-          </div>
-          <div className="absolute top-[16rem] left-[0rem] w-[0rem] h-[0rem] text-left text-[1.125rem]">
-            <div className="absolute top-[0rem] left-[0rem] bg-silver-100 w-[14.563rem] h-[6.063rem]" />
-            <div className="absolute top-[1rem] left-[3.188rem]">
-              Doctor’s Name
-            </div>
-            <div className="absolute top-[2.313rem] left-[4.875rem] text-[1rem]">
-              Neurology
-            </div>
-            <div className="absolute top-[4rem] left-[4.313rem] w-[0rem] h-[0rem]">
-              <div className="absolute top-[0rem] left-[0rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[1.594rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[3.188rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-              <div className="absolute top-[0rem] left-[4.781rem] bg-darkgray w-[1.125rem] h-[1.125rem]" />
-            </div>
-          </div>
-          <div className="absolute top-[0rem] left-[0rem] bg-whitesmoke w-[14.563rem] h-[16rem]" />
-        </div>
-      </div>
-      <div className="w-[9.813rem] h-[6.438rem] relative bg-silver-200 hidden" />
       <Topmost2 onMeddicalText1Click={onMeddicalText1Click} />
       <section className="self-stretch bg-primary flex flex-row items-start justify-between pt-[0.662rem] px-[11.625rem] pb-[0.825rem] box-border max-w-full gap-[1.25rem] z-[6] lg:px-10 lg:justify-center mq450:pl-[1.25rem] mq450:pr-[1rem] mq450:box-border mq750:pl-[1rem] mq750:pr-[1rem] mq750:box-border sm:pt-2 text-white text-[1.125rem] font-body">
         <div className="w-full flex flex-col items-start justify-start pt-[0.35rem] px-[0rem] pb-[0rem] box-border">
@@ -405,13 +209,13 @@ const Contact = () => {
             <div
               className="relative inline-block cursor-pointer sm:hidden"
               onClick={onDoctorsTextClick}
-              >
+            >
               Doctors
             </div>
             <div
               className="relative inline-block cursor-pointer"
               onClick={onNewsTextClick}
-              >
+            >
               MyInfo
             </div>
             <div
@@ -486,7 +290,14 @@ const Contact = () => {
       </section>
       <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-left text-[1.125rem] text-secondary font-body mq1100:pb-[2.625rem] mq1100:box-border mq750:pb-[1.688rem] mq750:box-border mq1100:px-4 mq1025:px-2">
         <div className="w-[90%] mq1050:w-full flex flex-col items-start justify-start gap-[4rem] max-w-full mq750:gap-[1rem] mq1025:gap-[2rem]">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.2536092797986!2d85.8388752746941!3d20.2483142141271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a731afd1734d%3A0xc503db3a9d1d0a54!2sShree%20Hospitals!5e0!3m2!1sen!2sin!4v1723378430377!5m2!1sen!2sin" width="100%" height="450" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.2536092797986!2d85.8388752746941!3d20.2483142141271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a731afd1734d%3A0xc503db3a9d1d0a54!2sShree%20Hospitals!5e0!3m2!1sen!2sin!4v1723378430377!5m2!1sen!2sin"
+            width="100%"
+            height="450"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
           <div className="self-stretch flex flex-row flex-wrap items-start justify-start gap-[1.25rem] max-w-full mq1025:gap-3">
             <div className="flex-1 flex flex-col items-center justify-center gap-[2rem] lg:min-w-[390px] max-w-full mq750:gap-[1rem] min-w-[550px] mq450:min-w-[310px]">
               <div className="flex flex-col items-start justify-start gap-[0.5rem]">
@@ -545,8 +356,30 @@ const Contact = () => {
             </div>
             <div className="flex-1 flex flex-row items-center justify-center gap-[1.25rem] min-w-[470px] max-w-full text-primary mq750:flex-wrap mq1125:gap-2">
               <div className="flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem] mq1125:gap-2 mq750:flex-wrap mq450:mx-auto">
-                  <GroupComponent3 />
-                  <GroupComponent1 />
+                <div className="flex-[0.9784] flex flex-row items-start justify-start pt-[3.25rem] px-[1.625rem] pb-[3.125rem] box-border relative min-w-[13.5rem]  max-w-[14.563rem] text-left text-[1rem] text-primary font-body mq450:flex-1">
+                  <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-8xs bg-lightsteelblue-100 pl-4" />
+                  <div className="flex flex-col items-start justify-start gap-[0.925rem] z-[1]">
+                    <img
+                      className="w-[2.513rem] h-[2.388rem] relative shrink-0 [debug_commit:1de1738]"
+                      alt=""
+                      src="/group-188-2.svg"
+                    />
+                    <div className="flex flex-row items-start justify-start py-[0rem] pr-[0rem] pl-[0.25rem]">
+                      <div className="flex flex-col items-start justify-start gap-[0.406rem] shrink-0 [debug_commit:1de1738]">
+                        <b className="relative text-[1.125rem] uppercase inline-block min-w-[7.063rem]">
+                          Emergency
+                        </b>
+                        <div className="relative leading-[140%]">
+                          7440086922
+                        </div>
+                        <div className="relative leading-[140%] text-[inherit] [text-decoration:none]">
+                          7440086922
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <GroupComponent1 />
               </div>
               <div className="flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem] text-lightsteelblue-100 mq1125:gap-2 mq750:flex-wrap mq450:mx-auto">
                 <GroupComponent2 />
