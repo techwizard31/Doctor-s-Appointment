@@ -21,13 +21,13 @@ function Aibox() {
         setResponse('');
     }
   return (
-    <div className='flex flex-col mx-auto border-blue-400 border-4 bg-slate-200 w-3/5 rounded-lg mb-8'>
-        <h2 className='text-xl text-secondary font-body'>Enter your symptoms and Find the Right Department for you</h2>
-        <div className='flex flex-row justify-center'>
-           <input type="text" value={search} onChange={(e)=>setSearch(e.target.value)} className='w-1/2 h-7'/>
-           <button onClick={aisearch} className='cursor-pointer w-1/12'>Search</button>
+    <div className='flex flex-col mx-auto border-blue-400 border-4 bg-slate-200 w-2/3 rounded-lg mb-8 xl:w-4/5 mq1025:w-[90%] mq750:w-[95%]'>
+        <h2 className='text-xl text-secondary font-body mq750:text-lg mq450:text-base mq750:mx-1'>Enter your symptoms and Find the Right Department for you</h2>
+        <div className='flex flex-row justify-center mq450:mx-1'>
+           <input type="text" value={search} onChange={(e)=>setSearch(e.target.value)} className='w-1/2 h-7 mq1050:w-2/3 mq750:w-4/5 ps-2 '/>
+           <button onClick={aisearch} className='cursor-pointer w-1/12 min-w-12 bg-slate-500 mq450:text-xs text-sm'>Search</button>
         </div>
-        <h4 className='text-black'>Suggested Department: {response}</h4>
+        <h4 className='text-black mq450:text-base'>Suggested Department: {response}</h4>
     </div>
   )
 }

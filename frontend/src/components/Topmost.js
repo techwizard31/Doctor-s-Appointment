@@ -63,7 +63,7 @@ const Topmost = ({
                 }
               }
               .animate-blink {
-                animation: blink 5s infinite;
+                animation: blink 3s infinite;
               }
             `}</style>
 

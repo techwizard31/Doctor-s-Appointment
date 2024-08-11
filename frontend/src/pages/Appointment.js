@@ -1,13 +1,18 @@
-import { useCallback } from "react";
+import { useCallback,useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Topmost2 from "../components/Topmost2";
 import Footer2 from "../components/Footer2";
 import MapperFunction1 from "../components/MapperFunction1";
 import Aibox from "../components/Aibox";
 import Searchbox from "./Searchbox";
+import GroupComponent3 from "../components/GroupComponent3";
+import GroupComponent2 from "../components/GroupComponent2";
+import GroupComponent1 from "../components/GroupComponent1";
+import GroupComponent from "../components/GroupComponent";
 
 const Appointment = () => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const onMeddicalText1Click = useCallback(() => {
     navigate("/");
@@ -41,10 +46,6 @@ const Appointment = () => {
     navigate("/about-us");
   }, [navigate]);
 
-  const onServicesTextClick = useCallback(() => {
-    // sync "Services" 
-  }, []);
-
   const onDoctorsTextClick = useCallback(() => {
     navigate("/doctors");
   }, [navigate]);
@@ -57,10 +58,6 @@ const Appointment = () => {
     navigate("/contact");
   }, [navigate]);
 
-  const onButtonClick = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
-
   return (
     <div className="w-full relative bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal] text-center text-[1rem] text-black1 font-body">
       <Topmost2
@@ -68,41 +65,86 @@ const Appointment = () => {
         propDebugCommit1="unset"
         onMeddicalText1Click={onMeddicalText1Click}
       />
-      <section className="self-stretch bg-primary flex flex-row items-start justify-between pt-[1.062rem] px-[11.625rem] pb-[1.125rem] box-border max-w-full gap-[1.25rem] text-left text-[1.125rem] text-white font-body lg:flex-wrap lg:justify-center mq450:pl-[1.25rem] mq450:pr-[1.25rem] mq450:box-border mq750:pl-[5.813rem] mq750:pr-[5.813rem] mq750:box-border">
-        <div className="w-[30.938rem] flex flex-col items-start justify-start pt-[0.75rem] px-[0rem] pb-[0rem] box-border max-w-full">
-          <div className="self-stretch flex flex-row items-start justify-start gap-[1.25rem] mq750:flex-wrap">
+      <section className="self-stretch bg-primary flex flex-row items-start justify-between pt-[0.662rem] px-[11.625rem] pb-[0.825rem] box-border max-w-full gap-[1.25rem] z-[6] lg:px-10 lg:justify-center mq450:pl-[1.25rem] mq450:pr-[1rem] mq450:box-border mq750:pl-[1rem] mq750:pr-[1rem] mq750:box-border sm:pt-2 text-white text-[1.125rem] font-body">
+        <div className="w-full flex flex-col items-start justify-start pt-[0.35rem] px-[0rem] pb-[0rem] box-border">
+          <div
+            className="mq450:flex mq450:mr-auto mq450:w-8 mq450:flex-col gap-1 mq450:mt-2 h-fit cursor-pointer pt-1"
+            onClick={() => setOpen(!open)}
+          >
             <div
-              className="relative inline-block min-w-[3.25rem] cursor-pointer"
+              className={`h-[3px] bg-lightsteelblue-100 ${
+                open ? "rotate-45" : ""
+              }`}
+            ></div>
+            <div
+              className={`h-[3px] bg-lightsteelblue-100 ${
+                open ? "-rotate-45 -translate-y-1.5" : ""
+              }`}
+            ></div>
+          </div>
+          {open && (
+            <div className="absolute bg-lightsteelblue-100 shadow-lg rounded-lg mt-8 z-10">
+              <ul className="list-none px-2">
+                <li
+                  className="p-1 cursor-pointer hover:text-primary"
+                  onClick={onHomeTextClick}
+                >
+                  Home
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer"
+                  onClick={onAboutUsTextClick}
+                >
+                  About
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer"
+                  onClick={onDoctorsTextClick}
+                >
+                  Doctors
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer"
+                  onClick={onNewsTextClick}
+                >
+                  MyInfo
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer"
+                  onClick={onContactTextClick}
+                >
+                  Contact
+                </li>
+              </ul>
+            </div>
+          )}
+          <div className="self-stretch flex flex-row justify-start gap-8 mq750:flex-wrap sm:gap-4 mq450:hidden ">
+            <div
+              className="relative inline-block cursor-pointer"
               onClick={onHomeTextClick}
             >
               Home
             </div>
             <div
-              className="flex-1 relative inline-block min-w-[3.25rem] cursor-pointer"
+              className="relative inline-block cursor-pointer font-semibold"
               onClick={onAboutUsTextClick}
             >
-              About us
+              About
             </div>
             <div
-              className="flex-1 relative inline-block min-w-[3rem] cursor-pointer"
-              onClick={onServicesTextClick}
-            >
-              Services
-            </div>
-            <div
-              className="flex-1 relative inline-block min-w-[2.813rem] cursor-pointer"
+              className="relative inline-block cursor-pointer"
               onClick={onDoctorsTextClick}
             >
               Doctors
             </div>
             <div
-              className="relative inline-block min-w-[3.063rem] cursor-pointer"
+              className="relative inline-block cursor-pointer"
               onClick={onNewsTextClick}
             >
               MyInfo
             </div>
             <div
-              className="flex-1 relative inline-block min-w-[2.813rem] cursor-pointer"
+              className="relative inline-block cursor-pointer sm:hidden"
               onClick={onContactTextClick}
             >
               Contact
@@ -141,120 +183,25 @@ const Appointment = () => {
       <MapperFunction1 />
       <Aibox />
       <Searchbox />
-      <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-left text-[2rem] text-primary font-display-2 lg:pb-[2.625rem] lg:box-border mq450:pb-[1.25rem] mq450:box-border mq1050:pb-[1.688rem] mq1050:box-border">
+      <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-center text-[1.125rem] text-secondary font-body mq450:pb-[2.625rem] mq450:box-border">
         <div className="w-[62rem] flex flex-col items-start justify-start gap-[4rem] max-w-full mq750:gap-[1rem] mq1050:gap-[2rem]">
-          <div className="self-stretch flex flex-col items-start justify-start gap-[4rem] text-center text-[1.125rem] text-secondary font-body mq750:gap-[1rem] mq1050:gap-[2rem]">
-            <div className="self-stretch flex flex-row items-start justify-center py-[0rem] px-[1.25rem]">
-              <div className="flex flex-col items-start justify-start gap-[0.5rem]">
-                <b className="relative tracking-[0.16em] uppercase whitespace-nowrap">
-                  Get in touch
-                </b>
-                <div className="flex flex-row items-start justify-start py-[0rem] pr-[1.062rem] pl-[1rem] text-[2rem] text-primary font-display-2">
-                  <h1 className="m-0 relative text-inherit font-normal font-inherit inline-block min-w-[7.938rem] mq450:text-[1.188rem] mq1050:text-[1.625rem]">
-                    Contact
-                  </h1>
-                </div>
+          <div className="self-stretch flex flex-row items-start justify-center py-[0rem] px-[1.25rem]">
+            <div className="flex flex-col items-start justify-start gap-[0.5rem]">
+              <b className="relative tracking-[0.16em] uppercase whitespace-nowrap">
+                Get in touch
+              </b>
+              <div className="flex flex-row items-start justify-start py-[0rem] pr-[1.062rem] pl-[1rem] text-[2rem] text-primary font-display-2">
+                <h1 className="m-0 relative text-inherit font-normal font-inherit inline-block min-w-[7.938rem] mq450:text-[1.188rem] mq1050:text-[1.625rem]">
+                  Contact
+                </h1>
               </div>
             </div>
-            <div className="self-stretch flex flex-row items-start justify-center gap-[1.25rem] text-left text-[1rem] text-primary mq1050:flex-wrap">
-              <div className="flex-[0.9784] flex flex-row items-start justify-start pt-[3.25rem] px-[1.625rem] pb-[3.125rem] box-border relative min-w-[11.563rem] max-w-[14.563rem] mq450:flex-1">
-                <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-8xs bg-lightsteelblue-100" />
-                <div className="flex flex-col items-start justify-start gap-[0.925rem] z-[1]">
-                  <img
-                    className="w-[2.513rem] h-[2.388rem] relative"
-                    alt=""
-                    src="/group-188-2.svg"
-                  />
-                  <div className="flex flex-row items-start justify-start py-[0rem] pr-[0rem] pl-[0.25rem]">
-                    <div className="flex flex-col items-start justify-start gap-[0.406rem]">
-                      <b className="relative text-[1.125rem] uppercase inline-block min-w-[7.063rem]">
-                        Emergency
-                      </b>
-                      <div className="relative leading-[140%]">
-                        7440086922
-                      </div>
-                      <a
-                        className="relative leading-[140%] text-[inherit] [text-decoration:none]"
-                        href="mailto:fildineesoe@gmail.com"
-                        target="_blank"
-                      >
-                        7440086922
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex-[0.9351] flex flex-row items-start justify-start pt-[2.312rem] px-[1.875rem] pb-[3.125rem] box-border relative min-w-[11.563rem] max-w-[14.563rem] text-lightsteelblue-100 mq450:flex-1">
-                <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-8xs bg-primary" />
-                <div className="flex flex-col items-start justify-start gap-[1rem] z-[1]">
-                  <div className="flex flex-row items-start justify-start py-[0rem] px-[0.062rem]">
-                    <img
-                      className="h-[2.25rem] w-[1.875rem] relative"
-                      alt=""
-                      src="/group-178-1.svg"
-                    />
-                  </div>
-                  <div className="flex flex-col items-start justify-start gap-[0.406rem]">
-                    <b className="relative text-[1.125rem] uppercase inline-block min-w-[5.688rem]">
-                      Location
-                    </b>
-                    <div className="relative leading-[120%]">
-                      Old Town, Bhubaneswar
-                    </div>
-                    <a
-                      className="relative leading-[140%] text-[inherit] [text-decoration:none]"
-                      href="mailto:fildineesoe@gmail.com"
-                      target="_blank"
-                    >
-                      India
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="flex-[0.9784] flex flex-row items-start justify-start pt-[3.562rem] pb-[3.5rem] pr-[1.375rem] pl-[1.875rem] box-border relative min-w-[11.563rem] max-w-[14.563rem] text-[1.125rem] mq450:flex-1">
-                <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-8xs bg-lightsteelblue-100" />
-                <div className="flex-1 flex flex-col items-start justify-start gap-[1.156rem] z-[1]">
-                  <img
-                    className="w-[2.213rem] h-[1.844rem] relative"
-                    loading="lazy"
-                    alt=""
-                    src="/group-202.svg"
-                  />
-                  <div className="self-stretch flex flex-col items-start justify-start gap-[0.406rem]">
-                    <b className="relative uppercase inline-block min-w-[3.563rem]">
-                      Email
-                    </b>
-                    <div className="relative text-[1rem] leading-[140%] whitespace-nowrap">
-                      sanket@gmail.com
-                    </div>
-                    <div className="relative text-[0.875rem] whitespace-nowrap">
-                      istaprasad.patra@gmail.com
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex-1 flex flex-row items-start justify-start pt-[3.5rem] pb-[1.825rem] pr-[1.125rem] pl-[1.875rem] box-border relative min-w-[11.563rem] max-w-[14.563rem]">
-                <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-8xs bg-lightsteelblue-100" />
-                <div className="flex-1 flex flex-col items-start justify-start gap-[1.187rem] z-[1]">
-                  <img
-                    className="w-[1.875rem] h-[1.875rem] relative"
-                    alt=""
-                    src="/group-177-1.svg"
-                  />
-                  <div className="self-stretch flex flex-col items-start justify-start gap-[0.406rem]">
-                    <b className="relative text-[1.125rem] uppercase">
-                      Working Hours
-                    </b>
-                    <div className="relative leading-[140%] whitespace-nowrap">
-                      Mon-Sat 09:00-20:00
-                    </div>
-                    <div className="relative leading-[140%]">
-                      Sunday Emergency only
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          </div>
+          <div className="self-stretch flex flex-row items-start justify-center gap-[1.25rem] mq1050:flex-wrap">
+            <GroupComponent3 />
+            <GroupComponent2 />
+            <GroupComponent1 />
+            <GroupComponent />
           </div>
         </div>
       </section>

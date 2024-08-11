@@ -35,11 +35,11 @@ function Searchbox() {
     }
   };
   return (
-    <div className="flex flex-col mx-auto border-blue-400 border-4 bg-slate-200 w-3/5 rounded-lg mb-8 pb-6">
-      <h2 className="text-xl text-secondary font-body">
+    <div className="flex flex-col mx-auto border-blue-400 border-4 bg-slate-200 w-2/3 rounded-lg mb-8 pb-6 xl:w-4/5 mq1025:w-[90%] mq750:w-[95%]">
+      <h2 className="text-xl text-secondary font-body mq750:text-lg mq750:mx-1 mq450:text-base">
         Find The Doctor You Want
       </h2>
-      <div className="flex flex-row justify-center">
+      <div className="flex flex-row justify-center mq450:mx-1">
         <input
           type="text"
           value={search}
@@ -47,10 +47,10 @@ function Searchbox() {
             setSearch(e.target.value);
             handledoctors(e.target.value);
           }}
-          className="w-1/2 h-7 border-black"
+          className="w-1/2 h-7 border-black mq1050:w-2/3 mq750:w-4/5 ps-2 "
         />
         <button
-          className="cursor-pointer w-1/12"
+          className="cursor-pointer w-1/12 min-w-12 bg-slate-500 mq450:text-xs text-sm"
           onClick={() => handledoctors(search)}
         >
           Search
