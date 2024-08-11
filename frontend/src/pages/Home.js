@@ -23,6 +23,12 @@ const Home = () => {
     {"date":"31 July, 2024","Author":"Maria Marco","Title":"From Waste to Taste: The Transformative Power of Fermented Foods","link":"https://www.news-medical.net/news/20240731/From-Waste-to-Taste-The-Transformative-Power-of-Fermented-Foods.aspx","views":"271","image":"https://d2jx2rerrg6sh3.cloudfront.net/images/news/InterviewImageForNews_779662_17183797403028751.jpg"}
   ]
 
+  const doctor = [
+    {"name":"Dr. Devi Shetty","department":"Cardiac Surgeon","image":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSkPd_ReB1XXczMHebbG3LHybSfEvqpNzpbKXoy5wpssRtm6qWe","link":"https://en.wikipedia.org/wiki/Devi_Shetty", "linkedin":"https://in.linkedin.com/in/dr-devi-shetty-9a323ba8","facebook":"https://www.facebook.com/groups/107408922973981/"},
+    {"name":"Dr. Sandeep Vaishya","department":"Neurosurgeon","image":"https://lh3.googleusercontent.com/p/AF1QipO2HtseueH7VHApq_aVhAdFQASMcJcmCiaD6n-h=s1360-w1360-h1020","link":"https://www.practo.com/delhi/doctor/dr-sandeep-vaishya-neurologist","linkedin":"https://in.linkedin.com/in/sandeep-vaishya-5416828","facebook":"https://www.facebook.com/sandeep.vaishya.399/"},
+    {"name":"Dr. Nidhi Rawal","department":"Paediatric","image":"https://cdn3.rainbowhospitals.in/user/doctor/large_images/jksnIQTLqudKp2cYgu0Zh74dhzt1devafAgu2ohj.jpg","link":"https://www.practo.com/gurgaon/doctor/nidhi-rawal-gastroenterologist","linkedin":"https://in.linkedin.com/in/nidhi-rawal-2657b96","facebook":"https://www.facebook.com/p/Dr-Nidhi-Rawal-Pedatric-Gastroenterologist-100063680122039/"}
+  ]
+
   const onMeddicalTextClick = useCallback(() => {
     navigate("/");
   }, [navigate]);
@@ -74,9 +80,9 @@ const Home = () => {
               </div>
             </div>
             <div className="self-stretch grid flex-row items-start justify-start gap-[1.281rem] grid-cols-[repeat(3,_minmax(238px,_1fr))] mq450:grid-cols-[minmax(238px,_1fr)] mq1050:justify-center mq1050:grid-cols-[repeat(2,_minmax(238px,_412px))]">
-              <DoctorsCard rectangle20="/rectangle-20@2x.png" />
-              <DoctorsCard rectangle20="/rectangle-20-1@2x.png" />
-              <DoctorsCard rectangle20="/rectangle-20-2@2x.png" />
+              <DoctorsCard doctor={doctor[0]} />
+              <DoctorsCard doctor={doctor[1]} />
+              <DoctorsCard doctor={doctor[2]} />
             </div>
           </div>
           <div className="self-stretch flex flex-row items-start justify-center py-[0rem] px-[1.25rem]">
@@ -114,13 +120,6 @@ const Home = () => {
                 <SmallNews news = {News[3]}/>
               </div>
             </div>
-            {/* <div className="self-stretch flex flex-row items-start justify-center py-[0rem] px-[1.25rem]">
-              <div className="flex flex-row items-start justify-start gap-[0.625rem] z-[1]">
-                <div className="h-[1.125rem] w-[1.125rem] relative rounded-31xl bg-lightsteelblue-100" />
-                <div className="h-[1.125rem] w-[1.125rem] relative rounded-31xl bg-primary" />
-                <div className="h-[1.125rem] w-[1.125rem] relative rounded-31xl bg-lightsteelblue-100" />
-              </div>
-            </div> */}
           </div>
         </div>
       </section>

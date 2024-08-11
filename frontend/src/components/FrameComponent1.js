@@ -27,10 +27,7 @@ const FrameComponent1 = () => {
                 </div>
               </div>
               <div className="self-stretch relative text-[1rem] leading-[140%] text-black">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                placerat scelerisque tortor ornare ornare. Convallis felis vitae
-                tortor augue. Velit nascetur proin massa in. Consequat faucibus
-                porttitor enim et.
+              Welcome to our hospital, where your health and well-being are our top priorities. We are here to provide you with compassionate care and exceptional medical services.
               </div>
             </div>
             <div className="w-[39.113rem] flex flex-row items-start justify-center py-[0rem] px-[1.25rem] box-border max-w-full text-left text-[1rem]">

@@ -17,10 +17,7 @@ const FrameComponent4 = () => {
             src="/vector-12.svg"
           />
           <div className="self-stretch relative leading-[140%] mq450:text-[1.125rem] mq450:leading-[1.563rem]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-            placerat scelerisque tortor ornare ornare. Quisque placerat
-            scelerisque felis vitae tortor augue. Velit nascetur Consequat
-            faucibus porttitor enim et.
+          As your dedicated doctors, we are committed to guiding you through your health journey with expertise and compassion. Trust us to provide personalized care, address your concerns, and work together to achieve the best possible outcomes for your well-being.
           </div>
           <div className="self-stretch flex flex-row items-start justify-center py-[0rem] px-[1.25rem]">
             <img
@@ -32,7 +29,7 @@ const FrameComponent4 = () => {
           </div>
           <div className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[0.687rem]">
             <div className="relative leading-[1.938rem] inline-block min-w-[6.375rem] mq450:text-[1.125rem] mq450:leading-[1.563rem]">
-              John Doe
+              Doctors
             </div>
           </div>
           <div className="self-stretch flex flex-row items-start justify-center py-[0rem] px-[1.25rem]">

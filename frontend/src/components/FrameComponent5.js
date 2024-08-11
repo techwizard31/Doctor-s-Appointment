@@ -1,6 +1,6 @@
 const FrameComponent5 = () => {
   return (
-    <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-left text-[1.125rem] text-black1 font-body mq750:pb-[2.625rem] mq750:box-border">
+    <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[3rem] box-border max-w-full text-left text-[1.125rem] text-black1 font-body mq750:pb-[2.625rem] mq750:box-border">
       <div className="w-[62rem] flex flex-row items-start justify-start gap-[1.25rem] max-w-full mq1025:flex-wrap">
         <img
           className="w-[25.5rem] relative max-h-full object-cover max-w-full mq1025:flex-1"
@@ -25,6 +25,7 @@ const FrameComponent5 = () => {
                     className="cursor-pointer m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary"
                     type="radio"
                     name="radioGroup-1"
+                    disabled={true}
                   />
                 </div>
                 <div className="relative leading-[140%]">
@@ -47,6 +48,7 @@ const FrameComponent5 = () => {
                     className="cursor-pointer m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary"
                     type="radio"
                     name="radioGroup-1"
+                    disabled={true}
                   />
                 </div>
                 <div className="relative leading-[140%] inline-block min-w-[6.438rem]">
@@ -69,6 +71,7 @@ const FrameComponent5 = () => {
                     className="cursor-pointer m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary"
                     type="radio"
                     name="radioGroup-1"
+                    disabled={true}
                   />
                 </div>
                 <div className="relative leading-[140%] inline-block min-w-[7.688rem]">
@@ -87,16 +90,10 @@ const FrameComponent5 = () => {
           </div>
           <div className="self-stretch flex flex-col items-start justify-start gap-[1rem] text-[1rem]">
             <div className="self-stretch relative leading-[140%]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              placerat scelerisque tortor ornare ornare. Quisque placerat
-              scelerisque tortor ornare ornare Convallis felis vitae tortor
-              augue. Velit nascetur proin massa in. Consequat faucibus porttitor
-              enim et.
+            Our hospital is committed to providing exceptional healthcare to the community. We offer complimentary health checkups for early illness detection and prevention, advanced cardiogram services for accurate heart monitoring, and DNA testing for personalized care. Additionally, our well-equipped blood bank ensures safe and reliable blood transfusions for emergencies, guaranteeing that our patients receive the best possible treatment in critical situations.
             </div>
             <div className="self-stretch relative leading-[140%]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              placerat scelerisque. Convallis felis vitae tortor augue. Velit
-              nascetur proin massa in.
+            Beyond these services, our hospital emphasizes compassionate care and patient-centered approaches. We strive to create a welcoming and supportive environment where every individual feels valued and cared for, reflecting our unwavering commitment to improving the quality of life for all.
             </div>
           </div>
         </div>

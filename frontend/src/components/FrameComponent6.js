@@ -37,42 +37,6 @@ const FrameComponent6 = ({
           >
             {homeAbout}
           </div>
-          <div className="w-[0rem] h-[0rem] relative hidden text-[1rem] text-black1">
-            <div className="absolute w-[0rem] h-[0rem]">
-              <div className="absolute leading-[140%]">By Author</div>
-              <img
-                className="absolute w-[0rem] h-[0rem]"
-                alt=""
-                src="/group-210.svg"
-              />
-            </div>
-            <div className="absolute w-[0rem] h-[0rem]">
-              <div className="absolute leading-[140%]">
-                Monday 05, September 2021
-              </div>
-              <img
-                className="absolute w-[0rem] h-[0rem]"
-                alt=""
-                src="/group-209.svg"
-              />
-            </div>
-            <div className="absolute w-[0rem] h-[0rem]">
-              <div className="absolute leading-[140%]">68</div>
-              <img
-                className="absolute w-[0rem] h-[0rem]"
-                alt=""
-                src="/group-198.svg"
-              />
-            </div>
-            <div className="absolute w-[0rem] h-[0rem]">
-              <div className="absolute leading-[140%]">86</div>
-              <img
-                className="absolute w-[1rem] h-[0.888rem]"
-                alt=""
-                src="/vector.svg"
-              />
-            </div>
-          </div>
           <div className="h-[3.188rem] flex flex-row items-start justify-start pt-[0rem] px-[0rem] pb-[0rem] box-border text-[3rem] font-display-2">
             <h1 className="mt-[-0.25rem] m-0 relative text-inherit font-normal font-inherit shrink-0 [debug_commit:1de1738] mq450:text-[1.813rem] mq1025:text-[2.375rem]">
               {aboutUs}

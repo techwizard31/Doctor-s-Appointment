@@ -108,6 +108,7 @@ const FrameComponent = () => {
                           className="cursor-pointer m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary z-[1]"
                           type="radio"
                           name="radioGroup-1"
+                          disabled={true}
                         />
                       </div>
                       <div className="relative leading-[140%] z-[1]">
@@ -120,6 +121,7 @@ const FrameComponent = () => {
                           className="cursor-pointer m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary z-[1]"
                           type="radio"
                           name="radioGroup-2"
+                          disabled={true}
                         />
                       </div>
                       <div className="relative leading-[140%] inline-block min-w-[6.375rem] z-[1]">
@@ -134,6 +136,7 @@ const FrameComponent = () => {
                           className="cursor-pointer m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary z-[1]"
                           type="radio"
                           name="radioGroup-1"
+                          disabled={true}
                         />
                       </div>
                       <div className="relative leading-[140%] inline-block min-w-[6.438rem] z-[1]">
@@ -146,6 +149,7 @@ const FrameComponent = () => {
                           className="cursor-pointer m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary z-[1]"
                           type="radio"
                           name="radioGroup-2"
+                          disabled={true}
                         />
                       </div>
                       <div className="relative leading-[140%] inline-block min-w-[7.125rem] z-[1]">
@@ -161,6 +165,7 @@ const FrameComponent = () => {
                         className="cursor-pointer m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary z-[1]"
                         type="radio"
                         name="radioGroup-1"
+                        disabled={true}
                       />
                     </div>
                     <div className="relative leading-[140%] z-[1]">
@@ -173,6 +178,7 @@ const FrameComponent = () => {
                         className="cursor-pointer m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary z-[1]"
                         type="radio"
                         name="radioGroup-2"
+                        disabled={true}
                       />
                     </div>
                     <div className="relative leading-[140%] inline-block min-w-[7.688rem] z-[1]">
@@ -183,16 +189,10 @@ const FrameComponent = () => {
               </div>
               <div className="self-stretch flex flex-col items-start justify-start gap-[1rem] text-[1rem] text-black">
                 <div className="self-stretch relative leading-[140%] z-[1]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Quisque placerat scelerisque tortor ornare ornare. Quisque
-                  placerat scelerisque tortor ornare ornare Convallis felis
-                  vitae tortor augue. Velit nascetur proin massa in. Consequat
-                  faucibus porttitor enim et.
+                Our hospital is committed to providing exceptional healthcare to the community. We offer complimentary health checkups for early illness detection and prevention, advanced cardiogram services for accurate heart monitoring, and DNA testing for personalized care. Additionally, our well-equipped blood bank ensures safe and reliable blood transfusions for emergencies, guaranteeing that our patients receive the best possible treatment in critical situations.
                 </div>
                 <div className="self-stretch relative leading-[140%] z-[1]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Quisque placerat scelerisque. Convallis felis vitae tortor
-                  augue. Velit nascetur proin massa in.
+                Beyond these services, our hospital emphasizes compassionate care and patient-centered approaches. We strive to create a welcoming and supportive environment where every individual feels valued and cared for, reflecting our unwavering commitment to improving the quality of life for all.
                 </div>
               </div>
             </div>
