@@ -5,6 +5,10 @@ import NewsSection from "../components/NewsSection";
 import Footer2 from "../components/Footer2";
 import { useState } from "react";
 import { toast, Slide } from "react-toastify";
+import GroupComponent3 from "../components/GroupComponent3";
+import GroupComponent1 from "../components/GroupComponent1";
+import GroupComponent2 from "../components/GroupComponent2";
+import GroupComponent from "../components/GroupComponent";
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -480,25 +484,20 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-left text-[1.125rem] text-secondary font-body mq1100:pb-[2.625rem] mq1100:box-border mq750:pb-[1.688rem] mq750:box-border">
-        <div className="w-[62rem] flex flex-col items-start justify-start gap-[4rem] max-w-full mq750:gap-[1rem] mq1025:gap-[2rem]">
-          <img
-            className="self-stretch h-[28.125rem] relative max-w-full overflow-hidden shrink-0 object-cover"
-            loading="lazy"
-            alt=""
-            src="/mapview@2x.png"
-          />
-          <div className="self-stretch flex flex-row flex-wrap items-start justify-start gap-[1.25rem] max-w-full">
-            <div className="flex-1 flex flex-col items-start justify-start gap-[2rem] min-w-[19.75rem] max-w-full mq750:gap-[1rem]">
+      <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-left text-[1.125rem] text-secondary font-body mq1100:pb-[2.625rem] mq1100:box-border mq750:pb-[1.688rem] mq750:box-border mq1100:px-4 mq1025:px-2">
+        <div className="w-[90%] mq1050:w-full flex flex-col items-start justify-start gap-[4rem] max-w-full mq750:gap-[1rem] mq1025:gap-[2rem]">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.2536092797986!2d85.8388752746941!3d20.2483142141271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a731afd1734d%3A0xc503db3a9d1d0a54!2sShree%20Hospitals!5e0!3m2!1sen!2sin!4v1723378430377!5m2!1sen!2sin" width="100%" height="450" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div className="self-stretch flex flex-row flex-wrap items-start justify-start gap-[1.25rem] max-w-full mq1025:gap-3">
+            <div className="flex-1 flex flex-col items-center justify-center gap-[2rem] lg:min-w-[390px] max-w-full mq750:gap-[1rem] min-w-[550px] mq450:min-w-[310px]">
               <div className="flex flex-col items-start justify-start gap-[0.5rem]">
                 <b className="relative tracking-[0.16em] uppercase">
                   Get in touch
                 </b>
-                <h1 className="m-0 relative text-[2rem] font-normal font-display-2 text-primary text-center inline-block min-w-[7.938rem] mq450:text-[1.188rem] mq1025:text-[1.625rem]">
+                <h1 className="m-0 relative text-[2rem] font-normal font-display-2 text-primary text-center inline-block min-w-[7.938rem] mq450:text-[1.188rem] mq1025:text-[1.625rem] pl-4">
                   Contact
                 </h1>
               </div>
-              <div className="self-stretch rounded-8xs bg-lightsteelblue-100 flex flex-col items-start justify-start gap-[0.062rem] max-w-full">
+              <div className="self-stretch rounded-8xs bg-lightsteelblue-100 flex flex-col items-start justify-start gap-[0.062rem] max-w-[620px] mx-auto">
                 <div className="self-stretch h-[24.25rem] relative rounded-8xs bg-lightsteelblue-100 hidden" />
                 <div className="self-stretch flex flex-row items-start justify-start gap-[0.062rem] mq450:flex-wrap">
                   <input
@@ -544,97 +543,14 @@ const Contact = () => {
                 </button>
               </div>
             </div>
-            <div className="flex-1 flex flex-row items-start justify-start gap-[1.25rem] min-w-[19.75rem] max-w-full text-primary mq450:flex-wrap">
-              <div className="flex-1 flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem]">
-                <div className="self-stretch rounded-8xs bg-lightsteelblue-100 flex flex-col items-start justify-start pt-[6.562rem] px-[1.875rem] pb-[3.125rem] relative gap-[0.5rem]">
-                  <div className="w-[14.563rem] h-[14.563rem] relative rounded-8xs bg-lightsteelblue-100 hidden z-[0]" />
-                  <img
-                    className="w-[2.513rem] h-[2.388rem] absolute !m-[0] top-[3.25rem] left-[1.625rem] z-[1]"
-                    alt=""
-                    src="/group-188-2.svg"
-                  />
-                  <b className="relative uppercase inline-block min-w-[7.063rem] z-[1]">
-                    Emergency
-                  </b>
-                  <div className="flex flex-col items-start justify-start gap-[0.312rem] text-[1rem]">
-                    <div className="relative leading-[140%] z-[1]">
-                      7440086922
-                    </div>
-                    <a
-                      className="relative leading-[140%] text-[inherit] [text-decoration:none] z-[1]"
-                      href="mailto:fildineesoe@gmail.com"
-                      target="_blank"
-                    >
-                      7440086922
-                    </a>
-                  </div>
-                </div>
-                <div className="self-stretch rounded-8xs bg-lightsteelblue-100 flex flex-col items-start justify-start pt-[3.562rem] pb-[3.5rem] pr-[1.375rem] pl-[1.875rem] gap-[1.156rem]">
-                  <div className="w-[14.563rem] h-[14.563rem] relative rounded-8xs bg-lightsteelblue-100 hidden" />
-                  <img
-                    className="w-[2.213rem] h-[1.844rem] relative z-[1]"
-                    loading="lazy"
-                    alt=""
-                    src="/group-202.svg"
-                  />
-                  <div className="self-stretch flex flex-col items-start justify-start gap-[0.5rem]">
-                    <b className="relative uppercase inline-block min-w-[3.563rem] z-[1]">
-                      Email
-                    </b>
-                    <div className="flex flex-col items-start justify-start gap-[0.312rem] text-[1rem]">
-                      <div className="relative leading-[140%] whitespace-nowrap z-[1]">
-                        sanket@gmail.com
-                      </div>
-                      <div className="relative text-[0.875rem] whitespace-nowrap z-[1]">
-                        istaprasad.patra@gmail.com
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div className="flex-1 flex flex-row items-center justify-center gap-[1.25rem] min-w-[470px] max-w-full text-primary mq750:flex-wrap mq1125:gap-2">
+              <div className="flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem] mq1125:gap-2 mq750:flex-wrap mq450:mx-auto">
+                  <GroupComponent3 />
+                  <GroupComponent1 />
               </div>
-              <div className="flex-1 flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem] text-lightsteelblue-100">
-                <div className="self-stretch rounded-8xs bg-primary flex flex-col items-start justify-start pt-[5.35rem] px-[1.875rem] pb-[2.125rem] relative gap-[0.5rem]">
-                  <div className="w-[14.563rem] h-[14.563rem] relative rounded-8xs bg-primary hidden z-[0]" />
-                  <img
-                    className="w-[1.875rem] h-[2.25rem] absolute !m-[0] top-[3.313rem] left-[1.938rem] z-[1]"
-                    alt=""
-                    src="/group-178-11.svg"
-                  />
-                  <b className="relative uppercase inline-block min-w-[5.688rem] z-[1] mt-4">
-                    Location
-                  </b>
-                  <div className="flex flex-col items-start justify-start gap-[0.212rem] text-[1rem]">
-                    <div className="relative leading-[140%] z-[1]">
-                      Old Town,Bhubaneswar
-                    </div>
-                    <a
-                      className="relative leading-[140%] text-[inherit] [text-decoration:none] z-[1]"
-                      href="mailto:fildineesoe@gmail.com"
-                      target="_blank"
-                    >
-                      India
-                    </a>
-                  </div>
-                </div>
-                <div className="self-stretch rounded-8xs bg-lightsteelblue-100 flex flex-col items-start justify-start pt-[3.5rem] pb-[1.625rem] pr-[1.125rem] pl-[1.875rem] gap-[1.187rem] text-primary">
-                  <div className="w-[14.563rem] h-[14.563rem] relative rounded-8xs bg-lightsteelblue-100 hidden" />
-                  <img
-                    className="w-[1.875rem] h-[1.875rem] relative z-[1]"
-                    alt=""
-                    src="/group-177-1.svg"
-                  />
-                  <div className="self-stretch flex flex-col items-start justify-start gap-[0.5rem]">
-                    <b className="relative uppercase z-[1]">Working Hours</b>
-                    <div className="flex flex-col items-start justify-start gap-[0.312rem] text-[1rem]">
-                      <div className="relative leading-[140%] whitespace-nowrap z-[1]">
-                        Mon-Sat 09:00-20:00
-                      </div>
-                      <div className="relative leading-[140%] z-[1]">
-                        Sunday Emergency only
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem] text-lightsteelblue-100 mq1125:gap-2 mq750:flex-wrap mq450:mx-auto">
+                <GroupComponent2 />
+                <GroupComponent />
               </div>
             </div>
           </div>
