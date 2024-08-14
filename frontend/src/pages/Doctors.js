@@ -114,13 +114,13 @@ const Doctors = () => {
           )}
           <div className="self-stretch flex flex-row justify-start gap-8 mq750:flex-wrap sm:gap-4 mq450:hidden ">
             <div
-              className="relative inline-block cursor-pointer"
+              className="relative inline-block cursor-pointer hover:text-secondary"
               onClick={onHomeTextClick}
             >
               Home
             </div>
             <div
-              className="relative inline-block cursor-pointer"
+              className="relative inline-block cursor-pointer hover:text-secondary"
               onClick={onAboutUsTextClick}
             >
               About
@@ -132,13 +132,13 @@ const Doctors = () => {
               Doctors
             </div>
             <div
-              className="relative inline-block cursor-pointer"
+              className="relative inline-block cursor-pointer hover:text-secondary"
               onClick={onNewsTextClick}
             >
               MyInfo
             </div>
             <div
-              className="relative inline-block cursor-pointer sm:hidden"
+              className="relative inline-block cursor-pointer sm:hidden hover:text-secondary"
               onClick={onContactTextClick}
             >
               Contact
@@ -305,7 +305,7 @@ const Doctors = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-1 flex flex-row items-start justify-start pt-[3.5rem] pb-[1.825rem] pr-[1.125rem] pl-[1.875rem] box-border relative min-w-[11.563rem] max-w-[14.563rem]">
+            <div className="flex-1 flex flex-row items-start justify-start pt-[3.5rem] pb-[3.1rem] pr-[1.125rem] pl-[1.875rem] box-border relative min-w-[11.563rem] max-w-[14.563rem]">
               <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-8xs bg-lightsteelblue-100" />
               <div className="flex-1 flex flex-col items-start justify-start gap-[1.187rem] z-[1]">
                 <img

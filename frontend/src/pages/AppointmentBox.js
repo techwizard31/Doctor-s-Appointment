@@ -256,49 +256,87 @@ function AppointmentBox() {
   return (
     <div className="w-full relative bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal] text-center text-[1rem] text-black1 font-body">
       <Topmost1 />
-      <section className="self-stretch bg-primary flex flex-row items-start justify-between pt-[1.062rem] px-[11.625rem] pb-[1.125rem] box-border max-w-full gap-[1.25rem] text-left text-[1.125rem] text-white font-body lg:flex-wrap lg:justify-center mq450:pl-[1.25rem] mq450:pr-[1.25rem] mq450:box-border mq750:pl-[5.813rem] mq750:pr-[5.813rem] mq750:box-border">
-        <div className="w-[30.938rem] flex flex-col items-start justify-start pt-[0.75rem] px-[0rem] pb-[0rem] box-border max-w-full">
-          <div className="self-stretch flex flex-row items-start justify-start gap-[1.25rem] mq750:flex-wrap">
+      <section className="self-stretch bg-primary flex flex-row items-start justify-between pt-[0.662rem] px-[11.625rem] pb-[0.825rem] box-border max-w-full gap-[1.25rem] z-[6] lg:px-10 lg:justify-center mq450:pl-[1.25rem] mq450:pr-[1rem] mq450:box-border mq750:pl-[1rem] mq750:pr-[1rem] mq750:box-border sm:pt-2 text-white text-[1.125rem] font-body">
+        <div className="w-full flex flex-col items-start justify-start pt-[0.35rem] px-[0rem] pb-[0rem] box-border">
+          <div
+            className="mq450:flex mq450:mr-auto mq450:w-8 mq450:flex-col gap-1 mq450:mt-2 h-fit cursor-pointer pt-1"
+            onClick={() => setOpen(!open)}
+          >
             <div
-              className="relative inline-block min-w-[3.25rem] cursor-pointer"
-              onClick={() => {
-                navigate("/");
-              }}
+              className={`h-[3px] bg-lightsteelblue-100 ${
+                open ? "rotate-45" : ""
+              }`}
+            ></div>
+            <div
+              className={`h-[3px] bg-lightsteelblue-100 ${
+                open ? "-rotate-45 -translate-y-1.5" : ""
+              }`}
+            ></div>
+          </div>
+          {open && (
+            <div className="absolute bg-lightsteelblue-100 shadow-lg rounded-lg mt-8 z-10">
+              <ul className="list-none px-2">
+                <li
+                  className="p-1 cursor-pointer hover:text-primary"
+                  onClick={onHomeTextClick}
+                >
+                  Home
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer"
+                  onClick={onAboutUsTextClick}
+                >
+                  About
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer"
+                  onClick={onDoctorsTextClick}
+                >
+                  Doctors
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer"
+                  onClick={onNewsTextClick}
+                >
+                  MyInfo
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer"
+                  onClick={onContactTextClick}
+                >
+                  Contact
+                </li>
+              </ul>
+            </div>
+          )}
+          <div className="self-stretch flex flex-row justify-start gap-8 mq750:flex-wrap sm:gap-4 mq450:hidden">
+            <div
+              className="relative inline-block cursor-pointer hover:text-secondary"
+              onClick={onHomeTextClick}
             >
               Home
             </div>
             <div
-              className="flex-1 relative inline-block min-w-[3.25rem] cursor-pointer"
-              onClick={() => {
-                navigate("/about-us");
-              }}
+              className="relative inline-block cursor-pointer hover:text-secondary"
+              onClick={onAboutUsTextClick}
             >
-              About us
-            </div>
-            <div className="flex-1 relative inline-block min-w-[3rem] cursor-pointer">
-              Services
+              About
             </div>
             <div
-              className="flex-1 relative inline-block min-w-[2.813rem] cursor-pointer"
-              onClick={() => {
-                navigate("/doctors");
-              }}
+              className="relative inline-block cursor-pointer hover:text-secondary"
+              onClick={onDoctorsTextClick}
             >
               Doctors
             </div>
             <div
-              className="relative inline-block min-w-[3.063rem] cursor-pointer"
-              onClick={() => {
-                navigate("/myinfo");
-              }}
+              className="relative inline-block cursor-pointer hover:text-secondary"
+              onClick={onNewsTextClick}
             >
               MyInfo
             </div>
             <div
-              className="flex-1 relative inline-block min-w-[2.813rem] cursor-pointer"
-              onClick={() => {
-                navigate("/contact");
-              }}
+              className="relative inline-block cursor-pointer sm:hidden hover:text-secondary"
+              onClick={onContactTextClick}
             >
               Contact
             </div>

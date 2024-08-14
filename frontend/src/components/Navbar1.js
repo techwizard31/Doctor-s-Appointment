@@ -95,31 +95,31 @@ const Navbar1 = () => {
       )}
       <div className="self-stretch flex flex-row justify-start gap-8 mq750:flex-wrap sm:gap-4 mq450:hidden ">
         <div
-          className="relative font-semibold inline-block cursor-pointer"
+          className="relative hover:text-secondary inline-block cursor-pointer"
           onClick={onHomeTextClick}
         >
           Home
         </div>
         <div
-          className="relative inline-block cursor-pointer"
+          className="relative inline-block cursor-pointer hover:text-secondary"
           onClick={onAboutUsTextClick}
         >
           About
         </div>
         <div
-          className="relative inline-block cursor-pointer"
+          className="relative inline-block cursor-pointer hover:text-secondary"
           onClick={onDoctorsTextClick}
         >
           Doctors
         </div>
         <div
-          className="relative inline-block cursor-pointer text-lightsteelblue-100"
+          className="relative inline-block cursor-pointer text-lightsteelblue-100 font-semibold"
           onClick={onNewsTextClick}
         >
           MyInfo
         </div>
         <div
-          className="relative inline-block cursor-pointer sm:hidden"
+          className="relative inline-block cursor-pointer sm:hidden hover:text-secondary"
           onClick={onContactTextClick}
         >
           Contact

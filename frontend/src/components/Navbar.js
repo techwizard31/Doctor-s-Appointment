@@ -94,7 +94,7 @@ const Navbar = () => {
           )}
           <div className="self-stretch flex flex-row justify-start gap-8 mq750:flex-wrap sm:gap-4 mq450:hidden ">
             <div
-              className="relative inline-block cursor-pointer"
+              className="relative inline-block cursor-pointer hover:text-secondary"
               onClick={onHomeTextClick}
             >
               Home
@@ -106,19 +106,19 @@ const Navbar = () => {
               About
             </div>
             <div
-              className="relative inline-block cursor-pointer"
+              className="relative inline-block cursor-pointer hover:text-secondary"
               onClick={onDoctorsTextClick}
             >
               Doctors
             </div>
             <div
-              className="relative inline-block cursor-pointer"
+              className="relative inline-block cursor-pointer hover:text-secondary"
               onClick={onNewsTextClick}
             >
               MyInfo
             </div>
             <div
-              className="relative inline-block cursor-pointer sm:hidden"
+              className="relative inline-block cursor-pointer sm:hidden hover:text-secondary"
               onClick={onContactTextClick}
             >
               Contact
