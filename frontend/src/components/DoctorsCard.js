@@ -1,8 +1,8 @@
 const DoctorsCard = ({ doctor }) => {
   return (
-    <div className="h-[33.625rem] flex flex-col items-start justify-start text-left text-[1.125rem] text-primary font-body min-w-[310px]">
+    <div className="h-[33.625rem] flex flex-col items-start justify-start text-left text-[1.125rem] text-primary font-body min-w-[310px] mq450:w-[305px] max-w-[400px]">
       <img
-        className="self-stretch flex-1 relative rounded-t-8xs rounded-b-none max-w-full overflow-hidden max-h-full object-cover"
+        className="self-stretch flex-1 relative rounded-t-8xs rounded-b-none overflow-hidden max-h-full object-cover max-w-full"
         loading="lazy"
         alt=""
         src={doctor.image}

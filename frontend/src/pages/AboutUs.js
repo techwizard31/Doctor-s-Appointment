@@ -65,7 +65,7 @@ const AboutUs = () => {
       <FrameComponent6 homeAbout="Home / About" aboutUs="About us" />
       <FrameComponent5 />
       <FrameComponent4 />
-      <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-center text-[1.125rem] text-secondary font-body mq450:pb-[1.688rem] mq450:box-border mq1025:pb-[2.625rem] mq1025:box-border">
+      <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-center text-[1.125rem] text-secondary font-body mq450:pb-[1.688rem] mq450:box-border mq1025:pb-[2.625rem] mq1025:box-border mq450:px-1">
         <div className="w-[62rem] flex flex-col items-start justify-start gap-[2rem] max-w-full mq750:gap-[1rem]">
           <div className="self-stretch flex flex-col items-start justify-start gap-[4rem] mq1025:gap-[2rem] mq750:gap-[1rem]">
             <div className="self-stretch flex flex-row items-start justify-center py-[0rem] pr-[1.312rem] pl-[1.25rem]">
@@ -80,8 +80,8 @@ const AboutUs = () => {
                 </h2>
               </div>
             </div>
-            <div className="flex flex-row mx-auto px-4 gap-4 items-center justify-center flex-wrap">
-            <DoctorsCard doctor={doctor[0]} />
+            <div className="flex mq1050:flex-wrap mx-auto px-4 gap-4 items-center justify-center mq450:px-0">
+              <DoctorsCard doctor={doctor[0]} />
               <DoctorsCard doctor={doctor[1]} />
               <DoctorsCard doctor={doctor[2]} />
             </div>

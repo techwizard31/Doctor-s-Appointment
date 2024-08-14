@@ -75,7 +75,7 @@ const Home = () => {
                 </h1>
               </div>
             </div>
-            <div className="self-stretch grid flex-row items-start justify-start gap-[1.281rem] grid-cols-[repeat(3,_minmax(238px,_1fr))] mq450:grid-cols-[minmax(238px,_1fr)] mq1050:justify-center mq1050:grid-cols-[repeat(2,_minmax(238px,_412px))]">
+            <div className="flex mq1050:flex-wrap mx-auto px-4 gap-4 items-center justify-center mq450:px-0">
               <DoctorsCard doctor={doctor[0]} />
               <DoctorsCard doctor={doctor[1]} />
               <DoctorsCard doctor={doctor[2]} />
