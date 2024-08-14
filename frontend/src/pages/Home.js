@@ -81,13 +81,6 @@ const Home = () => {
               <DoctorsCard doctor={doctor[2]} />
             </div>
           </div>
-          <div className="self-stretch flex flex-row items-start justify-center py-[0rem] px-[1.25rem]">
-            <div className="flex flex-row items-start justify-start gap-[0.625rem]">
-              <div className="h-[1.125rem] w-[1.125rem] relative rounded-31xl bg-lightsteelblue-100" />
-              <div className="h-[1.125rem] w-[1.125rem] relative rounded-31xl bg-primary" />
-              <div className="h-[1.125rem] w-[1.125rem] relative rounded-31xl bg-lightsteelblue-100" />
-            </div>
-          </div>
         </div>
       </section>
       <section className="self-stretch flex flex-row items-start justify-start pt-[0rem] px-[0rem] pb-[4rem] box-border max-w-full text-center text-[1.125rem] text-secondary font-body mq750:pb-[2.625rem] mq750:box-border">

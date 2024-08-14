@@ -90,10 +90,10 @@ function Familymember({ open, onClose, change }) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center w-screen h-screen bg-black bg-opacity-50 z-50">
-      <div className="flex flex-col w-1/2 h-fit bg-slate-200 items-center justify-start rounded scroll-m-0 scroll">
+      <div className="flex flex-col w-1/2 h-fit bg-slate-200 items-center justify-start rounded scroll-m-0 scroll mq750:w-2/3 mq450:w-[90%]">
         <div className="flex flex-row justify-between w-full">
           <div className="flex-grow text-center pl-6">
-            <h1 className="text-primary">Personal Details</h1>
+            <h1 className="text-primary mq750:text-3xl">Personal Details</h1>
           </div>
           <span
             className="material-symbols-outlined scale-125 mt-1 mr-1 cursor-pointer h-fit hover:bg-red-800 bg-transparent transition-transform duration-500 w-fit"
@@ -111,7 +111,7 @@ function Familymember({ open, onClose, change }) {
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="bg-slate-100 w-3/5 h-8 px-2 rounded"
+            className="bg-slate-100 w-3/5 h-8 px-2 rounded mq750:w-2/3"
           />
         </div>
         <div className="flex flex-col w-full mx-auto items-center">
@@ -122,7 +122,7 @@ function Familymember({ open, onClose, change }) {
             id="date"
             selected={dob}
             onChange={(date) => setDob(date)}
-            className="ml-10 py-2 block border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary focus:outline-none"
+            className="ml-10 py-2 block border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary focus:outline-none xl:ml-8 lg:ml-4 mq1100:ml-0 mq1025:-translate-x-4 mq750:-translate-x-7"
             dateFormat="MM/dd/yyyy"
             showYearDropdown
             showMonthDropdown
@@ -139,7 +139,7 @@ function Familymember({ open, onClose, change }) {
             placeholder="phonenumber"
             value={number}
             onChange={(e) => setNumber(e.target.value)}
-            className="bg-slate-100 w-2/5 h-8 px-2 rounded"
+            className="bg-slate-100 w-2/5 h-8 px-2 rounded mq750:w-3/5 mq1050:w-1/2"
           />
         </div>
         <div className="flex flex-col justify-start w-full mx-auto items-center">
@@ -147,7 +147,7 @@ function Familymember({ open, onClose, change }) {
             Sex:
           </p>
           <select
-            className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 disabled:opacity-50 w-1/5"
+            className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 disabled:opacity-50 w-1/5 mq1050:w-2/5"
             id="sex"
             value={sex}
             onChange={(e) => {
@@ -161,7 +161,7 @@ function Familymember({ open, onClose, change }) {
           </select>
         </div>
         <button
-          className="w-1/3 bg-secondary text-white mx-auto h-8 my-8 rounded text-center font-bold hover:bg-white hover:text-secondary hover:transition-colors cursor-pointer text-base"
+          className="w-1/3 bg-secondary text-white mx-auto h-8 my-8 rounded text-center font-bold hover:bg-white hover:text-secondary hover:transition-colors cursor-pointer text-base mq750:w-1/2"
           onClick={() => addmembers()}
         >
           Save
