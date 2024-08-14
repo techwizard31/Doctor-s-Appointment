@@ -242,7 +242,7 @@ function Userinfo() {
       />
       <Navbar1 />
       <div className="container mx-auto mt-4">
-        <div className="flex flex-row justify-between px-4 bg-slate-300">
+        <div className="flex flex-row justify-between px-4 bg-slate-300 mq450:flex-col mq450:items-center">
           <h1
             className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer"
             onClick={() => navigate("/myinfo")}
@@ -255,7 +255,7 @@ function Userinfo() {
         </div>
         <div className="flex flex-col bg-slate-200 w-full h-fit items-center">
           <div className="flex flex-col w-4/5">
-            <div className="flex flex-col justify-start w-3/5 mx-auto items-center">
+            <div className="flex flex-col justify-start w-3/5 mx-auto items-center mq450:w-4/5">
               <p className="block text-left text-3xl font-bold text-primary ">
                 Occupation:
               </p>
@@ -264,11 +264,11 @@ function Userinfo() {
                 placeholder="Occupation"
                 value={job}
                 onChange={(e) => setJob(e.target.value)}
-                className="bg-slate-100 w-1/2 h-8 px-2 rounded"
+                className="bg-slate-100 w-1/2 h-8 px-2 rounded mq450:w-full"
               />
             </div>
-            <div className="flex flex-row justify-around">
-              <div className="flex flex-col justify-start w-3/5 mx-auto items-center">
+            <div className="flex flex-row justify-around mq450:flex-col">
+              <div className="flex flex-col justify-start w-3/5 mx-auto items-center mq450:w-4/5">
                 <p className="block text-left text-3xl font-bold text-primary">
                   Address:
                 </p>
@@ -280,7 +280,7 @@ function Userinfo() {
                   className="bg-slate-100 w-full h-8 px-2 rounded"
                 />
               </div>
-              <div className="flex flex-col justify-start w-1/5 mx-auto items-center">
+              <div className="flex flex-col justify-start w-1/5 mx-auto items-center mq450:w-1/2">
                 <p className="block text-left text-3xl font-bold text-primary">
                   Pincode
                 </p>
@@ -295,7 +295,7 @@ function Userinfo() {
             </div>
             <div className="flex flex-row mt-2">
               <button
-                className="w-1/5 bg-secondary text-white mx-auto h-8 my-4 rounded text-center font-bold hover:bg-white hover:text-secondary hover:transition-colors cursor-pointer"
+                className="w-1/5 bg-secondary text-white mx-auto h-8 my-4 rounded text-center font-bold hover:bg-white hover:text-secondary hover:transition-colors cursor-pointer mq750:w-2/5 mq450:w-1/2"
                 onClick={() => {
                   updatedata();
                 }}
@@ -317,7 +317,7 @@ function Userinfo() {
               return (
                 <div
                   key={family._id}
-                  className="bg-lightsteelblue-100 rounded-lg shadow-md p-2 w-2/3 ps-4 pe-4 pt-0"
+                  className="bg-lightsteelblue-100 rounded-lg shadow-md p-2 w-2/3 ps-4 pe-4 pt-0 mq450:w-[85%]"
                 >
                   <h2 className="text-xl font-semibold text-primary">
                     {family.name}
@@ -343,7 +343,7 @@ function Userinfo() {
             })}
         </div>
         <div
-          className="flex flex-row bg-lightsteelblue-100 rounded-lg shadow-md p-2 w-2/3 items-center justify-center gap-9 mb-6 cursor-pointer hover:scale-110 transition-transform duration-500"
+          className="flex flex-row bg-lightsteelblue-100 rounded-lg shadow-md p-2 w-2/3 items-center justify-center gap-9 mb-6 cursor-pointer hover:scale-110 transition-transform duration-500 mq450:w-[90%]"
           onClick={() => setOpen(true)}
         >
           <span className="material-symbols-outlined scale-[2.0]">

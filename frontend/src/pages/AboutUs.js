@@ -49,10 +49,6 @@ const AboutUs = () => {
     navigate("/doctors");
   }, [navigate]);
 
-  const onServicesText1Click = useCallback(() => {
-    // Please sync "Services" to the project
-  }, []);
-
   const onAboutUsText2Click = useCallback(() => {
     navigate("/about-us");
   }, [navigate]);

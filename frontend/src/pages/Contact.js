@@ -355,7 +355,7 @@ const Contact = () => {
               </div>
             </div>
             <div className="flex-1 flex flex-row items-center justify-center gap-[1.25rem] min-w-[470px] max-w-full text-primary mq750:flex-wrap mq1125:gap-2">
-              <div className="flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem] mq1125:gap-2 mq750:flex-wrap mq450:mx-auto">
+              <div className="flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem] mq1125:gap-2 mq750:flex-wrap ">
                 <div className="flex-[0.9784] flex flex-row items-start justify-start pt-[3.25rem] px-[1.625rem] pb-[3.125rem] box-border relative min-w-[13.5rem]  max-w-[14.563rem] text-left text-[1rem] text-primary font-body mq450:flex-1">
                   <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-8xs bg-lightsteelblue-100 pl-4" />
                   <div className="flex flex-col items-start justify-start gap-[0.925rem] z-[1]">
@@ -381,7 +381,7 @@ const Contact = () => {
                 </div>
                 <GroupComponent1 />
               </div>
-              <div className="flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem] text-lightsteelblue-100 mq1125:gap-2 mq750:flex-wrap mq450:mx-auto">
+              <div className="flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem] text-lightsteelblue-100 mq1125:gap-2 mq750:flex-wrap">
                 <GroupComponent2 />
                 <GroupComponent />
               </div>

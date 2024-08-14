@@ -38,7 +38,7 @@ const GroupComponent3 = ({ propDebugCommit, propDebugCommit1 }) => {
              7440086922 
             </div>
           </div>
-        </div>
+        </div>  
       </div>
     </div>
   );

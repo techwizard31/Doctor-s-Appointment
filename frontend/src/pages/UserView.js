@@ -191,7 +191,7 @@ const UserView = () => {
       />
       <Navbar1 />
       <div className="container mx-auto mt-4">
-      <div className='flex flex-row justify-between mx-4'>
+      <div className='flex flex-row justify-between mq450:flex-col mq450:items-center bg-slate-300 px-4'>
         <h1 className="text-3xl font-semibold mb-4 text-primary underline hover:cursor-pointer">
           Your Appointments
         </h1>
@@ -199,7 +199,7 @@ const UserView = () => {
           Personal Information
         </h1>
         </div>
-        <div className="grid grid-cols-1 gap-4 justify-items-center pb-4">
+        <div className="grid grid-cols-1 gap-4 justify-items-center py-4 bg-slate-200">
           {appointments &&
             appointments.map((appointment) => (
               <div

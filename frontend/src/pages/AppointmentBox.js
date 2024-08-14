@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useCallback } from "react";
 import DatePicker from "react-datepicker";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +22,7 @@ function AppointmentBox() {
   const { doctor } = location.state;
   const navigate = useNavigate();
   dayjs.extend(customParseFormat);
-
+  const [open, setOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [noslots, setNoslots] = useState([]);
   const [booked, setBooked] = useState([]);
@@ -253,6 +253,31 @@ function AppointmentBox() {
     }
   }, [selectedTimeSlot]);
 
+  const onHomeTextClick = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
+
+  const onAboutUsTextClick = useCallback(() => {
+    navigate("/about-us");
+  }, [navigate]);
+
+  const onDoctorsTextClick = useCallback(() => {
+    navigate("/doctors");
+  }, [navigate]);
+
+  const onNewsTextClick = useCallback(() => {
+    const patientJSON = sessionStorage.getItem("Patient");
+    if (!patientJSON) {
+      navigate("/login");
+    } else {
+      navigate("/myinfo");
+    }
+  }, [navigate]);
+
+  const onContactTextClick = useCallback(() => {
+    navigate("/contact");
+  }, [navigate]);
+
   return (
     <div className="w-full relative bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal] text-center text-[1rem] text-black1 font-body">
       <Topmost1 />
@@ -371,13 +396,13 @@ function AppointmentBox() {
           </div>
         </div>
       </section>
-      <div className="flex flex-col w-1/2 backdrop-blur-0 bg-slate-200 mx-auto rounded-lg mb-10">
+      <div className="flex flex-col w-1/2 backdrop-blur-0 bg-slate-200 mx-auto rounded-lg mb-10 xl:w-3/5 mq1100:w-2/3 mq1025:w-4/5 mq750:w-[95%]">
         <h4 className="text-center text-[1.125rem] text-secondary font-body tracking-[0.1rem]">
           PATIENT DETAILS
         </h4>
-        <div className="flex flex-row w-full">
-          <div className="flex flex-col justify-start w-2/3">
-            <div className="flex flex-col justify-start items-center w-full mx-auto">
+        <div className="flex flex-row w-full mq450:flex-col">
+          <div className="flex flex-col justify-start w-2/3 mq750:ml-8 mq750:w-[55%]">
+            <div className="flex flex-col justify-start items-center w-full mq750:items-start mq450:items-center">
               <p className="block text-left text-sm font-medium text-gray-700">
                 Patient's Name:
               </p>
@@ -386,10 +411,10 @@ function AppointmentBox() {
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="bg-slate-100 w-3/5 h-8 px-2 rounded"
+                className="bg-slate-100 w-3/5 h-8 px-2 rounded mq750:w-4/5 mq450:w-full"
               />
             </div>
-            <div className="flex flex-col justify-start w-full mx-auto items-center">
+            <div className="flex flex-col justify-start w-full mx-auto items-center mq750:items-start">
               <p className="block text-left text-sm font-medium text-gray-700">
                 Date of Birth:
               </p>
@@ -412,7 +437,7 @@ function AppointmentBox() {
                 popperPlacement="bottom"
               />
             </div>
-            <div className="flex flex-col justify-start w-full mx-auto items-center">
+            <div className="flex flex-col justify-start w-full mx-auto items-center mq750:items-start">
               <p className="block text-left text-sm font-medium text-gray-700">
                 Phonenumber:
               </p>
@@ -421,15 +446,15 @@ function AppointmentBox() {
                 placeholder="phonenumber"
                 value={number}
                 onChange={(e) => setNumber(e.target.value)}
-                className="bg-slate-100 w-1/2 h-8 px-2 rounded"
+                className="bg-slate-100 w-1/2 h-8 px-2 rounded mq750:w-4/5 mq450:w-full"
               />
             </div>
-            <div className="flex flex-col justify-start w-full mx-auto items-center">
+            <div className="flex flex-col justify-start w-full mx-auto items-center mq750:items-start">
               <p className="block text-left text-sm font-medium text-gray-700">
                 Sex:
               </p>
               <select
-                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 disabled:opacity-50 w-1/5"
+                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 disabled:opacity-50 w-1/5 mq750:w-3/5"
                 id="sex"
                 value={sex}
                 onChange={(e) => {
@@ -442,7 +467,7 @@ function AppointmentBox() {
                 <option>Other</option>
               </select>
             </div>
-            <div className="flex flex-col justify-start w-full mx-auto items-center">
+            <div className="flex flex-col justify-start w-full mx-auto items-center mq750:items-start">
               <p className="block text-left text-sm font-medium text-gray-700">
                 Date For Appointment:
               </p>
@@ -458,7 +483,7 @@ function AppointmentBox() {
                 popperPlacement="top"
               />
             </div>
-            <div className="flex flex-col justify-start w-full mx-auto gap-4 py-3 items-center">
+            <div className="flex flex-col justify-start w-full mx-auto gap-4 py-3 items-center mq750:items-start">
               <label
                 htmlFor="timeSlot"
                 className="block text-left text-sm font-medium text-gray-700"
@@ -470,7 +495,7 @@ function AppointmentBox() {
                 value={selectedTimeSlot}
                 onChange={(e) => setSelectedTimeSlot(e.target.value)}
                 disabled={!selectedDay}
-                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 disabled:opacity-50 w-1/3"
+                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 disabled:opacity-50 w-1/3 mq450:w-4/5 mq750:w-1/2"
               >
                 <option value="Select a time">Select a time</option>
                 {timeSlotsPerDay[selectedDay] &&
@@ -483,11 +508,11 @@ function AppointmentBox() {
                   })}
               </select>
             </div>
-            <div className="flex flex-row w-full mx-auto gap-1 justify-center pb-2">
-              <p className="block text-left text-sm font-medium text-gray-700">
+            <div className="flex flex-row w-full items-center gap-1 justify-center pb-2 mq750:justify-start mq450:flex-col mq450:gap-0">
+              <p className="block text-left text-sm font-medium text-gray-700 whitespace-nowrap">
                 Available-Slots:
               </p>
-              <div className="flex flex-wrap w-1/3">
+              <div className="flex flex-wrap w-1/3 mq750:w-3/5 mq450:w-4/5">
                 {!button &&
                   noslots.map((noslot, index) => {
                     return (
@@ -534,7 +559,7 @@ function AppointmentBox() {
           </div>
         </div>
         <button
-          className="w-1/5 bg-secondary text-white mx-auto h-8 mb-5 rounded text-center font-bold hover:bg-white hover:text-secondary hover:transition-colors cursor-pointer"
+          className="w-1/5 bg-secondary text-white mx-auto h-8 mb-5 rounded text-center font-bold hover:bg-white hover:text-secondary hover:transition-colors cursor-pointer mq450:w-3/5"
           disabled={button}
           onClick={() => handleAppointment()}
         >

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useCallback } from "react";
 import DatePicker from "react-datepicker";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -31,6 +31,7 @@ function Reschedule() {
   const [selectedslot, setSelectedslot] = useState(0);
   const [dob, setDob] = useState(null);
   const [exact, setExact] = useState(null);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     setName(appointment.patientname);
     setDob(appointment.birth);
@@ -240,6 +241,31 @@ function Reschedule() {
       });
     }
   };
+
+  const onHomeTextClick = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
+
+  const onAboutUsTextClick = useCallback(() => {
+    navigate("/about-us");
+  }, [navigate]);
+
+  const onDoctorsTextClick = useCallback(() => {
+    navigate("/doctors");
+  }, [navigate]);
+
+  const onNewsTextClick = useCallback(() => {
+    const patientJSON = sessionStorage.getItem("Patient");
+    if (!patientJSON) {
+      navigate("/login");
+    } else {
+      navigate("/myinfo");
+    }
+  }, [navigate]);
+
+  const onContactTextClick = useCallback(() => {
+    navigate("/contact");
+  }, [navigate]);
 
   useEffect(() => {
     if (selectedTimeSlot) {
