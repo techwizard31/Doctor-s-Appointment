@@ -8,7 +8,7 @@ const Userlistitem = ({ doctor }) => {
   };
   return (
     <div
-      className="flex flex-row bg-whitesmoke w-3/5 h-20 gap-2 rounded-lg mt-2 cursor-pointer transition-transform duration-400 hover:scale-105"
+      className="flex flex-row bg-whitesmoke w-3/5 h-20 gap-2 rounded-lg mt-2 cursor-pointer transition-transform duration-400 hover:scale-105 mq750:w-4/5 mq450:w-[90%]"
       onClick={handleFunction}
     >
       <img

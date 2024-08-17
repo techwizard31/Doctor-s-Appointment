@@ -198,6 +198,14 @@ const UserView = () => {
         <h1 className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer" onClick={()=>navigate('/userinfo')}>
           Personal Information
         </h1>
+        <h1
+            className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer hover:text-secondary"
+            onClick={() =>{
+              sessionStorage.removeItem("Patient");
+              navigate('/login')
+            }}>
+            Logout
+          </h1>
         </div>
         <div className="grid grid-cols-1 gap-4 justify-items-center py-4 bg-slate-200">
           {appointments &&
