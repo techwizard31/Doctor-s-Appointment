@@ -18,7 +18,7 @@ const FrameComponent = () => {
               Care you can believe in
             </b>
             <div className="flex flex-row items-start justify-start py-[0rem] pr-[3.187rem] pl-[3.062rem] text-[2rem] text-primary font-display-2 mq450:pl-[1.25rem] mq450:pr-[1.25rem] mq450:box-border">
-              <h1 className="m-0 relative text-inherit font-normal font-inherit z-[1] mq450:text-[1.188rem] mq1050:text-[1.625rem]">
+              <h1 className="m-0 relative text-inherit font-normal font-inherit z-[1] mq450:text-[1.188rem] mq1050:text-[1.625rem] mq450:ml-16">
                 Our Services
               </h1>
             </div>

@@ -60,17 +60,17 @@ const Home = () => {
       <FrameComponent />
       <MapperFunction />
       {/* <ShapeSet /> */}
-      <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-center text-[1.125rem] text-secondary font-body mq450:pb-[1.688rem] mq450:box-border mq1050:pb-[2.625rem] mq1050:box-border">
+      <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-center text-[1.125rem] text-secondary font-body mq450:pb-[1.688rem] mq450:box-border mq1050:pb-[2.625rem] mq1050:box-border mq450:px-2">
         <div className="w-[62rem] flex flex-col items-start justify-start gap-[2rem] max-w-full mq750:gap-[1rem]">
           <div className="self-stretch flex flex-col items-start justify-start gap-[4rem] mq750:gap-[1rem] mq1050:gap-[2rem]">
-            <div className="self-stretch flex flex-row items-start justify-center py-[0rem] pr-[1.312rem] pl-[1.25rem]">
+            <div className="self-stretch flex flex-row items-start justify-center py-[0rem] pr-[1.312rem] pl-[1.25rem] ">
               <div className="flex flex-col items-end justify-start gap-[0.5rem]">
-                <div className="flex flex-row items-start justify-end py-[0rem] pr-[0.687rem] pl-[0.812rem]">
+                <div className="flex flex-row items-start justify-end py-[0rem] pr-[0.687rem] pl-[0.812rem] mq450:px-2">
                   <b className="relative tracking-[0.16em] uppercase">
                     Trusted Care
                   </b>
                 </div>
-                <h1 className="m-0 relative text-[2rem] font-normal font-display-2 text-primary mq450:text-[1.188rem] mq1050:text-[1.625rem]">
+                <h1 className="m-0 relative text-[2rem] font-normal font-display-2 text-primary mq450:text-[1.188rem] mq1050:text-[1.625rem] mq1050:mr-4 mq450:mr-8">
                   Our Doctors
                 </h1>
               </div>

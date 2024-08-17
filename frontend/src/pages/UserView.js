@@ -198,8 +198,7 @@ const UserView = () => {
         <h1 className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer" onClick={()=>navigate('/userinfo')}>
           Personal Information
         </h1>
-        <h1
-            className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer hover:text-secondary"
+        <h1 className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer hover:text-secondary"
             onClick={() =>{
               sessionStorage.removeItem("Patient");
               navigate('/login')
