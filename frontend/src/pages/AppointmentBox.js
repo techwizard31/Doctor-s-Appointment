@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import DatePicker from "react-datepicker";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -62,7 +62,7 @@ function AppointmentBox() {
     const day = date.toLocaleDateString("en-US", { weekday: "long" });
     setSelectedDay(day);
     if (timeSlotsPerDay[day] == undefined) {
-      toast.info('Sir is not there on this day', {
+      toast.info("Sir is not there on this day", {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: true,
@@ -72,7 +72,7 @@ function AppointmentBox() {
         progress: undefined,
         theme: "colored",
         transition: Slide,
-        });
+      });
       setSelectedDay("");
       setSelectedDate(null);
     } else {
@@ -167,12 +167,12 @@ function AppointmentBox() {
       });
     }
   };
-  
+
   // const cleanTimePeriod = (timePeriod) => {
   //   // Normalize input by removing unnecessary spaces around "-"
   //   return timePeriod.replace(/\s*-\s*/, '-').toUpperCase();
   // };
-  
+
   const parseTimePeriod = (timePeriod) => {
     // const cleanedPeriod = cleanTimePeriod(timePeriod);
     const [start, end] = timePeriod.split("-");
@@ -208,8 +208,8 @@ function AppointmentBox() {
         setBooked(json.slotNumbers);
         const newArray = [];
         setButton(false);
-        const startTime = parseTimePeriod(selectedTimeSlot); 
-        let currentTime = startTime; 
+        const startTime = parseTimePeriod(selectedTimeSlot);
+        let currentTime = startTime;
         for (let i = 0; i < json.slots; i++) {
           newArray.push(currentTime.format("h:mm A"));
           currentTime = currentTime.add(json.averageTime, "minute");
@@ -240,7 +240,7 @@ function AppointmentBox() {
         theme: "colored",
         transition: Slide,
       });
-      console.log(error)
+      console.log(error);
     }
   };
   useEffect(() => {
@@ -370,7 +370,7 @@ function AppointmentBox() {
       </section>
       <section className="self-stretch flex flex-row items-start justify-start pt-[0rem] px-[0rem] pb-[2rem] box-border max-w-full text-left text-[1.125rem] text-primary font-body">
         <div className="flex-1 flex flex-row items-start justify-start py-[4.75rem] px-[11.687rem] box-border relative min-h-[15.625rem] max-w-full mq450:pl-[1.25rem] mq450:pr-[1.25rem] mq450:box-border mq1050:pl-[5.813rem] mq1050:pr-[5.813rem] mq1050:box-border">
-        <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem]">
+          <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem]">
             <img
               className="absolute h-full w-full top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] max-w-full overflow-hidden max-h-full object-cover"
               alt=""
@@ -523,8 +523,10 @@ function AppointmentBox() {
                             booked.includes(index + 1) ? "booked-checkbox" : ""
                           }`}
                           disabled={booked.includes(index + 1)}
-                          onChange={() =>{
-                            if(booked.includes(index+1)){
+                          checked={selectedslot === index + 1}
+                          onChange={() => {handleCheckboxChange(index + 1, noslot); }}
+                          onClick={() => {
+                            if (booked.includes(index + 1)) {
                               toast.error("This slot is already booked !", {
                                 position: "top-center",
                                 autoClose: 2000,
@@ -536,12 +538,10 @@ function AppointmentBox() {
                                 theme: "colored",
                                 transition: Slide,
                               });
-                            }else{
-                              handleCheckboxChange(index + 1, noslot)
+                            } else {
+                              handleCheckboxChange(index + 1, noslot);
                             }
-                          }
-                          }
-                          checked={selectedslot === index + 1}
+                          }}
                         />
                         <div className="bg-zinc-800 p-2 rounded-md group-hover:flex hidden absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2">
                           <span className="text-zinc-400 whitespace-nowrap">

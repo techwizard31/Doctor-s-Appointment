@@ -520,8 +520,9 @@ function Reschedule() {
                             booked.includes(index + 1) ? "booked-checkbox" : ""
                           }`}
                           disabled={booked.includes(index + 1)}
-                          onChange={() =>{
-                            if(booked.includes(index+1)){
+                          onChange={() => {handleCheckboxChange(index + 1, noslot); }}
+                          onClick={() => {
+                            if (booked.includes(index + 1)) {
                               toast.error("This slot is already booked !", {
                                 position: "top-center",
                                 autoClose: 2000,
@@ -533,11 +534,10 @@ function Reschedule() {
                                 theme: "colored",
                                 transition: Slide,
                               });
-                            }else{
-                              handleCheckboxChange(index + 1, noslot)
+                            } else {
+                              handleCheckboxChange(index + 1, noslot);
                             }
-                          }
-                          }
+                          }}
                           checked={selectedslot === index + 1}
                         />
                         <div className="bg-zinc-800 p-2 rounded-md group-hover:flex hidden absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2">
