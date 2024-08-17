@@ -9,7 +9,7 @@ const MapperFunction = () => {
                 Always Caring
               </b>
             </div>
-            <h1 className="m-0 relative text-[2rem] font-normal font-display-2 text-primary mq450:text-[1.188rem] mq1050:text-[1.625rem]">
+            <h1 className="m-0 relative text-[2rem] font-normal font-display-2 text-primary mq450:text-[1.188rem] mq1050:text-[1.625rem] mq450:mr-12 mq1050:mr-6">
               Our Specialties
             </h1>
           </div>
