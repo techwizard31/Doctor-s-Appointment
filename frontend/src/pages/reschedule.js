@@ -520,8 +520,23 @@ function Reschedule() {
                             booked.includes(index + 1) ? "booked-checkbox" : ""
                           }`}
                           disabled={booked.includes(index + 1)}
-                          onChange={() =>
-                            handleCheckboxChange(index + 1, noslot)
+                          onChange={() =>{
+                            if(booked.includes(index+1)){
+                              toast.error("This slot is already booked !", {
+                                position: "top-center",
+                                autoClose: 2000,
+                                hideProgressBar: true,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "colored",
+                                transition: Slide,
+                              });
+                            }else{
+                              handleCheckboxChange(index + 1, noslot)
+                            }
+                          }
                           }
                           checked={selectedslot === index + 1}
                         />
