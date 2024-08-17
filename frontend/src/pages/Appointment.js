@@ -72,13 +72,13 @@ const Appointment = () => {
             onClick={() => setOpen(!open)}
           >
             <div
-              className={`h-[3px] bg-lightsteelblue-100 ${
+              className={`h-[3px] bg-lightsteelblue-100 rounded ${
                 open ? "rotate-45" : ""
               }`}
             ></div>
             <div
-              className={`h-[3px] bg-lightsteelblue-100 ${
-                open ? "-rotate-45 -translate-y-1.5" : ""
+              className={`h-[3px] bg-lightsteelblue-100 rounded ${
+                open ? "-rotate-45 -translate-y-1.5 w-full" : "w-3/4"
               }`}
             ></div>
           </div>

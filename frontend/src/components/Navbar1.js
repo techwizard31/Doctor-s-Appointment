@@ -46,16 +46,15 @@ const Navbar1 = () => {
         className="mq450:flex mq450:mr-auto mq450:w-8 mq450:flex-col gap-1 mq450:mt-2 h-fit cursor-pointer pt-1"
         onClick={() => setOpen(!open)}
       >
-        <div
-          className={`h-[3px] bg-lightsteelblue-100 ${
-            open ? "rotate-45" : ""
-          }`}
-        ></div>
-        <div
-          className={`h-[3px] bg-lightsteelblue-100 ${
-            open ? "-rotate-45 -translate-y-1.5" : ""
-          }`}
-        ></div>
+       <div className={`h-[3px] bg-lightsteelblue-100 rounded ${
+                open ? "rotate-45" : ""
+              }`}
+            ></div>
+            <div
+              className={`h-[3px] bg-lightsteelblue-100 rounded ${
+                open ? "-rotate-45 -translate-y-1.5 w-full" : "w-3/4"
+              }`}
+            ></div>
       </div>
       {open && (
         <div className="absolute bg-lightsteelblue-100 shadow-lg rounded-lg mt-8 z-10">

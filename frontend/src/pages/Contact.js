@@ -140,13 +140,13 @@ const Contact = () => {
             onClick={() => setOpen(!open)}
           >
             <div
-              className={`h-[3px] bg-lightsteelblue-100 ${
+              className={`h-[3px] bg-lightsteelblue-100 rounded ${
                 open ? "rotate-45" : ""
               }`}
             ></div>
             <div
-              className={`h-[3px] bg-lightsteelblue-100 ${
-                open ? "-rotate-45 -translate-y-1.5" : ""
+              className={`h-[3px] bg-lightsteelblue-100 rounded ${
+                open ? "-rotate-45 -translate-y-1.5 w-full" : "w-3/4"
               }`}
             ></div>
           </div>
@@ -282,7 +282,7 @@ const Contact = () => {
         </div>
       </section>
       <section className="self-stretch flex flex-row items-start justify-center pt-[0rem] px-[1.25rem] pb-[4rem] box-border max-w-full text-left text-[1.125rem] text-secondary font-body mq1100:pb-[2.625rem] mq1100:box-border mq750:pb-[1.688rem] mq750:box-border mq1100:px-4 mq1025:px-2">
-        <div className="w-[90%] mq1050:w-full flex flex-col items-start justify-start gap-[4rem] max-w-full mq750:gap-[1rem] mq1025:gap-[2rem]">
+        <div className="w-[90%] mq1050:w-full flex flex-col items-start justify-center gap-[4rem] max-w-full mq750:gap-[1rem] mq1025:gap-[2rem]">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.2536092797986!2d85.8388752746941!3d20.2483142141271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a731afd1734d%3A0xc503db3a9d1d0a54!2sShree%20Hospitals!5e0!3m2!1sen!2sin!4v1723378430377!5m2!1sen!2sin"
             width="100%"
@@ -387,7 +387,6 @@ const Contact = () => {
         onMeddicalTextClick={onMeddicalTextClick}
         onAppointmentTextClick={onAppointmentTextClick}
         onDoctorsText1Click={onDoctorsText1Click}
-        onServicesText1Click={onServicesText1Click}
         onAboutUsText2Click={onAboutUsText2Click}
       />
     </div>
