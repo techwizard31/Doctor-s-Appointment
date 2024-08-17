@@ -91,9 +91,6 @@ const Contact = () => {
     navigate("/doctors");
   }, [navigate]);
 
-  const onServicesText1Click = useCallback(() => {
-    // Please sync "Services" to the project
-  }, []);
 
   const onAboutUsText2Click = useCallback(() => {
     navigate("/about-us");
@@ -106,10 +103,6 @@ const Contact = () => {
   const onAboutUsTextClick = useCallback(() => {
     navigate("/about-us");
   }, [navigate]);
-
-  const onServicesTextClick = useCallback(() => {
-    // Please sync "Services" to the project
-  }, []);
 
   const onDoctorsTextClick = useCallback(() => {
     navigate("/doctors");
@@ -270,7 +263,7 @@ const Contact = () => {
             />
             <div className="absolute h-full w-full top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] bg-gray-500 z-[1]" />
             <img
-              className="absolute h-full w-full top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] max-w-full overflow-hidden max-h-full z-[2]"
+              className="absolute h-full w-full top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] max-w-full overflow-hidden max-h-full z-[2] object-cover"
               loading="lazy"
               alt=""
               src="/group-203.svg"
