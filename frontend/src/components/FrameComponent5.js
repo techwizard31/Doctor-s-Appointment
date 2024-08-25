@@ -17,15 +17,15 @@ const FrameComponent5 = () => {
               <p className="m-0">Good Health</p>
             </h1>
           </div>
-          <div className="w-[30.063rem] flex flex-col items-start justify-start pt-[0rem] px-[0rem] pb-[0.5rem] box-border gap-[1rem] max-w-full">
-            <div className="flex flex-row items-start justify-start gap-[2.531rem] max-w-full mq450:flex-wrap mq450:gap-[1.25rem]">
+          <div className="w-[30.063rem] flex flex-col items-start justify-start pt-[0rem] px-[0rem] pb-[0.5rem] box-border gap-[1rem] max-w-full font-display-3 italic font-normal">
+            <div className="flex flex-row items-start justify-start gap-[2.531rem] max-w-full mq450:flex-col mq450:gap-[1.25rem]">
               <div className="flex flex-row items-start justify-start gap-[0.625rem]">
                 <div className="flex flex-col items-start justify-start pt-[0.25rem] px-[0rem] pb-[0rem]">
                   <input
-                    className="cursor-pointer m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary"
+                    className="m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary"
                     type="radio"
                     name="radioGroup-1"
-                    disabled={true}
+                    checked
                   />
                 </div>
                 <div className="relative leading-[140%]">
@@ -33,22 +33,25 @@ const FrameComponent5 = () => {
                 </div>
               </div>
               <div className="flex flex-row items-start justify-start gap-[0.625rem]">
-                <div className="flex flex-col items-start justify-start pt-[0.25rem] px-[0rem] pb-[0rem]">
-                  <div className="w-[1rem] h-[1rem] relative rounded-31xl bg-secondary" />
+              <div className="flex flex-col items-start justify-start pt-[0.25rem] px-[0rem] pb-[0rem]">
+                  <input
+                    className="m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary"
+                    type="radio"
+                    checked
+                  />
                 </div>
                 <div className="relative leading-[140%] inline-block min-w-[6.375rem]">
                   5-Star Care
                 </div>
               </div>
             </div>
-            <div className="w-[24.531rem] flex flex-row items-start justify-between max-w-full gap-[1.25rem] mq450:flex-wrap">
-              <div className="flex flex-row items-start justify-start gap-[0.625rem]">
+            <div className="w-[24.531rem] flex flex-row items-start justify-between max-w-full gap-[1.25rem] mq450:flex-col">
+              <div className="flex flex-row items-start justify-start gap-[0.625rem] ">
                 <div className="flex flex-col items-start justify-start pt-[0.25rem] px-[0rem] pb-[0rem]">
                   <input
                     className="cursor-pointer m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary"
                     type="radio"
-                    name="radioGroup-1"
-                    disabled={true}
+                    checked
                   />
                 </div>
                 <div className="relative leading-[140%] inline-block min-w-[6.438rem]">
@@ -56,8 +59,12 @@ const FrameComponent5 = () => {
                 </div>
               </div>
               <div className="flex flex-row items-start justify-start gap-[0.625rem]">
-                <div className="flex flex-col items-start justify-start pt-[0.25rem] px-[0rem] pb-[0rem]">
-                  <div className="w-[1rem] h-[1rem] relative rounded-31xl bg-secondary" />
+              <div className="flex flex-col items-start justify-start pt-[0.25rem] px-[0rem] pb-[0rem]">
+                  <input
+                    className="m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary"
+                    type="radio"
+                    checked
+                  />
                 </div>
                 <div className="relative leading-[140%] inline-block min-w-[7.125rem]">
                   Believe in Us
@@ -70,8 +77,7 @@ const FrameComponent5 = () => {
                   <input
                     className="cursor-pointer m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary"
                     type="radio"
-                    name="radioGroup-1"
-                    disabled={true}
+                    checked
                   />
                 </div>
                 <div className="relative leading-[140%] inline-block min-w-[7.688rem]">
@@ -79,8 +85,12 @@ const FrameComponent5 = () => {
                 </div>
               </div>
               <div className="flex flex-row items-start justify-start gap-[0.625rem]">
-                <div className="flex flex-col items-start justify-start pt-[0.25rem] px-[0rem] pb-[0rem]">
-                  <div className="w-[1rem] h-[1rem] relative rounded-31xl bg-secondary" />
+              <div className="flex flex-col items-start justify-start pt-[0.25rem] px-[0rem] pb-[0rem]">
+                  <input
+                    className="m-0 w-[1rem] h-[1rem] relative rounded-31xl bg-secondary"
+                    type="radio"
+                    checked
+                  />
                 </div>
                 <div className="relative leading-[140%]">
                   A Legacy of Excellence
@@ -88,7 +98,7 @@ const FrameComponent5 = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch flex flex-col items-start justify-start gap-[1rem] text-[1rem]">
+          <div className="self-stretch flex flex-col items-start justify-start gap-[1rem] text-[1rem] font-display-3 italic font-normal">
             <div className="self-stretch relative leading-[140%]">
             Our hospital is committed to providing exceptional healthcare to the community. We offer complimentary health checkups for early illness detection and prevention, advanced cardiogram services for accurate heart monitoring, and DNA testing for personalized care. Additionally, our well-equipped blood bank ensures safe and reliable blood transfusions for emergencies, guaranteeing that our patients receive the best possible treatment in critical situations.
             </div>
