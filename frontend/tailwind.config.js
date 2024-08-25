@@ -37,6 +37,7 @@ module.exports = {
       fontFamily: {
         body: "'Work Sans'",
         "display-2": "'Yeseva One'",
+        "display-3": "'Poppins'",
       },
       borderRadius: {
         "8xs": "5px",
@@ -82,6 +83,9 @@ module.exports = {
       },
       mq450: {
         raw: "screen and (max-width: 450px)",
+      },
+      mq4502: {
+        raw: "screen and (min-width: 450px)",
       },
       sm: {
         raw: "screen and (max-width: 640px)",

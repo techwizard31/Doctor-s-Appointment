@@ -26,7 +26,7 @@ const FrameComponent1 = () => {
                   </h1>
                 </div>
               </div>
-              <div className="self-stretch relative text-[1rem] leading-[140%] text-black">
+              <div className="self-stretch relative text-[1rem] leading-[140%] text-black font-display-3 italic font-normal">
               Welcome to our hospital, where your health and well-being are our top priorities. We are here to provide you with compassionate care and exceptional medical services.
               </div>
             </div>

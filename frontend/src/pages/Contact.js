@@ -151,68 +151,68 @@ const Contact = () => {
             ></div>
           </div>
           {open && (
-            <div className="absolute bg-lightsteelblue-100 shadow-lg rounded-lg mt-8 z-10">
-              <ul className="list-none px-2">
-                <li
-                  className="p-1 cursor-pointer hover:text-primary"
-                  onClick={onHomeTextClick}
-                >
-                  Home
-                </li>
-                <li
-                  className="p-1 hover:text-primary cursor-pointer"
-                  onClick={onAboutUsTextClick}
-                >
-                  About
-                </li>
-                <li
-                  className="p-1 hover:text-primary cursor-pointer"
-                  onClick={onDoctorsTextClick}
-                >
-                  Doctors
-                </li>
-                <li
-                  className="p-1 hover:text-primary cursor-pointer"
-                  onClick={onNewsTextClick}
-                >
-                  MyInfo
-                </li>
-                <li
-                  className="p-1 hover:text-primary cursor-pointer"
-                  onClick={onContactTextClick}
-                >
-                  Contact
-                </li>
-              </ul>
-            </div>
+             <div className="absolute bg-lightsteelblue-100 shadow-lg rounded-lg mt-12 w-full -translate-x-5 z-10 mq4502:hidden h-screen">
+             <ul className="list-none px-2 flex flex-col items-center h-full justify-evenly mt-0 text-[2rem] font-display-3">
+               <li
+                 className="p-1 cursor-pointer hover:text-primary hover:scale-110 transition duration-150"
+                 onClick={onHomeTextClick}
+               >
+                 Home
+               </li>
+               <li
+                 className="p-1 hover:text-primary cursor-pointer hover:scale-110 transition duration-150"
+                 onClick={onAboutUsTextClick}
+               >
+                 About
+               </li>
+               <li
+                 className="p-1 hover:text-primary cursor-pointer hover:scale-110 transition duration-150"
+                 onClick={onDoctorsTextClick}
+               >
+                 Doctors
+               </li>
+               <li
+                 className="p-1 hover:text-primary cursor-pointer hover:scale-110 transition duration-150"
+                 onClick={onNewsTextClick}
+               >
+                 MyInfo
+               </li>
+               <li
+                 className="p-1 hover:text-primary cursor-pointer hover:scale-110 transition duration-150 text-secondary"
+                 onClick={onContactTextClick}
+               >
+                 Contact
+               </li>
+             </ul>
+           </div>
           )}
           <div className="self-stretch flex flex-row justify-start gap-8 mq750:flex-wrap sm:gap-4 mq450:hidden ">
             <div
-              className="relative inline-block cursor-pointer hover:text-secondary"
+              className="relative inline-block cursor-pointer hover:text-secondary hover:scale-110 transistion duration-100"
               onClick={onHomeTextClick}
             >
               Home
             </div>
             <div
-              className="relative inline-block cursor-pointer hover:text-secondary"
+              className="relative inline-block cursor-pointer hover:text-secondary hover:scale-110 transistion duration-100"
               onClick={onAboutUsTextClick}
             >
               About
             </div>
             <div
-              className="relative inline-block cursor-pointer sm:hidden hover:text-secondary"
+              className="relative inline-block cursor-pointer sm:hidden hover:text-secondary hover:scale-110 transistion duration-100"
               onClick={onDoctorsTextClick}
             >
               Doctors
             </div>
             <div
-              className="relative inline-block cursor-pointer hover:text-secondary"
+              className="relative inline-block cursor-pointer hover:text-secondary hover:scale-110 transistion duration-100"
               onClick={onNewsTextClick}
             >
               MyInfo
             </div>
             <div
-              className="relative inline-block cursor-pointer text-lightsteelblue-100 font-semibold"
+              className="relative inline-block cursor-pointer text-lightsteelblue-100 font-semibold hover:scale-110 transistion duration-100"
               onClick={onContactTextClick}
             >
               Contact
@@ -239,12 +239,13 @@ const Contact = () => {
             `}</style>
 
             <input
-              className="cursor-pointer m-0 w-[1.25rem] h-[1.25rem] relative mq750:w-4 mq750:h-4 animate-blink"
+              className="m-0 w-[1.25rem] h-[1.25rem] relative mq750:w-4 mq750:h-4 animate-blink"
               type="radio"
+              checked
             />
           </div>
           <button
-            className="cursor-pointer [border:none] py-[0.812rem] px-[2.187rem] mq750:px-4 bg-lightsteelblue-100 rounded-31xl flex flex-row items-start justify-start hover:bg-lightsteelblue-200"
+            className="cursor-pointer [border:none] py-[0.812rem] px-[2.187rem] mq750:px-4 bg-lightsteelblue-100 rounded-31xl flex flex-row items-start justify-start hover:bg-lightsteelblue-200 hover:scale-110 transistion duration-200"
             onClick={onButtonClick}
           >
             <div className="relative text-[1rem] font-medium font-body text-primary text-left inline-block min-w-[6rem] mq750:w-fit mq750:text-[0.8rem] mq750:min-w-8">

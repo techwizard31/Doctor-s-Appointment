@@ -68,10 +68,9 @@ const Topmost = ({
             `}</style>
 
             <input
-              className="border-white cursor-pointer m-0 w-[1.875rem] h-[1.875rem] relative animate-blink accent-red-500 mq450:hidden"
-              checked={true}
+              className="border-white m-0 w-[1.875rem] h-[1.875rem] relative animate-blink accent-red-500 mq450:hidden"
+              checked
               type="radio"
-              style={groupInput1Style}
             />
               </div>
               <div
