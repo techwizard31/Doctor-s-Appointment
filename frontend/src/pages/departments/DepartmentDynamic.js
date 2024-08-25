@@ -165,31 +165,31 @@ function Medicines() {
           )}
           <div className="self-stretch flex flex-row justify-start gap-8 mq750:flex-wrap sm:gap-4 mq450:hidden mb-2">
             <div
-              className="relative inline-block cursor-pointer hover:text-secondary"
+              className="relative inline-block cursor-pointer hover:text-secondary hover:scale-110 transistion duration-100"
               onClick={onHomeTextClick}
             >
               Home
             </div>
             <div
-              className="relative inline-block cursor-pointer hover:text-secondary"
+              className="relative inline-block cursor-pointer hover:text-secondary hover:scale-110 transistion duration-100"
               onClick={onAboutUsTextClick}
             >
               About
             </div>
             <div
-              className="relative inline-block cursor-pointer hover:text-secondary"
+              className="relative inline-block cursor-pointer hover:text-secondary hover:scale-110 transistion duration-100"
               onClick={onDoctorsTextClick}
             >
               Doctors
             </div>
             <div
-              className="relative inline-block cursor-pointer hover:text-secondary"
+              className="relative inline-block cursor-pointer hover:text-secondary hover:scale-110 transistion duration-100"
               onClick={onNewsTextClick}
             >
               MyInfo
             </div>
             <div
-              className="relative inline-block cursor-pointer hover:text-secondary"
+              className="relative inline-block cursor-pointer hover:text-secondary hover:scale-110 transistion duration-100"
               onClick={onContactTextClick}
             >
               Contact

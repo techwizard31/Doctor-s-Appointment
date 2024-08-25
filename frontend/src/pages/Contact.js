@@ -17,7 +17,7 @@ const Contact = () => {
   const [subject, setSubject] = useState("");
   const [open, setOpen] = useState(false);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name || !email || !subject || !content) {
       toast.error("Fill all the fields !", {
@@ -336,8 +336,8 @@ const Contact = () => {
                 />
                 <button
                   className="cursor-pointer [border:none] pt-[0.937rem] pb-[1rem] pr-[1.25rem] pl-[1.312rem] bg-lightsteelblue-100 self-stretch rounded-t-none rounded-b-8xs flex flex-row items-start justify-center box-border max-w-full z-[1] hover:bg-lightsteelblue-200"
-                  onClick={() => {
-                    handleSubmit;
+                  onClick={(e) => {
+                    handleSubmit(e);
                   }}
                 >
                   <div className="h-[3.125rem] w-[30.375rem] relative rounded-t-none rounded-b-8xs bg-lightsteelblue-100 hidden max-w-full" />

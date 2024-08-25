@@ -102,31 +102,31 @@ const FrameComponent3 = () => {
           )}
           <div className="self-stretch flex flex-row justify-start gap-8 mq750:flex-wrap sm:gap-4 mq450:hidden ">
             <div
-              className="relative font-semibold text-lightsteelblue-100 inline-block cursor-pointer"
+              className="relative font-semibold text-lightsteelblue-100 inline-block cursor-pointer hover:scale-110 transistion duration-100"
               onClick={onHomeTextClick}
             >
               Home
             </div>
             <div
-              className="relative inline-block cursor-pointer"
+              className="relative inline-block cursor-pointer hover:scale-110 transistion duration-100"
               onClick={onAboutUsTextClick}
             >
               About
             </div>
             <div
-              className="relative inline-block cursor-pointer"
+              className="relative inline-block cursor-pointer hover:scale-110 transistion duration-100"
               onClick={onDoctorsTextClick}
             >
               Doctors
             </div>
             <div
-              className="relative inline-block cursor-pointer"
+              className="relative inline-block cursor-pointer hover:scale-110 transistion duration-100"
               onClick={onNewsTextClick}
             >
               MyInfo
             </div>
             <div
-              className="relative inline-block cursor-pointer sm:hidden"
+              className="relative inline-block cursor-pointer sm:hidden hover:scale-110 transistion duration-100"
               onClick={onContactTextClick}
             >
               Contact
@@ -155,10 +155,11 @@ const FrameComponent3 = () => {
             <input
               className="cursor-pointer m-0 w-[1.25rem] h-[1.25rem] relative mq750:w-4 mq750:h-4 animate-blink"
               type="radio"
+              disabled="true"
             />
           </div>
           <button
-            className="cursor-pointer [border:none] py-[0.812rem] px-[2.187rem] mq750:px-4 bg-lightsteelblue-100 rounded-31xl flex flex-row items-start justify-start hover:bg-lightsteelblue-200"
+            className="cursor-pointer [border:none] py-[0.812rem] px-[2.187rem] mq750:px-4 bg-lightsteelblue-100 rounded-31xl flex flex-row items-start justify-start hover:bg-lightsteelblue-200 hover:scale-110 transistion duration-200"
             onClick={onButtonClick}
           >
             <div className="relative text-[1rem] font-medium font-body text-primary text-left inline-block min-w-[6rem] mq750:w-fit mq750:text-[0.8rem] mq750:min-w-8">

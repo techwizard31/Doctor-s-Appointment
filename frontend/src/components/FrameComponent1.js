@@ -32,7 +32,7 @@ const FrameComponent1 = () => {
             </div>
             <div className="w-[39.113rem] flex flex-row items-start justify-center py-[0rem] px-[1.25rem] box-border max-w-full text-left text-[1rem]">
               <div
-                className="flex flex-row items-start justify-start gap-[0.625rem] cursor-pointer"
+                className="flex flex-row items-start justify-start gap-[0.625rem] cursor-pointer hover:scale-110 transistion duration-100"
                 onClick={onLinkButtonContainerClick}
               >
                 <img
@@ -40,7 +40,7 @@ const FrameComponent1 = () => {
                   alt=""
                   src="/vector1.svg"
                 />
-                <div className="relative leading-[140%] inline-block min-w-[5.563rem] whitespace-nowrap">
+                <div className="relative leading-[140%] inline-block min-w-[5.563rem] whitespace-nowrap text-secondary hover:text-blue-600">
                   Learn More
                 </div>
                 <div className="flex flex-col items-start justify-start pt-[0.375rem] px-[0rem] pb-[0rem]">
