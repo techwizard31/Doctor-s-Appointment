@@ -91,7 +91,6 @@ const Contact = () => {
     navigate("/doctors");
   }, [navigate]);
 
-
   const onAboutUsText2Click = useCallback(() => {
     navigate("/about-us");
   }, [navigate]);
@@ -151,40 +150,40 @@ const Contact = () => {
             ></div>
           </div>
           {open && (
-             <div className="absolute bg-lightsteelblue-100 shadow-lg rounded-lg mt-12 w-full -translate-x-5 z-10 mq4502:hidden h-screen">
-             <ul className="list-none px-2 flex flex-col items-center h-full justify-evenly mt-0 text-[2rem] font-display-3">
-               <li
-                 className="p-1 cursor-pointer hover:text-primary hover:scale-110 transition duration-150"
-                 onClick={onHomeTextClick}
-               >
-                 Home
-               </li>
-               <li
-                 className="p-1 hover:text-primary cursor-pointer hover:scale-110 transition duration-150"
-                 onClick={onAboutUsTextClick}
-               >
-                 About
-               </li>
-               <li
-                 className="p-1 hover:text-primary cursor-pointer hover:scale-110 transition duration-150"
-                 onClick={onDoctorsTextClick}
-               >
-                 Doctors
-               </li>
-               <li
-                 className="p-1 hover:text-primary cursor-pointer hover:scale-110 transition duration-150"
-                 onClick={onNewsTextClick}
-               >
-                 MyInfo
-               </li>
-               <li
-                 className="p-1 hover:text-primary cursor-pointer hover:scale-110 transition duration-150 text-secondary"
-                 onClick={onContactTextClick}
-               >
-                 Contact
-               </li>
-             </ul>
-           </div>
+            <div className="absolute bg-lightsteelblue-100 shadow-lg rounded-lg mt-12 w-full -translate-x-5 z-10 mq4502:hidden h-screen">
+              <ul className="list-none px-2 flex flex-col items-center h-full justify-evenly mt-0 text-[2rem] font-display-3">
+                <li
+                  className="p-1 cursor-pointer hover:text-primary hover:scale-110 transition duration-150"
+                  onClick={onHomeTextClick}
+                >
+                  Home
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer hover:scale-110 transition duration-150"
+                  onClick={onAboutUsTextClick}
+                >
+                  About
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer hover:scale-110 transition duration-150"
+                  onClick={onDoctorsTextClick}
+                >
+                  Doctors
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer hover:scale-110 transition duration-150"
+                  onClick={onNewsTextClick}
+                >
+                  MyInfo
+                </li>
+                <li
+                  className="p-1 hover:text-primary cursor-pointer hover:scale-110 transition duration-150 text-secondary"
+                  onClick={onContactTextClick}
+                >
+                  Contact
+                </li>
+              </ul>
+            </div>
           )}
           <div className="self-stretch flex flex-row justify-start gap-8 mq750:flex-wrap sm:gap-4 mq450:hidden ">
             <div
@@ -377,7 +376,27 @@ const Contact = () => {
               </div>
               <div className="flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem] text-lightsteelblue-100 mq1125:gap-2 mq750:flex-wrap">
                 <GroupComponent2 />
-                <GroupComponent />
+                <div className="flex-1 flex flex-row items-start justify-start pt-[2.5rem] pb-[4.2rem] pr-[1.125rem] pl-[1.875rem] box-border relative min-w-[13.5rem] max-w-[14.563rem] text-left text-[1rem] text-primary font-body mq1125:pb-[2.8rem] mq1025:pb-[4.2rem]">
+                  <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-8xs bg-lightsteelblue-100" />
+                  <div className="flex-1 flex flex-col items-start justify-start gap-[1.187rem] z-[1]">
+                    <img
+                      className="w-[1.875rem] h-[1.875rem] relative"
+                      alt=""
+                      src="/group-177-1.svg"
+                    />
+                    <div className="self-stretch flex flex-col items-start justify-start gap-[0.406rem]">
+                      <b className="relative text-[1.125rem] uppercase">
+                        Working Hours
+                      </b>
+                      <div className="relative leading-[140%] whitespace-nowrap">
+                        Mon-Sat 09:00-20:00
+                      </div>
+                      <div className="relative leading-[140%]">
+                        Sunday Emergency only
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
