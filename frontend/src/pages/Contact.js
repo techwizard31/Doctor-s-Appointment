@@ -255,7 +255,7 @@ const Contact = () => {
         </div>
       </section>
       <section className="self-stretch h-[19.625rem] flex flex-row items-start justify-start pt-[0rem] px-[0rem] pb-[4rem] box-border max-w-full text-left text-[1.125rem] text-primary font-body">
-        <div className="self-stretch flex-1 flex flex-row items-start justify-start py-[4.75rem] px-[11.687rem] box-border relative max-w-full mq450:pl-[1.25rem] mq450:pr-[1.25rem] mq450:box-border mq750:pl-[5.813rem] mq750:pr-[5.813rem] mq750:box-border">
+        <div className="self-stretch flex-1 flex flex-row items-start justify-start py-[4.75rem] px-[11.687rem] box-border relative max-w-full mq450:pl-[1.25rem] mq450:pr-[1.25rem] mq450:box-border mq750:pl-[5.813rem] mq750:pr-[5.813rem] mq750:box-border mq1100:px-36">
           <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem]">
             <img
               className="absolute h-full w-full top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] max-w-full overflow-hidden max-h-full object-cover"
@@ -348,7 +348,7 @@ const Contact = () => {
                 </button>
               </div>
             </div>
-            <div className="flex-1 flex flex-row items-center justify-center gap-[1.25rem] min-w-[470px] max-w-full text-primary mq750:flex-wrap mq1125:gap-2">
+            <div className="flex-1 flex flex-row items-center justify-center gap-[1.25rem] min-w-[470px] mq750:min-w-[470px] max-w-full text-primary mq750:flex-wrap mq1125:gap-2 mq450:min-w-[270px]">
               <div className="flex flex-col items-start justify-start gap-[1.25rem] min-w-[9.438rem] mq1125:gap-2 mq750:flex-wrap ">
                 <div className="flex-[0.9784] flex flex-row items-start justify-start pt-[3.25rem] px-[1.625rem] pb-[3.125rem] box-border relative min-w-[13.5rem]  max-w-[14.563rem] text-left text-[1rem] text-primary font-body mq450:flex-1">
                   <div className="h-full w-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-8xs bg-lightsteelblue-100 pl-4" />
