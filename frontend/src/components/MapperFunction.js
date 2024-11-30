@@ -47,7 +47,7 @@ const MapperFunction = () => {
                 src="/vector-41.svg"
               />
               <span className="text-sm font-medium">
-                Otolaryngologist
+                Medicine
               </span>
             </div>
             <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900">

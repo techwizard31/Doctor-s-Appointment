@@ -21,9 +21,9 @@ const logindoctor = async(req,res) =>{
 }
 
 const signupdoctor = async(req,res) =>{
-    const { Name,email, password,phonenumber,department,workingDays } = req.body
+    const { Name,email, password,phonenumber,department,workingDays,image } = req.body
     try{
-        const doctor = await doctors.signup(Name,email,password,phonenumber,department,workingDays)
+        const doctor = await doctors.signup(Name,email,password,phonenumber,department,workingDays,image)
         const token = createToken(doctor._id)
         const id = doctor._id
         res.status(200).json({ id,token})

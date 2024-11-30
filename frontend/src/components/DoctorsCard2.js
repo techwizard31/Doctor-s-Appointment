@@ -81,7 +81,7 @@ const DoctorsCard2 = ({ doctor, segment }) => {
         className="self-stretch flex-1 relative rounded-t-8xs rounded-b-none max-w-full overflow-hidden object-fit max-h-40"
         loading="lazy"
         alt=""
-        src="/rectangle-20@2x.png"
+        src={doctor.image}
       />
       <div className="self-stretch flex-1 flex flex-col items-center justify-start py-[0.75rem] pr-[1.25rem] pl-[1.375rem] relative gap-[0.5rem]">
         <div className="w-full h-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] bg-lightsteelblue-100" />
