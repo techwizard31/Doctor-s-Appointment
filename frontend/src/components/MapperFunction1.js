@@ -75,7 +75,7 @@ const MapperFunction1 = () => {
               />
               <span className="text-sm font-medium">Pulmonology</span>
             </div>
-            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/renal Medicine')}>
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/renalMedicine')}>
             <img
                 className="h-[2.75rem] w-[3.125rem] relative z-[8]"
                 alt=""

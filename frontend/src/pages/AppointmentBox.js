@@ -12,6 +12,7 @@ import GroupComponent3 from "../components/GroupComponent3";
 import { toast, Slide } from "react-toastify";
 import "./checkbox.css";
 import dayjs from "dayjs";
+import { DateTime } from "luxon";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 
 function AppointmentBox() {
@@ -174,10 +175,9 @@ function AppointmentBox() {
   // };
 
   const parseTimePeriod = (timePeriod) => {
-    // const cleanedPeriod = cleanTimePeriod(timePeriod);
-    const [start, end] = timePeriod.split("-");
-    const startTime = dayjs(start, "h:mma");
-    return startTime;
+    const [start] = timePeriod.split("-"); // Extract the start time
+    const startTime = DateTime.fromFormat(start.trim(), "h:mma");
+    return startTime;  // Check for validity
   };
 
   const availibilitycheck = async () => {
@@ -211,8 +211,8 @@ function AppointmentBox() {
         const startTime = parseTimePeriod(selectedTimeSlot);
         let currentTime = startTime;
         for (let i = 0; i < json.slots; i++) {
-          newArray.push(currentTime.format("h:mm A"));
-          currentTime = currentTime.add(json.averageTime, "minute");
+          newArray.push(currentTime.toFormat("h:mm a"));
+          currentTime = currentTime.plus({ minutes: json.averageTime });
         }
         setNoslots(newArray);
       } else {
