@@ -11,166 +11,115 @@ const MapperFunction1 = () => {
             </h1>
           </div>
         </div>
-        <div className="self-stretch flex flex-col items-start justify-start text-[1rem] text-black">
-          <div className="self-stretch flex flex-row flex-wrap items-start justify-center [row-gap:20px]">
-            <div className="flex-1 flex flex-col items-start justify-start min-w-[11.625rem] max-w-[15.5rem]">
-              {/* <div className="self-stretch flex flex-col items-center justify-start pt-[3.062rem] px-[1.25rem] pb-[3.125rem] gap-[0.5rem] z-[1] border-[0.2px] border-solid border-gray-300">
-                <div className="flex flex-row items-start justify-start py-[0rem] pr-[1rem] pl-[0.875rem]">
-                  <img
-                    className="h-[2.75rem] w-[3.125rem] relative"
-                    alt=""
-                    src="/vector-41.svg"
-                  />
-                </div>
-                <div className="w-[4.938rem] relative inline-block min-w-[4.938rem]">
-                  Neurology
-                </div>
-                <div className="w-[15.5rem] h-[10.75rem] relative box-border hidden border-[0.2px] border-solid border-gray-300" />
-              </div> */}
-              <div className="self-stretch flex flex-col items-start justify-start pt-[3.062rem] px-[4rem] pb-[3.125rem] gap-[0.5rem] z-[2] border-[0.2px] border-solid border-gray-300 ">
-                {/* <div className="w-[15.5rem] h-[10.75rem] relative box-border hidden border-[0.2px] border-solid border-gray-300" /> */}
-                <div className="flex flex-row items-start justify-start py-[0rem] px-[2.187rem]">
-                  <img
-                    className="h-[2.75rem] w-[3.125rem] relative z-[3] cursor-pointer"
-                    alt=""
-                    src="/vector-41.svg"
-                    onClick={() => { navigate("/dynamic/medicines") }}
-                  />
-                </div>
-                <div className="self-stretch relative inline-block min-w-[7.5rem] z-[3] cursor-pointer" onClick={() => { navigate("/dynamic/medicines") }}>
-                  Medicines
-                </div>
-              </div>
+        <div className="flex mx-auto w-4/5 justify-center items-center max-h-max mq750:w-[95%] mq450:w-full">
+        <div className="grid grid-cols-3 grid-rows-4 w-full gap-x-6 gap-y-6 sm:grid-cols-2 sm:grid-rows-6 mq450:gap-x-2 mq450:gap-y-2">
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full gap-2 h-36 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:bg-primary hover:text-secondary text-gray-900" onClick={()=>navigate('/dynamic/neurology')}>
+              <img
+                className="h-[2.75rem] w-[3.125rem] relative z-[8]"
+                alt=""
+                src="/vector-41.svg"
+              />
+              <span className="text-base font-medium">Neurology</span>
             </div>
-            <div className="flex-1 flex flex-col items-start justify-start min-w-[11.625rem] max-w-[15.5rem] text-lightsteelblue-100">
-              <div className="self-stretch rounded-8xs bg-primary flex flex-col items-center justify-start pt-[3.125rem] px-[1.25rem] pb-[3.187rem] gap-[0.5rem]">
-                <div className="w-[15.5rem] h-[10.75rem] relative rounded-8xs bg-primaryx hidden" />
-                <img
-                  className="w-[3.125rem] h-[2.75rem] relative z-[1]  cursor-pointer"
-                  alt=""
-                  src="/vector-61.svg"
-                  onClick={() => { navigate("/dynamic/bones") }}
-                />
-                <div className="flex flex-row items-start justify-start py-[0rem] px-[0.062rem]">
-                  <div className="relative inline-block min-w-[3rem] z-[1] cursor-pointer" onClick={() => { navigate("/dynamic/bones") }}>
-                    Bones
-                  </div>
-                </div>
-              </div>
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/bones')}>
+            <img
+                className="h-[2.75rem] w-[3.125rem] relative z-[8]"
+                alt=""
+                src="/vector-41.svg"
+              />
+              <span className="text-sm font-medium">Bones</span>
             </div>
-            <div className="flex-1 flex flex-col items-start justify-start min-w-[11.625rem] max-w-[15.5rem]">
-              <div className="self-stretch flex flex-col items-center justify-start pt-[3.062rem] px-[1.25rem] pb-[3.125rem] gap-[0.5rem] z-[5] border-[0.2px] border-solid border-gray-300">
-                <div className="w-[15.5rem] h-[10.75rem] relative box-border hidden border-[0.2px] border-solid border-gray-300" />
-                <div className="flex flex-row items-start justify-start py-[0rem] pr-[0.812rem] pl-[0.687rem]">
-                  <img
-                    className="h-[2.75rem] w-[3.125rem] relative z-[6] cursor-pointer"
-                    alt=""
-                    src="/vector-41.svg"
-                    onClick={() => { navigate("/dynamic/dermatology") }}
-                  />
-                </div>
-                <div className="w-[4.563rem] relative inline-block min-w-[4.563rem] z-[6] cursor-pointer" onClick={() => { navigate("/dynamic/derematology") }}>
-                  Dermatology
-                </div>
-              </div>
-              {/* <div className="self-stretch flex flex-col items-start justify-start pt-[3.062rem] px-[4.562rem] pb-[3.125rem] gap-[0.5rem] z-[6]"> */}
-              {/* <div className="w-[15.5rem] h-[10.75rem] relative box-border hidden border-[0.2px] border-solid border-gray-300" /> */}
-              {/* <div className="flex flex-row items-start justify-start py-[0rem] px-[1.625rem]">
-                  <img
-                    className="h-[2.75rem] w-[3.125rem] relative z-[7]"
-                    alt=""
-                    src="/vector-41.svg"
-                  />
-                </div>
-                <div className="self-stretch relative inline-block min-w-[6.375rem] z-[7]">
-                  Pulmonology
-                </div> */}
-              {/* </div> */}
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/oncology')}>
+            <img
+                className="h-[2.75rem] w-[3.125rem] relative z-[8]"
+                alt=""
+                src="/vector-41.svg"
+              />
+              <span className="text-sm font-medium">Oncology</span>
             </div>
-            <div className="flex-1 flex flex-col items-start justify-start min-w-[11.625rem] max-w-[15.5rem]">
-              <div className="self-stretch flex flex-col items-start justify-start pt-[3.062rem] px-[2.75rem] pb-[3.125rem] gap-[0.5rem] z-[7] border-[0.2px] border-solid border-gray-300">
-                <div className="w-[15.5rem] h-[10.75rem] relative box-border hidden border-[0.2px] border-solid border-gray-300" />
-                <div className="flex flex-row items-start justify-start py-[0rem] pr-[3.5rem] pl-[3.375rem]">
-                  <img
-                    className="h-[2.75rem] w-[3.125rem] relative z-[8] cursor-pointer"
-                    alt=""
-                    src="/vector-41.svg"
-                    onClick={() => { navigate("/dynamic/gynaecology") }}
-                  />
-                </div>
-                <div className="self-stretch relative z-[8] cursor-pointer" onClick={() => { navigate("/dynamic/gynaecology") }}>
-                  Gynaecology
-                </div>
-              </div>
-              {/* <div className="self-stretch flex flex-col items-start justify-start pt-[3.062rem] px-[4rem] pb-[3.125rem] gap-[0.5rem] z-[8]"> */}
-              {/* <div className="w-[15.5rem] h-[10.75rem] relative box-border hidden border-[0.2px] border-solid border-gray-300" /> */}
-              {/* <div className="flex flex-row items-start justify-start py-[0rem] pr-[2.25rem] pl-[2.125rem]">
-                  <img
-                    className="h-[2.75rem] w-[3.125rem] relative z-[9]"
-                    alt=""
-                    src="/vector-41.svg"
-                  />
-                </div>
-                <div className="self-stretch relative inline-block min-w-[7.438rem] z-[9]">
-                  Renal Medicine
-                </div> */}
-              {/* </div> */}
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/otolaryngologist')}>
+            <img
+                className="h-[2.75rem] w-[3.125rem] relative z-[8]"
+                alt=""
+                src="/vector-41.svg"
+              />
+              <span className="text-sm font-medium">
+              Otolaryngologist
+              </span>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/ophthalmology')}>
+            <img
+                className="h-[2.75rem] w-[3.125rem] relative z-[8]"
+                alt=""
+                src="/vector-41.svg"
+              />
+              <span className="text-sm font-medium">
+                Ophthalmology
+              </span>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/cardiovascular')}>
+            <img
+                className="h-[2.75rem] w-[3.125rem] relative z-[8]"
+                alt=""
+                src="/vector-41.svg"
+              />
+              <span className="text-sm font-medium">
+                Cardiovascular
+              </span>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/pulmonology')}>
+            <img
+                className="h-[2.75rem] w-[3.125rem] relative z-[8]"
+                alt=""
+                src="/vector-41.svg"
+              />
+              <span className="text-sm font-medium">Pulmonology</span>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/renal Medicine')}>
+            <img
+                className="h-[2.75rem] w-[3.125rem] relative z-[8]"
+                alt=""
+                src="/vector-41.svg"
+              />
+              <span className="text-sm font-medium">
+                Renal Medicine
+              </span>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/gastroenterology')}>
+            <img
+                className="h-[2.75rem] w-[3.125rem] relative z-[8]"
+                alt=""
+                src="/vector-41.svg"
+              />
+              <span className="text-sm font-medium">
+                Gastroenterology
+              </span>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/urology')}>
+            <img
+                className="h-[2.75rem] w-[3.125rem] relative z-[8]"
+                alt=""
+                src="/vector-41.svg"
+              />
+              <span className="text-sm font-medium">Urology</span>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/dermatology')}>
+            <img
+                className="h-[2.75rem] w-[3.125rem] relative z-[8]"
+                alt=""
+                src="/vector-41.svg"
+              />
+              <span className="text-sm font-medium">Dermatology</span>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/gynaecology')}>
+            <img
+                className="h-[2.75rem] w-[3.125rem] relative z-[8]"
+                alt=""
+                src="/vector-41.svg"
+              />
+              <span className="text-sm font-medium">Gynaecology</span>
             </div>
           </div>
-          {/* <div className="self-stretch flex flex-row items-start justify-center [row-gap:20px] mq1050:flex-wrap"> */}
-          {/* <div className="flex-[0.6533] box-border flex flex-col items-start justify-start pt-[3.062rem] px-[3.5rem] pb-[3.125rem] gap-[0.5rem] min-w-[11.625rem] max-w-[15.5rem] z-[3] mq450:flex-1"> */}
-          {/* <div className="w-[15.5rem] h-[10.75rem] relative box-border hidden border-[0.2px] border-solid border-gray-300" /> */}
-          {/* <div className="flex flex-row items-start justify-start py-[0rem] pr-[2.75rem] pl-[2.625rem]">
-                <img
-                  className="h-[2.75rem] w-[3.125rem] relative z-[4]"
-                  alt=""
-                  src="/vector-41.svg"
-                />
-              </div>
-              <div className="self-stretch relative z-[4]">
-                Gastroenterology
-              </div> */}
-          {/* </div> */}
-          {/* <div className="flex-1 box-border flex flex-col items-center justify-start pt-[3.062rem] px-[1.25rem] pb-[3.125rem] gap-[0.5rem] min-w-[11.625rem] max-w-[15.5rem] z-[5]"> */}
-          {/* <div className="w-[15.5rem] h-[10.75rem] relative box-border hidden border-[0.2px] border-solid border-gray-300" /> */}
-          {/* <div className="flex flex-row items-start justify-start py-[0rem] px-[0.312rem]">
-                <img
-                  className="h-[2.75rem] w-[3.125rem] relative z-[6]"
-                  alt=""
-                  src="/vector-41.svg"
-                />
-              </div>
-              <div className="w-[3.75rem] relative inline-block min-w-[3.75rem] z-[6]">
-                Urology
-              </div> */}
-          {/* </div> */}
-          {/* <div className="flex-[0.48] box-border flex flex-col items-start justify-start pt-[3.062rem] px-[4.625rem] pb-[3.125rem] gap-[0.5rem] min-w-[11.625rem] max-w-[15.5rem] z-[7] mq450:flex-1"> */}
-          {/* <div className="w-[15.5rem] h-[10.75rem] relative box-border hidden border-[0.2px] border-solid border-gray-300" /> */}
-          {/* <div className="flex flex-row items-start justify-start py-[0rem] px-[1.562rem]">
-                <img
-                  className="h-[2.75rem] w-[3.125rem] relative z-[8]"
-                  alt=""
-                  src="/vector-41.svg"
-                />
-              </div>
-              <div className="self-stretch relative inline-block min-w-[6.25rem] z-[8]">
-                Dermatology
-              </div> */}
-          {/* </div> */}
-          {/* <div className="flex-[0.48] box-border flex flex-col items-start justify-start pt-[3.062rem] px-[4.625rem] pb-[3.125rem] gap-[0.5rem] min-w-[11.625rem] max-w-[15.5rem] z-[9] mq450:flex-1"> */}
-          {/* <div className="w-[15.5rem] h-[10.75rem] relative box-border hidden border-[0.2px] border-solid border-gray-300" /> */}
-          {/* <div className="flex flex-row items-start justify-start py-[0rem] px-[1.562rem]">
-                <img
-                  className="h-[2.75rem] w-[3.125rem] relative z-[10]"
-                  alt=""
-                  src="/vector-41.svg"
-                />
-              </div>
-              <div className="self-stretch relative inline-block min-w-[6.25rem] z-[10]">
-                Gynaecology
-              </div> */}
-          {/* </div> */}
-          {/* </div> */}
         </div>
       </div>
     </section>
