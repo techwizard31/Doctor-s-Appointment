@@ -221,8 +221,13 @@ const UserView = () => {
           <h1
             className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer hover:text-secondary"
             onClick={() => {
-              sessionStorage.removeItem("Patient");
-              navigate("/");
+              const isConfirmed = window.confirm(
+                "Are you sure you want to logout?"
+              );
+              if(isConfirmed){
+                sessionStorage.removeItem("Patient");
+                navigate("/");
+              }
             }}
           >
             Logout
@@ -244,7 +249,14 @@ const UserView = () => {
                 <p className="text-gray-600 mb-4">Time: {appointment.exact}</p>
                 <div className="flex justify-between">
                   <button
-                    onClick={() => handleReschedule(appointment)}
+                    onClick={() => {
+                      const isConfirmed = window.confirm(
+                        "Are you sure you want to reschedule this appointment?"
+                      );
+                      if (isConfirmed) {
+                        handleReschedule(appointment)
+                      }
+                    }}
                     className="bg-primary hover:bg-primary-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer hover:text-primary hover:transition-colors hover:bg-white"
                   >
                     Reschedule
