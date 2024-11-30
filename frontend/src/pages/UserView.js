@@ -12,7 +12,7 @@ import Navbar1 from "../components/Navbar1";
 // import GroupComponent1 from "../components/GroupComponent1";
 // import GroupComponent from "../components/GroupComponent";
 import Footer from "../components/Footer";
-import { toast,Slide } from "react-toastify";
+import { toast, Slide } from "react-toastify";
 
 const UserView = () => {
   const navigate = useNavigate();
@@ -42,20 +42,23 @@ const UserView = () => {
 
   const handleReschedule = async (appointment) => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_LINKED}/doctordetail`, {
-        method: "POST",
-        body: JSON.stringify({ doctor_id: appointment.doctor_id }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_LINKED}/doctordetail`,
+        {
+          method: "POST",
+          body: JSON.stringify({ doctor_id: appointment.doctor_id }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (response.ok) {
         const json = await response.json();
         const doctor = json;
         navigate("/reschedule", { state: { appointment, doctor } });
       }
     } catch (error) {
-      toast.error( error.message , {
+      toast.error(error.message, {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: true,
@@ -65,7 +68,7 @@ const UserView = () => {
         progress: undefined,
         theme: "colored",
         transition: Slide,
-        });
+      });
     }
   };
 
@@ -73,7 +76,13 @@ const UserView = () => {
     try {
       const patientJSON = sessionStorage.getItem("Patient");
       const patient = JSON.parse(patientJSON);
-      const cancelappointment = { _id: appointment._id,date:appointment.date, time:appointment.day,patientname:appointment.patientname,email:patient.email };
+      const cancelappointment = {
+        _id: appointment._id,
+        date: appointment.date,
+        time: appointment.day,
+        patientname: appointment.patientname,
+        email: patient.email,
+      };
       const response = await fetch(
         `${process.env.REACT_APP_LINKED}/appointment/cancelappointment`,
         {
@@ -88,7 +97,7 @@ const UserView = () => {
       const json = await response.json();
       window.location.reload();
       if (json.success) {
-        toast.success('Appointment Cancelled', {
+        toast.success("Appointment Cancelled", {
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: true,
@@ -98,10 +107,10 @@ const UserView = () => {
           progress: undefined,
           theme: "colored",
           transition: Slide,
-          });
+        });
       }
     } catch (error) {
-      toast.error( error.message , {
+      toast.error(error.message, {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: true,
@@ -111,7 +120,7 @@ const UserView = () => {
         progress: undefined,
         theme: "colored",
         transition: Slide,
-        });
+      });
     }
   };
 
@@ -137,7 +146,7 @@ const UserView = () => {
       const json = await response.json();
       setAppointments(json);
     } catch (error) {
-      toast.error( error.message , {
+      toast.error(error.message, {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: true,
@@ -147,7 +156,7 @@ const UserView = () => {
         progress: undefined,
         theme: "colored",
         transition: Slide,
-        });
+      });
     }
   };
 
@@ -159,7 +168,6 @@ const UserView = () => {
       handleMyAppointments();
     }
   }, []);
-
 
   const nicedate = (dateStr) => {
     const date = new Date(dateStr);
@@ -179,7 +187,16 @@ const UserView = () => {
     // Combine date and time
     const formattedDateTime = `${formattedDate}`;
 
-    return formattedDateTime// Example output: June 25, 2024, 6:30:00 PM
+    return formattedDateTime; // Example output: June 25, 2024, 6:30:00 PM
+  };
+
+  const handleSure = (appointment) => {
+    const isConfirmed = window.confirm(
+      "Are you sure you want to cancel this appointment?"
+    );
+    if (isConfirmed) {
+      handleCancel(appointment); // Proceed with canceling the appointment
+    }
   };
   return (
     <div className="w-full relative bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal]">
@@ -191,18 +208,23 @@ const UserView = () => {
       />
       <Navbar1 />
       <div className="container mx-auto mt-4">
-      <div className='flex flex-row justify-between mq450:flex-col mq450:items-center bg-slate-300 px-4'>
-        <h1 className="text-3xl font-semibold mb-4 text-primary underline hover:cursor-pointer">
-          Your Appointments
-        </h1>
-        <h1 className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer" onClick={()=>navigate('/userinfo')}>
-          Personal Information
-        </h1>
-        <h1 className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer hover:text-secondary"
-            onClick={() =>{
+        <div className="flex flex-row justify-between mq450:flex-col mq450:items-center bg-slate-300 px-4">
+          <h1 className="text-3xl font-semibold mb-4 text-primary underline hover:cursor-pointer">
+            Your Appointments
+          </h1>
+          <h1
+            className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer"
+            onClick={() => navigate("/userinfo")}
+          >
+            Personal Information
+          </h1>
+          <h1
+            className="text-3xl font-semibold mb-4 text-primary hover:cursor-pointer hover:text-secondary"
+            onClick={() => {
               sessionStorage.removeItem("Patient");
-              navigate('/')
-            }}>
+              navigate("/");
+            }}
+          >
             Logout
           </h1>
         </div>
@@ -216,7 +238,9 @@ const UserView = () => {
                 <h2 className="text-xl font-semibold mb-2 text-primary">
                   {appointment.patientname}
                 </h2>
-                <p className="text-gray-600 mb-2">Date: {nicedate(appointment.date)}</p>
+                <p className="text-gray-600 mb-2">
+                  Date: {nicedate(appointment.date)}
+                </p>
                 <p className="text-gray-600 mb-4">Time: {appointment.exact}</p>
                 <div className="flex justify-between">
                   <button
@@ -226,7 +250,7 @@ const UserView = () => {
                     Reschedule
                   </button>
                   <button
-                    onClick={() => handleCancel(appointment)}
+                    onClick={() => handleSure(appointment)}
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
                   >
                     Cancel
