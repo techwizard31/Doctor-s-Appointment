@@ -77,7 +77,7 @@ const DoctorsCard2 = ({ doctor, segment }) => {
 
   return (
     <div className="h-[32.625rem] w-[19.813rem] flex flex-col items-start justify-start min-w-[18.813rem] text-left text-[1.125rem] text-primary font-body">
-      <div className="relative" style={{ height: "10rem", width: "auto" }}>
+      <div className="relative flex items-center justify-center bg-lightsteelblue-100" style={{ height: "10rem", width: "auto" }}>
         <img
           className="w-auto h-full object-contain rounded-t-8xs rounded-b-none"
           loading="lazy"
