@@ -76,10 +76,10 @@ const DoctorsCard2 = ({ doctor, segment }) => {
   };
 
   return (
-    <div className="h-[32.625rem] w-[19.813rem] flex flex-col items-start justify-start min-w-[18.813rem] text-left text-[1.125rem] text-primary font-body">
-      <div className="relative flex items-center justify-center bg-lightsteelblue-100" style={{ height: "10rem", width: "auto" }}>
+    <div className="h-[32.625rem] w-[19.813rem] flex flex-col items-start justify-start min-w-[18.813rem] text-left text-[1.125rem] text-primary font-body overflow-hidden" style={{ borderRadius: "0.5rem" }}>
+      <div className="relative flex items-center justify-center mx-auto bg-lightsteelblue-100 w-full pt-4" style={{ height: "10rem",backgroundColor: "#bfd2f8"}}>
         <img
-          className="w-auto h-full object-contain rounded-t-8xs rounded-b-none"
+          className="w-auto h-full object-contain rounded-sm rounded-b-none"
           loading="lazy"
           alt=""
           src={doctor.image}
