@@ -12,6 +12,7 @@ function Login() {
   });
   const mt10Ref = useRef(null);
   const [mt10Width, setMt10Width] = useState(0);
+  const [loading,setLoading]= useState(false)
 
   useEffect(() => {
     if (mt10Ref.current) {
@@ -19,6 +20,19 @@ function Login() {
       setMt10Width(width);
     }
   }, []);
+
+  function Spinner() {
+    return (
+      <div className="w-full h-full bg-black bg-opacity-85 text-center absolute flex justify-center items-center flex-col z-50">
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-primary"></div>
+        <h2 className="text-zinc-900 dark:text-lightsteelblue-200 mt-4">Just a sec...</h2>
+        <p className="text-zinc-900 dark:text-white">
+          
+        </p>
+      </div>
+    );
+  }
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -42,6 +56,7 @@ function Login() {
         });
       return;
     }
+    setLoading(true)
     const response = await fetch(`${process.env.REACT_APP_LINKED}/login`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -60,6 +75,7 @@ function Login() {
         theme: "colored",
         transition: Slide,
         });
+        setLoading(false)
     }
     if (response.ok) {
       toast.success('Login Successful', {
@@ -74,6 +90,7 @@ function Login() {
         transition: Slide,
         });
       sessionStorage.setItem("Patient", JSON.stringify(json));
+      setLoading(false)
       navigate("/appointment");
     }
     setFormData({
@@ -82,6 +99,7 @@ function Login() {
     });
   };
   const handlegoogle = async (email) => {
+    setLoading(true)
     const response = await fetch(`${process.env.REACT_APP_LINKED}/googlelogin`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -100,6 +118,7 @@ function Login() {
         theme: "colored",
         transition: Slide,
         });
+        setLoading(false)
     }
     if (response.ok) {
       toast.success('Login Successful', {
@@ -114,6 +133,7 @@ function Login() {
         transition: Slide,
         });
       sessionStorage.setItem("Patient", JSON.stringify(json));
+      setLoading(false)
       navigate("/appointment");
     }
     setFormData({
@@ -205,6 +225,7 @@ function Login() {
           </div>
         </div>
       </form>
+      {loading && <Spinner />}
     </div>
   );
 }
