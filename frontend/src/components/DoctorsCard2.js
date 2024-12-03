@@ -78,7 +78,7 @@ const DoctorsCard2 = ({ doctor, segment }) => {
   return (
     <div className="h-[32.625rem] w-[19.813rem] flex flex-col items-start justify-start min-w-[18.813rem] text-left text-[1.125rem] text-primary font-body">
       <img
-        className="self-stretch flex-1 relative rounded-t-8xs rounded-b-none max-w-full overflow-hidden object-fit max-h-40"
+        className="self-stretch flex-1 relative rounded-t-8xs rounded-b-none max-w-full overflow-hidden object-fit max-h-40 aspect-[4/5]"
         loading="lazy"
         alt=""
         src={doctor.image}
@@ -108,86 +108,6 @@ const DoctorsCard2 = ({ doctor, segment }) => {
                   </div>
                 );
               })}
-              {/* <DatePicker
-                id="date"
-                selected={selectedDate}
-                onChange={handleDateChange}
-                className="mt-1 px-3 py-2 block mx-auto border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary focus:outline-none"
-                dateFormat="MM/dd/yyyy"
-                wrapperClassName="w-full"
-                minDate={new Date()}
-              /> */}
-              {/* <div className="z-[200] flex flex-col gap-4 ">
-            <div className="flex flex-col gap-2 "> <label htmlFor="day">Select a day:</label>
-              <select id="day" value={selectedDay} onChange={handleDayChange}
-                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 disabled:opacity-50"
-              >
-                {Object.keys(timeSlotsPerDay).map((day) => (
-                  <option key={day} value={day}>
-                    {day}
-                  </option>
-                ))}
-              </select></div> */}
-
-              {/* <div className="flex flex-col gap-2">
-              <label htmlFor="timeSlot">Select a time slot:</label>
-              <select
-                id="timeSlot"
-                value={selectedTimeSlot}
-                // onChange={handleTimeSlotChange}
-                disabled={!selectedDay}
-                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 disabled:opacity-50"
-              >
-                <option value="">Select a time</option>
-               {timeSlotsPerDay[selectedDay] && timeSlotsPerDay[selectedDay].map((timeslot)=>{
-               return (<option key={timeslot} value={timeslot}>
-                    {timeslot}
-                </option>)
-                })}
-              </select>
-            </div> */}
-
-              {/* {selectedDate !== null ? ( */}
-              {/* <div className="mb-4"> */}
-              {/* <p className="text-sm text-gray-700">Selected Day: {selectedDay}</p>
-                <label htmlFor="timeSlot" className="block text-sm font-medium text-gray-700">Available Time Slots:</label>
-                <select
-                  id="timeSlot"
-                  className="mt-1 px-3 py-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary focus:outline-none"
-                  disabled={availableTimeSlots.length === 0}
-                  value={selectedTimeSlot}
-                  onChange={(e)=>setSelectedTimeSlot(e.target.value)}
-                >
-                  {availableTimeSlots.length === 0 ? (
-                    <option value="">No time slots available</option>
-                  ) : (
-                    <>
-                      <option value="">Select a time slot</option>
-                      {availableTimeSlots.map((timeSlot) => (
-                        <option key={timeSlot} value={timeSlot}>{timeSlot}</option>
-                      ))}
-                    </>
-                  )}
-                </select> */}
-              {/* </div> */}
-              {/* ) : ( */}
-
-              {/* <div className="mb-4"> */}
-              {/* <p className="text-sm text-gray-700">No Day selected</p>
-                <label htmlFor="timeSlot" className="block text-sm font-medium text-gray-700">Available Time Slots:</label>
-
-                <select
-                  id="date"
-                  className="mt-1 px-3 py-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary focus:outline-none"
-                  value=""
-                  disabled
-                >
-                  <option value="" disabled>Select a date first</option>
-                 
-                  <option value="no-date" disabled>No date selected first</option>
-                </select> */}
-              {/* </div> */}
-              {/* )} */}
             </div>
 
             <div className="flex flex-row items-center justify-center py-[0rem] pr-[0.875rem] pl-[0.687rem]">
