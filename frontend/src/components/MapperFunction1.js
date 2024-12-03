@@ -37,7 +37,7 @@ const MapperFunction1 = () => {
               />
               <span className="text-sm font-medium">Oncology</span>
             </div>
-            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/otolaryngologist')}>
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/medicine')}>
             <img
                 className="h-[2.75rem] w-[3.125rem] relative z-[8]"
                 alt=""
@@ -47,7 +47,7 @@ const MapperFunction1 = () => {
               Medicine
               </span>
             </div>
-            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/medicine')}>
+            <div className="flex flex-col items-center justify-center bg-white rounded-lg shadow w-full h-36 gap-2 hover:scale-105 transition-all duration-150 hover:cursor-pointer hover:text-secondary hover:bg-primary text-gray-900" onClick={()=>navigate('/dynamic/ophthalmology')}>
             <img
                 className="h-[2.75rem] w-[3.125rem] relative z-[8]"
                 alt=""
