@@ -77,7 +77,13 @@ const DoctorsCard2 = ({ doctor, segment }) => {
 
   return (
     <div className="h-[32.625rem] w-[19.813rem] flex flex-col items-start justify-start min-w-[18.813rem] text-left text-[1.125rem] text-primary font-body">
-      <div className="relative w-full" style={{ aspectRatio: "4 / 5" }}>
+      <div
+        className="relative w-full"
+        style={{
+          aspectRatio: "4 / 5",
+          maxHeight: "40rem", // Set your desired upper height limit here
+        }}
+      >
         <img
           className="absolute inset-0 w-full h-full object-cover rounded-t-8xs rounded-b-none"
           loading="lazy"
@@ -85,6 +91,7 @@ const DoctorsCard2 = ({ doctor, segment }) => {
           src={doctor.image}
         />
       </div>
+
       <div className="self-stretch flex-1 flex flex-col items-center justify-start py-[0.75rem] pr-[1.25rem] pl-[1.375rem] relative gap-[0.5rem]">
         <div className="w-full h-full absolute !m-[0] top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] bg-lightsteelblue-100" />
         <div className="flex flex-row items-start justify-start py-[0rem] pr-[0.25rem] pl-[0.125rem]">
