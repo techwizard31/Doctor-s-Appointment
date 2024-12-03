@@ -77,7 +77,7 @@ const Doctors = () => {
             ></div>
           </div>
           {open && (
-             <div className="absolute bg-lightsteelblue-100 shadow-lg rounded-lg mt-12 w-full -translate-x-5 z-10 mq4502:hidden h-screen">
+             <div className="absolute bg-lightsteelblue-100 shadow-lg rounded-b-lg mt-12 w-full -translate-x-5 z-10 mq4502:hidden h-screen">
              <ul className="list-none px-2 flex flex-col items-center h-full justify-evenly mt-0 text-[2rem] font-display-3">
                <li
                  className="p-1 cursor-pointer hover:text-primary hover:scale-110 transition duration-150"
