@@ -77,15 +77,9 @@ const DoctorsCard2 = ({ doctor, segment }) => {
 
   return (
     <div className="h-[32.625rem] w-[19.813rem] flex flex-col items-start justify-start min-w-[18.813rem] text-left text-[1.125rem] text-primary font-body">
-      <div
-        className="relative"
-        style={{
-          height: "10rem",
-          width: "calc(10rem * 4 / 5)", // Explicitly calculate width based on the 4:5 ratio
-        }}
-      >
+      <div className="relative" style={{ height: "10rem", width: "auto" }}>
         <img
-          className="absolute inset-0 w-full h-full object-contain rounded-t-8xs rounded-b-none"
+          className="w-auto h-full object-contain rounded-t-8xs rounded-b-none"
           loading="lazy"
           alt=""
           src={doctor.image}
