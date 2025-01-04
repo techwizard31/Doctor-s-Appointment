@@ -9,7 +9,7 @@ const AverageTime = {
   renalMedicine: 10,
   gastroenterology: 10,
   urology: 15,
-  derematology: 10,
+  dermatology: 10,
   gynaecology: 20,
 };
 
