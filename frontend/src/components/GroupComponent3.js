@@ -31,11 +31,11 @@ const GroupComponent3 = ({ propDebugCommit, propDebugCommit1 }) => {
             <b className="relative text-[1.125rem] uppercase inline-block min-w-[7.063rem]">
               Emergency
             </b>
-            <div className="relative leading-[140%]">7440086922</div>
+            <div className="relative leading-[140%]">1234567890</div>
             <div
               className="relative leading-[140%] text-[inherit] [text-decoration:none]"
             >
-             7440086922 
+             1234567890
             </div>
           </div>
         </div>  

@@ -363,10 +363,10 @@ const Contact = () => {
                           Emergency
                         </b>
                         <div className="relative leading-[140%]">
-                          7440086922
+                          1234567890
                         </div>
                         <div className="relative leading-[140%] text-[inherit] [text-decoration:none]">
-                          7440086922
+                          1234567890
                         </div>
                       </div>
                     </div>

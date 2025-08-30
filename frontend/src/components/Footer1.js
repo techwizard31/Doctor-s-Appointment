@@ -68,10 +68,10 @@ const Footer1 = () => {
           </div>
           <div className="flex flex-col items-start justify-start gap-[0.437rem] text-[1rem]">
             <div className="relative leading-[140%]">
-              Call: 7440086922
+              Call: 1234567890
             </div>
             <div className="relative leading-[140%]">
-              Email: istaprasad.patra@gmail.com
+              Email: admin@gmail.com
             </div>
             <div className="relative leading-[140%]">
               Address: Old Town, Bhubaneswar

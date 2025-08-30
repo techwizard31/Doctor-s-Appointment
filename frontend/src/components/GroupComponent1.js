@@ -14,10 +14,10 @@ const GroupComponent1 = () => {
             Email
           </b>
           <div className="relative text-[1rem] leading-[140%] whitespace-nowrap">
-            sanket@gmail.com
+            admin@gmail.com
           </div>
           <div className="relative text-[0.875rem] whitespace-nowrap">
-            istaprasad.patra@gmail.com
+            patient@gmail.com
           </div>
         </div>
       </div>

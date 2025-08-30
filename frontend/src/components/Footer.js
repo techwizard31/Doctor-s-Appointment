@@ -55,7 +55,7 @@ const Footer = ({
               Call: 7440086922
             </div>
             <div className="relative leading-[140%]">
-              Email: istaprasad.patra@gmail.com
+              Email: admin@gmail.com
             </div>
             <div className="relative leading-[140%]">
               Address: Old Town, Bhubaneswar
