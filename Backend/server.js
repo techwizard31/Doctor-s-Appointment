@@ -8,7 +8,7 @@ const path = require('path');
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Default to port 3000 if PORT is not set
+const PORT = process.env.PORT || 4000; // Default to port 3000 if PORT is not set
 
 app.use(express.json());
 
